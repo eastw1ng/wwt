@@ -32,5 +32,7 @@ App::uses('Controller', 'Controller');
  * @package       Cake.Controller
  * @link http://book.cakephp.org/view/957/The-App-Controller
  */
-class AppController extends Controller {
+class AppController extends Controller 
+{
+    
 }
