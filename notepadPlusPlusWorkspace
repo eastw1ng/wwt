@@ -1,0 +1,224 @@
+<NotepadPlus>
+    <Project name="WWT">
+        <Folder name="Config">
+            <Folder name="Schema">
+                <File name="app\Config\Schema\db_acl.php" />
+                <File name="app\Config\Schema\i18n.php" />
+                <File name="app\Config\Schema\sessions.php" />
+            </Folder>
+            <File name="app\Config\acl.ini.php" />
+            <File name="app\Config\bootstrap.php" />
+            <File name="app\Config\core.php" />
+            <File name="app\Config\database.php" />
+            <File name="app\Config\database.php.default" />
+            <File name="app\Config\email.php.default" />
+            <File name="app\Config\routes.php" />
+        </Folder>
+        <Folder name="Console">
+            <Folder name="Command">
+                <Folder name="Task">
+                    <File name="app\Console\Command\Task\empty" />
+                </Folder>
+            </Folder>
+            <Folder name="Templates">
+                <File name="app\Console\Templates\empty" />
+            </Folder>
+            <File name="app\Console\cake" />
+            <File name="app\Console\cake.bat" />
+            <File name="app\Console\cake.php" />
+        </Folder>
+        <Folder name="Controller">
+            <Folder name="Component">
+                <File name="app\Controller\Component\empty" />
+            </Folder>
+            <File name="app\Controller\AccommodatieController.php" />
+            <File name="app\Controller\BestemmingController.php" />
+            <File name="app\Controller\BoekingController.php" />
+            <File name="app\Controller\GebruikerController.php" />
+            <File name="app\Controller\HomeController.php" />
+            <File name="app\Controller\KlantController.php" />
+            <File name="app\Controller\LoginController.php" />
+            <File name="app\Controller\notes_controller.php" />
+            <File name="app\Controller\ReisController.php" />
+            <File name="app\Controller\ZoekController.php" />
+        </Folder>
+        <Folder name="Lib">
+            <File name="app\Lib\empty" />
+        </Folder>
+        <Folder name="Locale">
+            <Folder name="eng">
+                <Folder name="LC_MESSAGES">
+                    <File name="app\Locale\eng\LC_MESSAGES\empty" />
+                </Folder>
+            </Folder>
+        </Folder>
+        <Folder name="Model">
+            <Folder name="Behavior">
+                <File name="app\Model\Behavior\empty" />
+            </Folder>
+            <Folder name="Datasource">
+                <File name="app\Model\Datasource\empty" />
+            </Folder>
+            <File name="app\Model\note.php" />
+        </Folder>
+        <Folder name="Plugin">
+            <File name="app\Plugin\empty" />
+        </Folder>
+        <Folder name="Test">
+            <Folder name="Case">
+                <Folder name="Controller">
+                    <Folder name="Component">
+                        <File name="app\Test\Case\Controller\Component\empty" />
+                    </Folder>
+                </Folder>
+                <Folder name="Model">
+                    <Folder name="Behavior">
+                        <File name="app\Test\Case\Model\Behavior\empty" />
+                    </Folder>
+                </Folder>
+                <Folder name="View">
+                    <Folder name="Helper">
+                        <File name="app\Test\Case\View\Helper\empty" />
+                    </Folder>
+                </Folder>
+            </Folder>
+            <Folder name="Fixture">
+                <File name="app\Test\Fixture\empty" />
+            </Folder>
+        </Folder>
+        <Folder name="tmp">
+            <Folder name="cache">
+                <Folder name="models">
+                    <File name="app\tmp\cache\models\empty" />
+                </Folder>
+                <Folder name="persistent">
+                    <File name="app\tmp\cache\persistent\cake_core_cake_dev_en-us" />
+                    <File name="app\tmp\cache\persistent\cake_core_file_map" />
+                    <File name="app\tmp\cache\persistent\empty" />
+                </Folder>
+                <Folder name="views">
+                    <File name="app\tmp\cache\views\empty" />
+                </Folder>
+            </Folder>
+            <Folder name="logs">
+                <File name="app\tmp\logs\empty" />
+                <File name="app\tmp\logs\error.log" />
+            </Folder>
+            <Folder name="sessions">
+                <File name="app\tmp\sessions\empty" />
+            </Folder>
+            <Folder name="tests">
+                <File name="app\tmp\tests\empty" />
+            </Folder>
+        </Folder>
+        <Folder name="Vendor">
+            <File name="app\Vendor\empty" />
+        </Folder>
+        <Folder name="View">
+            <Folder name="Elements">
+                <File name="app\View\Elements\empty" />
+                <File name="app\View\Elements\main_header.ctp" />
+                <File name="app\View\Elements\main_menu.ctp" />
+            </Folder>
+            <Folder name="Emails">
+                <Folder name="html">
+                    <File name="app\View\Emails\html\empty" />
+                </Folder>
+                <Folder name="text">
+                    <File name="app\View\Emails\text\empty" />
+                </Folder>
+            </Folder>
+            <Folder name="Errors">
+                <File name="app\View\Errors\empty" />
+            </Folder>
+            <Folder name="Helper">
+                <File name="app\View\Helper\empty" />
+            </Folder>
+            <Folder name="home">
+                <File name="app\View\home\index.ctp" />
+            </Folder>
+            <Folder name="Layouts">
+                <Folder name="Emails">
+                    <Folder name="html">
+                        <File name="app\View\Layouts\Emails\html\empty" />
+                    </Folder>
+                    <Folder name="text">
+                        <File name="app\View\Layouts\Emails\text\empty" />
+                    </Folder>
+                </Folder>
+                <Folder name="js">
+                    <File name="app\View\Layouts\js\empty" />
+                </Folder>
+                <Folder name="rss">
+                    <File name="app\View\Layouts\rss\empty" />
+                </Folder>
+                <Folder name="xml">
+                    <File name="app\View\Layouts\xml\empty" />
+                </Folder>
+                <File name="app\View\Layouts\default.ctp" />
+                <File name="app\View\Layouts\wwt.ctp" />
+            </Folder>
+            <Folder name="login">
+                <File name="app\View\login\login.ctp" />
+            </Folder>
+            <Folder name="Pages">
+                <File name="app\View\Pages\empty" />
+            </Folder>
+            <Folder name="Scaffolds">
+                <File name="app\View\Scaffolds\empty" />
+            </Folder>
+        </Folder>
+        <Folder name="webroot">
+            <Folder name="css">
+                <File name="app\webroot\css\cake.generic.css" />
+                <File name="app\webroot\css\style.css" />
+            </Folder>
+            <Folder name="files">
+                <File name="app\webroot\files\empty" />
+            </Folder>
+            <Folder name="img">
+                <File name="app\webroot\img\banner.jpg" />
+                <File name="app\webroot\img\bg_default.gif" />
+                <File name="app\webroot\img\bg_top.gif" />
+                <File name="app\webroot\img\body_bot_left.png" />
+                <File name="app\webroot\img\body_bot_mid.png" />
+                <File name="app\webroot\img\body_bot_right.png" />
+                <File name="app\webroot\img\body_frame_border.gif" />
+                <File name="app\webroot\img\body_frame_corner_left.png" />
+                <File name="app\webroot\img\body_frame_corner_right.png" />
+                <File name="app\webroot\img\body_mid_left.png" />
+                <File name="app\webroot\img\body_mid_right.png" />
+                <File name="app\webroot\img\body_top_left.png" />
+                <File name="app\webroot\img\body_top_mid.png" />
+                <File name="app\webroot\img\body_top_right.png" />
+                <File name="app\webroot\img\button_big_left.png" />
+                <File name="app\webroot\img\button_big_right.png" />
+                <File name="app\webroot\img\cake.icon.png" />
+                <File name="app\webroot\img\cake.power.gif" />
+                <File name="app\webroot\img\header_bot_left.png" />
+                <File name="app\webroot\img\header_bot_mid.png" />
+                <File name="app\webroot\img\header_bot_right.png" />
+                <File name="app\webroot\img\header_mid_left.png" />
+                <File name="app\webroot\img\header_mid_right.png" />
+                <File name="app\webroot\img\icon_arrow_down.gif" />
+                <File name="app\webroot\img\icon_search.gif" />
+                <File name="app\webroot\img\logo.jpg" />
+                <File name="app\webroot\img\menu_button_v1.png" />
+                <File name="app\webroot\img\test-error-icon.png" />
+                <File name="app\webroot\img\test-fail-icon.png" />
+                <File name="app\webroot\img\test-pass-icon.png" />
+                <File name="app\webroot\img\test-skip-icon.png" />
+                <File name="app\webroot\img\Untitled-1.jpg" />
+            </Folder>
+            <Folder name="js">
+                <File name="app\webroot\js\empty" />
+            </Folder>
+            <File name="app\webroot\.htaccess" />
+            <File name="app\webroot\favicon.ico" />
+            <File name="app\webroot\index.php" />
+            <File name="app\webroot\test.php" />
+        </Folder>
+        <File name="app\.htaccess" />
+        <File name="app\index.php" />
+    </Project>
+</NotepadPlus>

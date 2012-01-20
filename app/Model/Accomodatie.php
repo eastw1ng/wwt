@@ -4,20 +4,20 @@ App::uses('AppModel', 'Model');
  * Accomodatie Model
  *
  * @property Bestemming $Bestemming
- * @property test $test
  */
 class Accomodatie extends AppModel {
-/**
- * Use table
- *
- * @var mixed False or table name
- */
+    
+    /**
+    * Use table
+    *
+    * @var mixed False or table name
+    */
 	public $useTable = 'accomodatie';
-/**
- * Primary key field
- *
- * @var string
- */
+    /**
+    * Primary key field
+    *
+    * @var string
+    */
 	public $primaryKey = 'bestemming_id';
 
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
@@ -34,13 +34,20 @@ class Accomodatie extends AppModel {
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''
-		),
-		'test' => array(
-			'className' => 'test',
-			'foreignKey' => 'accomodatie_soort',
-			'conditions' => '',
-			'fields' => '',
-			'order' => ''
+
 		)
 	);
+        
+        
+        public function findAllAccomodatie(){
+            return $this->find('all');
+        }
+        
+        public function findAccomodatie($type = null){
+            return $this->findBySoort($type);
+        }
+        
+        public function getBestemming(){
+            return $this->Bestemming->find('all');
+        }
 }
