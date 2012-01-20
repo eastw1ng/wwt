@@ -19,7 +19,7 @@ and open the template in the editor.
 
 
                                         <div id="login-content" style="position:absolute;">
-                                        <?php echo $this->Form->create('User');?>
+                                        <?php echo $this->Form->create('Login');?>
                                             <fieldset>
                                                 <legend><?php echo __(''); ?></legend>
                                                 <?php
@@ -28,7 +28,7 @@ and open the template in the editor.
                                                 ?>
                                             </fieldset>
                                         <?php echo $this->Form->end(__('Submit'));?>
-
+                                    
 
                                         </div>
                                     </div>
