@@ -93,5 +93,23 @@ class Bestemming extends AppModel {
 			'counterQuery' => ''
 		)
 	);
+        private $id; //integer
+        private $land; //BestemmingLand
+        private $plaats; //BestemmingLandPlaats
+        
+        public function getID()
+        {
+            return id;
+        }
+        
+        public function getLand()
+        {
+            return land;
+        }
+        
+        public function getPlaats()
+        {
+            return plaats;
+        }
 
 }
