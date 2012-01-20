@@ -10,6 +10,10 @@ App::uses('AppModel', 'Model');
  * @property Rei $Reis
  */
 class Bestemming extends AppModel {
+    
+//        private $id; //integer
+//        private $land; //BestemmingLand
+//       private $plaats; //BestemmingLandPlaats
 /**
  * Use table
  *
@@ -93,10 +97,8 @@ class Bestemming extends AppModel {
 			'counterQuery' => ''
 		)
 	);
-        private $id; //integer
-        private $land; //BestemmingLand
-        private $plaats; //BestemmingLandPlaats
         
+/*        
         public function getID()
         {
             return id;
@@ -111,5 +113,8 @@ class Bestemming extends AppModel {
         {
             return plaats;
         }
-
+*/
+        public function getAccomodatie(){
+           return $this->Accomodatie->find('all');
+        }
 }

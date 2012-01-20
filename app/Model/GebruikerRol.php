@@ -27,7 +27,7 @@ class GebruikerRol extends AppModel {
  * @var array
  */
 	public $belongsTo = array(
-		'Rol' => array(
+		'Klant' => array(
 			'className' => 'Rol',
 			'foreignKey' => 'rol_id',
 			'conditions' => '',
