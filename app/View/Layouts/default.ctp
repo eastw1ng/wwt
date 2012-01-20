@@ -8,7 +8,7 @@ and open the template in the editor.
         <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
         <meta name="generator" content="PSPad editor, www.pspad.com">
         <title>World Wild Tours</title>
-        <link href="/wwt/css/style.css" rel="stylesheet" type="text/css" />
+		<?php echo $this->Html->css('style')?>
     </head>
     <body>
         <div id="wrapper">
