@@ -1,5 +1,9 @@
 <?php
+<<<<<<< HEAD
+/* Accomodatie Fixture generated on: 2012-01-17 13:50:39 : 1326804639 */
+=======
 /* Accomodatie Fixture generated on: 2012-01-17 14:03:06 : 1326805386 */
+>>>>>>> develop
 
 /**
  * AccomodatieFixture

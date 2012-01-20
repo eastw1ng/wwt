@@ -1,5 +1,9 @@
 <?php
+<<<<<<< HEAD
+/* Accomodatie Test cases generated on: 2012-01-17 13:50:39 : 1326804639*/
+=======
 /* Accomodatie Test cases generated on: 2012-01-17 14:03:21 : 1326805401*/
+>>>>>>> develop
 App::uses('Accomodatie', 'Model');
 
 /**
@@ -12,7 +16,11 @@ class AccomodatieTestCase extends CakeTestCase {
  *
  * @var array
  */
+<<<<<<< HEAD
+	public $fixtures = array('app.accomodatie', 'app.bestemming');
+=======
 	public $fixtures = array('app.accomodatie', 'app.bestemming', 'app.test');
+>>>>>>> develop
 
 /**
  * setUp method
