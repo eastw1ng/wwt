@@ -34,6 +34,25 @@ and open the template in the editor.
                         &nbsp;
                     </div>
                 </div>
+                <div class="frame_right" style="margin-bottom:8px;">
+                    <div class="frame_right_top_left">
+                        &nbsp;
+                    </div>
+                    <div class="frame_right_top_mid">
+                        <span class="frame_header">Administratie</span>
+                    </div>
+                    <div class="frame_right_mid_left">
+                        <div class="frame_right_mid_mid">
+                            empty
+                        </div>
+                    </div>
+                    <div class="frame_right_bot_left">
+                        &nbsp;
+                    </div>
+                    <div class="frame_right_bot_mid">
+						&nbsp;
+                    </div>
+                </div>
                 <div class="frame_right">
                     <div class="frame_right_top_left">
                         &nbsp;
