@@ -138,27 +138,6 @@ body{
 	float: right;
 	width:11px;
 	height:100%;}
-
-#body_bot_framefix{
-	position:absolute;
-	left:681px;
-	height:7px;
-	width:6px;
-	clear:both;}
-#body_bot_framefix_left{
-	background-image:url('../img/body_frame_border.gif');
-	background-repeat:repeat-y;
-	background-position:left;
-	float: left;
-	width:3px;
-	height:100%;}
-#body_bot_framefix_right{
-	background-image:url('../img/body_frame_border.gif');
-	background-repeat:repeat-y;
-	background-position:right;
-	float: right;
-	width:3px;
-	height:100%;}
 	
 /*Menu*/
 #menu { 
@@ -196,7 +175,7 @@ body{
 	padding: 0 4px 0 4px;
 	background-color:#ffffff;}
 	
-.frame_left{//border:1px solid #000000;
+.frame_left{
 	width:679px;
 	float:left;
 	min-height:15px;}
@@ -206,7 +185,7 @@ body{
 	background-position:0px 9px;
 	float:left;
 	width:670px;}
-.frame_left_top_right{//border:1px solid #000000;
+.frame_left_top_right{
 	background-repeat:no-repeat;
 	background-image:url('../img/body_frame_corner_left.png');
 	background-position:0px 9px;
@@ -223,6 +202,20 @@ body{
 	background-position:right;
 	float:left;
 	width:679px;}
+.frame_left_bot_mid{
+	background-image:url('../img/body_frame_border.gif');
+	background-repeat:repeat-x;
+	background-position:bottom;
+	float:left;
+	height:10px;
+	width:670px;}
+.frame_left_bot_right{
+	background-repeat:no-repeat;
+	background-image:url('../img/body_frame_corner_left_bottom.png');
+	background-position:right bottom;
+	float:left;
+	height:10px;
+	width:9px;}
 	
 .frame_right{//border:1px solid #000000;
 	width:219px;
@@ -252,6 +245,20 @@ body{
 	background-position:left;
 	float:left;
 	width:219px}
+.frame_right_bot_mid{
+	background-image:url('../img/body_frame_border.gif');
+	background-repeat:repeat-x;
+	background-position:bottom;
+	float:left;
+	width:210px;
+	height:10px;}
+.frame_right_bot_left{
+	background-repeat:no-repeat;
+	background-image:url('../img/body_frame_corner_right_bottom.png');
+	background-position:left bottom;
+	float:left;
+	width:9px;
+	height:10px;}
 	
 /*Banner*/
 #banner{

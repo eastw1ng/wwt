@@ -24,8 +24,14 @@ and open the template in the editor.
                     </div>
                     <div class="frame_left_mid_right">
                         <div class="frame_left_mid_mid">
-                            empty
+                            empty<br><br><br>
                         </div>
+                    </div>
+                    <div class="frame_left_bot_mid">
+						&nbsp;
+                    </div>
+                    <div class="frame_left_bot_right">
+                        &nbsp;
                     </div>
                 </div>
                 <div class="frame_right">
@@ -40,6 +46,12 @@ and open the template in the editor.
                             empty
                         </div>
                     </div>
+                    <div class="frame_right_bot_left">
+                        &nbsp;
+                    </div>
+                    <div class="frame_right_bot_mid">
+						&nbsp;
+                    </div>
                 </div>
                 <div style="clear: both;"></div> <!-- Fix voor een vaag probleem met floats -->
             </div>
@@ -48,14 +60,6 @@ and open the template in the editor.
     <div id="body_bot">
         <div id="body_bot_left">&nbsp;</div>
         <div id="body_bot_mid">
-            <div id="body_bot_framefix">
-                <div id="body_bot_framefix_left">
-                    &nbsp;
-                </div>
-                <div id="body_bot_framefix_right">
-                    &nbsp;
-                </div>
-            </div>
             &nbsp;
         </div>
         <div id="body_bot_right">&nbsp;</div>
