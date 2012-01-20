@@ -1,5 +1,5 @@
 <?php
-/* GebruikerRol Test cases generated on: 2012-01-17 14:07:44 : 1326805664*/
+/* GebruikerRol Test cases generated on: 2012-01-20 13:48:48 : 1327063728*/
 App::uses('GebruikerRol', 'Model');
 
 /**

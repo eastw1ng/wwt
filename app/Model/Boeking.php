@@ -9,6 +9,10 @@ App::uses('AppModel', 'Model');
  * @property Boeking $Boeking
  */
 class Boeking extends AppModel {
+    
+//        private $id; //integer
+//        private $datum;
+//        private $annuleringDatum; 
 /**
  * Use table
  *
@@ -73,5 +77,7 @@ class Boeking extends AppModel {
 			'counterQuery' => ''
 		)
 	);
+        
+
 
 }
