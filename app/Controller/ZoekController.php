@@ -6,11 +6,11 @@
  */
 
 /**
- * Description of BoekingController
+ * Description of ZoekController
  *
  * @author Edwin
  */
-class BoekingController extends AppController
+class ZoekController extends AppController
 {
     function index()
     {

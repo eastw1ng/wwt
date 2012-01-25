@@ -3,10 +3,8 @@ App::uses('AppModel', 'Model');
 /**
  * Transport Model
  *
- * @property Transport $Transport
  * @property TransportSoort $TransportSoort
  * @property Rei $Rei
- * @property Transport $Transport
  * @property Soort $Soort
  */
 class Transport extends AppModel {
@@ -22,6 +20,12 @@ class Transport extends AppModel {
  * @var string
  */
 	public $primaryKey = 'transport_id';
+/**
+ * Display field
+ *
+ * @var string
+ */
+	public $displayField = 'vertrek_plaats';
 
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
 
@@ -31,13 +35,6 @@ class Transport extends AppModel {
  * @var array
  */
 	public $belongsTo = array(
-		'Transport' => array(
-			'className' => 'Transport',
-			'foreignKey' => 'transport_id',
-			'conditions' => '',
-			'fields' => '',
-			'order' => ''
-		),
 		'TransportSoort' => array(
 			'className' => 'TransportSoort',
 			'foreignKey' => 'transport_soort_id',
@@ -53,21 +50,8 @@ class Transport extends AppModel {
  * @var array
  */
 	public $hasMany = array(
-		'Reis' => array(
-			'className' => 'Reis',
-			'foreignKey' => 'transport_id',
-			'dependent' => false,
-			'conditions' => '',
-			'fields' => '',
-			'order' => '',
-			'limit' => '',
-			'offset' => '',
-			'exclusive' => '',
-			'finderQuery' => '',
-			'counterQuery' => ''
-		),
-		'Transport' => array(
-			'className' => 'Transport',
+		'Rei' => array(
+			'className' => 'Rei',
 			'foreignKey' => 'transport_id',
 			'dependent' => false,
 			'conditions' => '',
