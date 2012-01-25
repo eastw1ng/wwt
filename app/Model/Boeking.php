@@ -3,16 +3,10 @@ App::uses('AppModel', 'Model');
 /**
  * Boeking Model
  *
- * @property Boeking $Boeking
  * @property Reis $Reis
  * @property Klant $Klant
- * @property Boeking $Boeking
  */
 class Boeking extends AppModel {
-    
-//        private $id; //integer
-//        private $datum;
-//        private $annuleringDatum; 
 /**
  * Use table
  *
@@ -25,6 +19,12 @@ class Boeking extends AppModel {
  * @var string
  */
 	public $primaryKey = 'boeking_id';
+/**
+ * Display field
+ *
+ * @var string
+ */
+	public $displayField = 'boek_datum';
 
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
 
@@ -34,13 +34,6 @@ class Boeking extends AppModel {
  * @var array
  */
 	public $belongsTo = array(
-		'Boeking' => array(
-			'className' => 'Boeking',
-			'foreignKey' => 'boeking_id',
-			'conditions' => '',
-			'fields' => '',
-			'order' => ''
-		),
 		'Reis' => array(
 			'className' => 'Reis',
 			'foreignKey' => 'reis_id',
@@ -56,28 +49,4 @@ class Boeking extends AppModel {
 			'order' => ''
 		)
 	);
-
-/**
- * hasMany associations
- *
- * @var array
- */
-	public $hasMany = array(
-		'Boeking' => array(
-			'className' => 'Boeking',
-			'foreignKey' => 'boeking_id',
-			'dependent' => false,
-			'conditions' => '',
-			'fields' => '',
-			'order' => '',
-			'limit' => '',
-			'offset' => '',
-			'exclusive' => '',
-			'finderQuery' => '',
-			'counterQuery' => ''
-		)
-	);
-        
-
-
 }
