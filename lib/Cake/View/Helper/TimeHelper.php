@@ -17,6 +17,7 @@
  * @license       MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
 
+App::uses('Multibyte', 'I18n');
 App::uses('AppHelper', 'View/Helper');
 
 /**
@@ -58,7 +59,7 @@ class TimeHelper extends AppHelper {
  * windows safe and i18n aware format.
  *
  * @param string $format Format with specifiers for strftime function.
- *    Accepts the special specifier %S which mimics th modifier S for date()
+ *    Accepts the special specifier %S which mimics the modifier S for date()
  * @param string $time UNIX timestamp
  * @return string windows safe and date() function compatible format for strftime
  * @link http://book.cakephp.org/2.0/en/core-libraries/helpers/time.html#formatting
@@ -72,7 +73,7 @@ class TimeHelper extends AppHelper {
 	}
 
 /**
- * Auxiliary function to translate a matched specifier element from a regular expresion into
+ * Auxiliary function to translate a matched specifier element from a regular expression into
  * a windows safe and i18n aware specifier
  *
  * @param array $specifier match from regular expression
@@ -131,7 +132,7 @@ class TimeHelper extends AppHelper {
 			case 'p':
 			case 'P':
 				$default = array('am' => 0, 'pm' => 1);
-				$meridiem = $default[date('a',$this->__time)];
+				$meridiem = $default[date('a', $this->__time)];
 				$format = __dc('cake', 'am_pm', 5);
 				if (is_array($format)) {
 					$meridiem = $format[$meridiem];
@@ -141,7 +142,7 @@ class TimeHelper extends AppHelper {
 			case 'r':
 				$complete = __dc('cake', 't_fmt_ampm', 5);
 				if ($complete != 't_fmt_ampm') {
-					return str_replace('%p',$this->_translateSpecifier(array('%p', 'p')),$complete);
+					return str_replace('%p', $this->_translateSpecifier(array('%p', 'p')), $complete);
 				}
 				break;
 			case 'R':
@@ -241,7 +242,7 @@ class TimeHelper extends AppHelper {
 			$format = $this->niceFormat;
 		}
 		$format = $this->convertSpecifiers($format, $date);
-		return strftime($format, $date);
+		return $this->_strftime($format, $date);
 	}
 
 /**
@@ -263,12 +264,12 @@ class TimeHelper extends AppHelper {
 		$y = $this->isThisYear($date) ? '' : ' %Y';
 
 		if ($this->isToday($dateString, $userOffset)) {
-			$ret = __d('cake', 'Today, %s', strftime("%H:%M", $date));
+			$ret = __d('cake', 'Today, %s', $this->_strftime("%H:%M", $date));
 		} elseif ($this->wasYesterday($dateString, $userOffset)) {
-			$ret = __d('cake', 'Yesterday, %s', strftime("%H:%M", $date));
+			$ret = __d('cake', 'Yesterday, %s', $this->_strftime("%H:%M", $date));
 		} else {
 			$format = $this->convertSpecifiers("%b %eS{$y}, %H:%M", $date);
-			$ret = strftime($format, $date);
+			$ret = $this->_strftime($format, $date);
 		}
 
 		return $ret;
@@ -343,7 +344,7 @@ class TimeHelper extends AppHelper {
  */
 	public function isThisMonth($dateString, $userOffset = null) {
 		$date = $this->fromString($dateString);
-		return date('m Y',$date) == date('m Y', time());
+		return date('m Y', $date) == date('m Y', time());
 	}
 
 /**
@@ -459,8 +460,8 @@ class TimeHelper extends AppHelper {
 	public function toRSS($dateString, $userOffset = null) {
 		$date = $this->fromString($dateString, $userOffset);
 
-		if(!is_null($userOffset)) {
-			if($userOffset == 0) {
+		if (!is_null($userOffset)) {
+			if ($userOffset == 0) {
 				$timezone = '+0000';
 			} else {
 				$hours = (int) floor(abs($userOffset));
@@ -670,7 +671,7 @@ class TimeHelper extends AppHelper {
 		}
 
 		$date = $this->fromString($dateString, $userOffset);
-		$interval = $this->fromString('-'.$timeInterval);
+		$interval = $this->fromString('-' . $timeInterval);
 
 		if ($date >= $interval && $date <= time()) {
 			return true;
@@ -748,6 +749,32 @@ class TimeHelper extends AppHelper {
 			$format = '%x';
 		}
 		$format = $this->convertSpecifiers($format, $date);
-		return strftime($format, $date);
+		return $this->_strftime($format, $date);
+	}
+
+/**
+ * Multibyte wrapper for strftime.
+ *
+ * Handles utf8_encoding the result of strftime when necessary.
+ *
+ * @param string $format Format string.
+ * @param int $date Timestamp to format.
+ * @return string formatted string with correct encoding.
+ */
+	protected function _strftime($format, $date) {
+		$format = strftime($format, $date);
+		$encoding = Configure::read('App.encoding');
+
+		if (!empty($encoding) && $encoding === 'UTF-8') {
+			if (function_exists('mb_check_encoding')) {
+				$valid = mb_check_encoding($format, $encoding);
+			} else {
+				$valid = !Multibyte::checkMultibyte($format);
+			}
+			if (!$valid) {
+				$format = utf8_encode($format);
+			}
+		}
+		return $format;
 	}
 }

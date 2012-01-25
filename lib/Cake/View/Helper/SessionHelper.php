@@ -38,7 +38,7 @@ class SessionHelper extends AppHelper {
  *
  * @param string $name the name of the session key you want to read
  * @return mixed values from the session vars
- * @link http://book.cakephp.org/2.0/en/core-libraries/helpers/session.html#displaying-notifcations-or-flash-messages
+ * @link http://book.cakephp.org/2.0/en/core-libraries/helpers/session.html#SessionHelper::read
  */
 	public function read($name = null) {
 		return CakeSession::read($name);
@@ -51,7 +51,7 @@ class SessionHelper extends AppHelper {
  *
  * @param string $name
  * @return boolean
- * @link http://book.cakephp.org/2.0/en/core-libraries/helpers/session.html#displaying-notifcations-or-flash-messages
+ * @link http://book.cakephp.org/2.0/en/core-libraries/helpers/session.html#SessionHelper::check
  */
 	public function check($name) {
 		return CakeSession::check($name);
@@ -90,7 +90,7 @@ class SessionHelper extends AppHelper {
  * echo $this->Session->flash('flash', array('params' => array('name' => $user['User']['name'])));
  * }}}
  *
- * This would pass the current user's name into the flash message, so you could create peronsonalized
+ * This would pass the current user's name into the flash message, so you could create personalized
  * messages without the controller needing access to that data.
  *
  * Lastly you can choose the element that is rendered when creating the flash message. Using
@@ -114,7 +114,6 @@ class SessionHelper extends AppHelper {
  * @param array $attrs Additional attributes to use for the creation of this flash message.
  *    Supports the 'params', and 'element' keys that are used in the helper.
  * @return string
- * @link http://book.cakephp.org/2.0/en/core-libraries/helpers/session.html#displaying-notifcations-or-flash-messages
  * @link http://book.cakephp.org/2.0/en/core-libraries/helpers/session.html#SessionHelper::flash
  */
 	public function flash($key = 'flash', $attrs = array()) {
@@ -155,6 +154,7 @@ class SessionHelper extends AppHelper {
  * Used to check is a session is valid in a view
  *
  * @return boolean
+ * @link http://book.cakephp.org/2.0/en/core-libraries/helpers/session.html#SessionHelper::valid
  */
 	public function valid() {
 		return CakeSession::valid();

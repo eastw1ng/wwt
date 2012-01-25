@@ -73,21 +73,23 @@ class GenericObjectCollection extends ObjectCollection {
 
 class ObjectCollectionTest extends CakeTestCase {
 /**
- * setup
+ * setUp
  *
  * @return void
  */
-	public function setup() {
+	public function setUp() {
+		parent::setUp();
 		$this->Objects = new GenericObjectCollection();
 	}
 
 /**
- * teardown
+ * tearDown
  *
  * @return void
  */
-	public function teardown() {
+	public function tearDown() {
 		unset($this->Objects);
+		parent::tearDown();
 	}
 
 /**
@@ -144,10 +146,10 @@ class ObjectCollectionTest extends CakeTestCase {
 		$this->assertEquals(array('First'), $result, 'loaded objects are wrong');
 
 		$result = $this->Objects->set('First', new SecondGenericObject());
-		$this->assertIsA($result['First'], 'SecondGenericObject', 'set failed');
+		$this->assertInstanceOf('SecondGenericObject', $result['First'], 'set failed');
 
 		$result = $this->Objects->set('Second', new SecondGenericObject());
-		$this->assertIsA($result['Second'], 'SecondGenericObject', 'set failed');
+		$this->assertInstanceOf('SecondGenericObject', $result['Second'], 'set failed');
 
 		$this->assertEquals(count($result), 2);
 	}
