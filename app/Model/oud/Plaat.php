@@ -3,7 +3,6 @@ App::uses('AppModel', 'Model');
 /**
  * Plaat Model
  *
- * @property Plaats $Plaats
  * @property Land $Land
  */
 class Plaat extends AppModel {
@@ -13,6 +12,12 @@ class Plaat extends AppModel {
  * @var string
  */
 	public $primaryKey = 'plaats_id';
+/**
+ * Display field
+ *
+ * @var string
+ */
+	public $displayField = 'naam';
 
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
 
@@ -22,13 +27,6 @@ class Plaat extends AppModel {
  * @var array
  */
 	public $belongsTo = array(
-		'Plaats' => array(
-			'className' => 'Plaats',
-			'foreignKey' => 'plaats_id',
-			'conditions' => '',
-			'fields' => '',
-			'order' => ''
-		),
 		'Land' => array(
 			'className' => 'Land',
 			'foreignKey' => 'land_id',

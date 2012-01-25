@@ -80,6 +80,52 @@ body{
 	top:4px;
 	}
 	
+#header_search{
+	background-image:url('../img/header_search_bg.png');
+	background-repeat:no-repeat;
+	position:absolute;
+	float:right;
+	top:38px;
+	right:9px;
+	height:178px;
+	width:376px;}
+#header_search_content{
+	float:left;
+	height:30px;
+	margin-left:15px;
+	width:346px;}
+#header_search_title{
+	font-family: Calibri, sans-serif;
+	font-size:12pt;
+	float:left;
+	line-height:31px;
+	height:31px;
+	width:100%;
+	vertical-align:middle;}
+.header_search_one{
+	font-family: Calibri, sans-serif;
+	font-size:12pt;
+	vertical-align:middle;
+	float:left;
+	height:29px;
+	line-height:29px;
+	width:35%;}
+.header_search_two{
+	font-family: Calibri, sans-serif;
+	font-size:12pt;
+	vertical-align:middle;
+	float:right;
+	height:29px;
+	line-height:29px;
+	width:65%;}
+
+.header_search_two input{
+	border:1px solid #eb9c1f;
+	font-family: Calibri, sans-serif;
+	font-size:12pt;
+	height:18px;
+	width:100%;}
+	
 /*Body*/	
 #body{
 	position:relative;
@@ -294,3 +340,33 @@ body{
 	background: transparent url('../img/button_big_left.png') no-repeat;
 	padding: 0px 0px 0px 12px;
 	margin-right: 4px;} 
+
+/*Top reizen stijl*/
+.top_reizen_img{
+	background-image:url('../img/top_reizen_tag.png');
+	float:left;
+	height:27px;
+	width:27px;
+	font:normal 21px calibri, sans-serif;
+	text-align:center;
+	vertical-align:middle;
+ 	color:#fff;
+	}
+.top_reizen_top{
+	/*border:1px solid #000;*/
+	float:right;
+	height:16px;
+	width:170px;
+	margin-right:8px;
+	font:normal 16px calibri, sans-serif;
+	line-height:14px;
+	}
+.top_reizen_bot{
+	/*border:1px solid #000;*/
+	float:right;
+	height:11px;
+	width:170px;
+	margin-right:8px;
+	font:normal 11px calibri, sans-serif;
+	
+/*Exta dingetjes*/
