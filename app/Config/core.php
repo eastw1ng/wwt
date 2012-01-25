@@ -110,7 +110,7 @@
  *	`manager_index()` and `/manager/controller/index`
  *
  */
-	//Configure::write('Routing.prefixes', array('admin'));
+Configure::write('Routing.prefixes', array('admin'));
 
 /**
  * Turn off all caching application-wide.
@@ -184,12 +184,12 @@
 /**
  * A random string used in security hashing methods.
  */
-	Configure::write('Security.salt', 'SGDsfgw40923t3446qPmERger565fawea7897kjY');
+	Configure::write('Security.salt', 'DYhG93b0qyJfSDgfsgSfbdfghSFdbvsdgfXCvSFDgIxfs2guVoUubWwvniR2G0FgaC9mi');
 
 /**
  * A random numeric string (digits only) used to encrypt/decrypt strings.
  */
-	Configure::write('Security.cipherSeed', '09837587435872038470273462357');
+	Configure::write('Security.cipherSeed', '98234923497320470283743024776683645');
 
 /**
  * Apply timestamps with the last modified time to static assets (js, css, images).
@@ -200,6 +200,7 @@
  * timestamping regardless of debug value.
  */
 	//Configure::write('Asset.timestamp', true);
+
 /**
  * Compress CSS output by removing comments, whitespace, repeating tags, etc.
  * This requires a/var/cache directory to be writable by the web server for caching.
@@ -267,7 +268,7 @@
  *		'password' => 'password', //plaintext password (xcache.admin.pass)
  *	));
  *
- * Memcache (http://www.danga.com/memcached/)
+ * Memcache (http://memcached.org/)
  *
  * 	 Cache::config('default', array(
  *		'engine' => 'Memcache', //[required]
