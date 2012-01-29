@@ -1,7 +1,7 @@
-/app/Config
-/app/tmp
+/app/Config/database.php
+/app/tmp/logs
+/app/tmp/cache/models/
+/app/tmp/cache/persistent/
 /lib/Cake/Console/Templates/skel/tmp/
-/plugins
-/vendors
 .DS_Store
 tags
