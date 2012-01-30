@@ -24,13 +24,26 @@ and open the template in the editor.
                     </div>
                     <div class="frame_left_mid_right">
                         <div class="frame_left_mid_mid">
-                           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sagittis lacinia semper. Donec tincidunt nisl in diam condimentum id sodales lectus ultrices. In hac habitasse platea dictumst. Aenean suscipit consectetur commodo. In rhoncus mauris id purus venenatis ultrices facilisis quam sodales. Maecenas tempor cursus fringilla. Morbi aliquet laoreet libero vel tristique. Duis tincidunt nulla a justo adipiscing vestibulum. Nam erat nibh, porttitor vel ultricies sit amet, porta sit amet felis. Integer diam erat, consequat gravida tempus vel, consectetur vel neque. Integer orci tortor, scelerisque ac cursus et, vestibulum non diam. Mauris pulvinar scelerisque est venenatis ultrices.</p> 
-                           <p>Aenean tellus metus, rhoncus ac iaculis nec, cursus sit amet quam. Ut et sem sit amet massa euismod faucibus. Vivamus nisi neque, gravida eget ultricies blandit, imperdiet sed ipsum. Cras luctus massa quis ligula feugiat tristique. Ut aliquam dolor at nunc varius in venenatis nulla sagittis. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Fusce luctus tempor est at eleifend. Morbi luctus fermentum sollicitudin. Ut sed nibh nisl, in eleifend est. Sed ultrices faucibus elit ut lobortis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris eget dui eget leo convallis rutrum. Vestibulum augue ante, congue eget interdum at, tempus auctor mi. Suspendisse iaculis ante ligula.</p>
- 
-                            
-                            
-                            
-                            
+
+                        
+                        gevonden accomodaties
+                        <?
+                            //var_dump($accomodaties);
+                            foreach($accomodaties as $accomodatie){
+                                
+                                 echo "naam: " . $accomodatie["Accomodatie"]['accomodatie_naam'];
+                                 echo "type: " . $accomodatie["Accomodatie"]['accomodatie_soort'];
+                                 echo "prijs: " . $accomodatie["Accomodatie"]['accomodatie_prijs'];
+                                 echo "<br />";
+                                 var_dump($accomodatie['Bestemming']);
+                            }
+                        ?>
+                        
+                        
+                        
+                        
+                        
+                        
                         </div>
                     </div>
                     <div class="frame_left_bot_mid">

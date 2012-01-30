@@ -41,5 +41,13 @@ class Bestemming extends AppModel {
 			'counterQuery' => ''
 		)
 	);
+        
+        public $hasOne = array(
+            'Plaat' => array(
+			'className' => 'Plaat',
+			'foreignKey' => 'plaats_id',
+                )
+        );
+        
 
 }

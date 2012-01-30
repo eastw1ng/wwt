@@ -295,7 +295,12 @@ body{
 	padding-left:12px;
 	font-family: Arial, sans-serif;
 	font-size:16px;
+<<<<<<< HEAD
 	width:658px;}
+=======
+	width:660px;
+        line-height: 20px;}
+>>>>>>> 10f96821fd0c949cd53cd32bbf81af57deed0f91
 .frame_left_mid_right{
 	background-image:url('../img/body_frame_border.gif');
 	background-repeat:repeat-y;
