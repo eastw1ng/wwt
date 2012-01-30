@@ -5,19 +5,19 @@ App::uses('AppController', 'Controller');
  *
  * @property Rei $Rei
  */
-class ReisController extends AppController {
+class ReisFormController extends AppController {
 
-	public $helpers = array('Html');
-	
+
 /**
- * inde method
+ * index method
  *
  * @return void
  */
 	public function index() {
-		$this->Rei->recursive = 5;
-		$this->set('reizen', $this->paginate());
+		//$this->Rei->recursive = 0;
+		//$this->set('reis', $this->paginate());
 	}
+
 /**
  * view method
  *
@@ -29,7 +29,7 @@ class ReisController extends AppController {
 		if (!$this->Rei->exists()) {
 			throw new NotFoundException(__('Invalid rei'));
 		}
-		$this->set('reis', $this->Rei->read(null, $id));
+		$this->set('rei', $this->Rei->read(null, $id));
 	}
 
 /**

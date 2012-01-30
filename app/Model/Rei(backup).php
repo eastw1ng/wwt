@@ -27,13 +27,16 @@ class Rei extends AppModel {
  *
  * @var array
  */
-	public $hasOne = array(
-		'Accomodatie' => array(
-			'className' => 'Accomodatie',
-			'foreignKey' => 'accomodatie_id'
+	public $belongsTo = array(
+		'' => array(
+			'className' => 'q',
+			'foreignKey' => 'transport_id',
+			'conditions' => '',
+			'fields' => '',
+			'order' => ''
 		)
 	);
-	
+
 /**
  * hasMany associations
  *
@@ -44,7 +47,15 @@ class Rei extends AppModel {
 		'Transport' => array(
 			'className' => 'Transport',
 			'foreignKey' => 'transport_id',
-			'dependent' => true
+			'dependent' => false,
+			'conditions' => '',
+			'fields' => '',
+			'order' => '',
+			'limit' => '',
+			'offset' => '',
+			'exclusive' => '',
+			'finderQuery' => '',
+			'counterQuery' => ''
 		)
 	);
 }

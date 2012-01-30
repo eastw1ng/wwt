@@ -1,0 +1,1 @@
+<div id="footer">&#169; World Wild Tours 2011 - 2012</div>
