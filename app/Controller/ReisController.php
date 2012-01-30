@@ -25,6 +25,7 @@ class ReisController extends AppController {
  * @return void
  */
 	public function view($id = null) {
+		$this->Rei->recursive = 4;
 		$this->Rei->id = $id;
 		if (!$this->Rei->exists()) {
 			throw new NotFoundException(__('Invalid rei'));
