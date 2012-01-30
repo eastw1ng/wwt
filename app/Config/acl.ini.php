@@ -54,15 +54,34 @@
 ;Users
 ;-------------------------------------
 
-[username-goes-here]
-groups = group1, group2
-deny = aco1, aco2
-allow = aco3, aco4
+;[username-goes-here]
+;groups = group1, group2
+;deny = aco1, aco2
+;allow = aco3, aco4
+
+[Admin]
+groups = Administrators
+
+[Klant]
+groups = Klanten
+
+[Gast]
+groups = Gasten
+allow = Home
 
 ;-------------------------------------
 ;Groups
 ;-------------------------------------
 
-[groupname-goes-here]
-deny = aco5, aco6
-allow = aco7, aco8
+;[groupname-goes-here]
+;deny = aco5, aco6
+;allow = aco7, aco8
+
+[Administrators]
+allow = *
+
+[Klanten]
+allow = reis
+
+[Gasten]
+allow = home
