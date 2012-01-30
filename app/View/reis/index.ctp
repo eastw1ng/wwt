@@ -21,15 +21,21 @@ REIZEN
 								< Vorige - 1 - 2 - 3 - 4 - 5 - Volgende >
 							</div>
 							
+							<div style="clear:both;"></div>
+							<div class="reizen_separator"></div>
+							<? var_dump($reizen);?>
+							<? foreach($reizen as $reis):?>
 							<div style="width:100%;float:left;">
 								<div class="reizen_list_img" style="vertical-align:bottom;">
 									<div class="reizen_list_admin">
+									<? if(false):?>
 										<img style="cursor:pointer;" src="img/admin_edit.png"/>
 										<img style="cursor:pointer;" src="img/admin_delete.png"/>
+									<? endif; ?>
 									</div>
 								</div>
-								<div class="reizen_list_title" style="cursor:pointer;" onClick="javascript:location.href='reis_view'">
-									<span style="float:left;">Henkiepenkieland</span>
+								<div class="reizen_list_title" style="cursor:pointer;" onClick="javascript:location.href='reis/view/<?=$reis['Rei']['reis_id']?>'">
+									<span style="float:left;"><? echo $reis['Accomodatie']['Bestemming']['Plaat']['naam']?></span>
 									<span style="float:right;">&euro; 180.- p.p.</span>
 								</div>
 								<div class="reizen_list_subtitle">
@@ -39,50 +45,9 @@ REIZEN
 									She had been blah blah blah the morning, and she had no blah to blah weekend, at the blah it blah blah blah her blah to be blah with on blah that blah blah.
 								</div>
 							</div>
-							
 							<div style="clear:both;"></div>
 							<div class="reizen_separator"></div>
-							
-							<div style="width:100%;float:left;">
-								<div class="reizen_list_img">
-									<div class="reizen_list_admin">
-										<img style="cursor:pointer;" src="img/admin_edit.png"/>
-										<img style="cursor:pointer;" src="img/admin_delete.png"/>
-									</div>
-								</div>
-								<div class="reizen_list_title" style="cursor:pointer;" onClick="javascript:location.href='reis_view'">
-									<span style="float:left;">Henkiepenkieland</span>
-									<span style="float:right;">&euro; 180.- p.p.</span>
-								</div>
-								<div class="reizen_list_subtitle">
-									Henkiepenkiestad - Henk de penk drive 57 a
-								</div>
-								<div class="reizen_list_body">
-									She had been blah blah blah the morning, and she had no blah to blah weekend, at the blah it blah blah blah her blah to be blah with on blah that blah blah.
-								</div>
-							</div>
-							
-							<div style="clear:both;"></div>
-							<div class="reizen_separator"></div>
-							
-							<div style="width:100%;float:left;">
-								<div class="reizen_list_img">
-									<div class="reizen_list_admin">
-										<img style="cursor:pointer;" src="img/admin_edit.png"/>
-										<img style="cursor:pointer;" src="img/admin_delete.png"/>
-									</div>
-								</div>
-								<div class="reizen_list_title" style="cursor:pointer;" onClick="javascript:location.href='reis_view'">
-									<span style="float:left;">Henkiepenkieland</span>
-									<span style="float:right;">&euro; 180.- p.p.</span>
-								</div>
-								<div class="reizen_list_subtitle">
-									Henkiepenkiestad - Henk de penk drive 57 a
-								</div>
-								<div class="reizen_list_body">
-									She had been blah blah blah the morning, and she had no blah to blah weekend, at the blah it blah blah blah her blah to be blah with on blah that blah blah.
-								</div>
-							</div>
+							<? endforeach; ?>
 							
 							<div class="pagers">
 								< Vorige - 1 - 2 - 3 - 4 - 5 - Volgende >

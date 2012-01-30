@@ -18,7 +18,7 @@ class AccomodatieController extends AppController {
             //$this->Accomodatie->recursive = 0;
             //$this->set('accomodaties', $this->paginate());
 
-        var_dump($this->Auth->user('role'));
+        //var_dump($this->Auth->user('role'));
         
         $data = $this->Accomodatie->find('all', array('recursive' => 3));
         $this->set('accomodaties',$data);

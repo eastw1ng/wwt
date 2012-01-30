@@ -105,11 +105,8 @@ body{
 #header_search_title{
 	font-family: Calibri, sans-serif;
 	font-size:14pt;
-	float:left;
-	line-height:31px;
 	height:31px;
-	width:100%;
-	vertical-align:middle;}
+	width:100%;}
 
 #header_login{
 	background-image:url('../img/header_search_bg.png');
@@ -295,12 +292,7 @@ body{
 	padding-left:12px;
 	font-family: Arial, sans-serif;
 	font-size:16px;
-<<<<<<< HEAD
 	width:658px;}
-=======
-	width:660px;
-        line-height: 20px;}
->>>>>>> 10f96821fd0c949cd53cd32bbf81af57deed0f91
 .frame_left_mid_right{
 	background-image:url('../img/body_frame_border.gif');
 	background-repeat:repeat-y;
@@ -530,12 +522,62 @@ body{
 	font:bold 12pt calibri, sans-serif;
 	color:#c98c2c;
 }
-	
+
+/*
+Stijl navigatie
+*/
+.navigatie{
+	font:normal 18px calibri, sans-serif;
+	color:#000000;
+	width:300px;
+	height:20px;
+	float:right;
+}
+
+/*Stijl overig*/
+
+.tabel_wrapper{
+    width:100%;
+    float:left;
+border-style: solid;
+border-color:#d59632;
+border-width: 2px;
+    border-radius: 5px;
+    margin-top: 25px;
+}
+
+.standaard_tabel{
+width:100%;
+border-collapse: collapse;
+float: left;
+}
+
+.standaard_tabel th{
+    background-color:#fbead0;
+    border-style: solid;
+    border-color:#d59632;
+    border-width: 0 2px 2px 0;
+    font-style: normal;
+    text-align: left;
+}
+
+.standaard_tabel tr{
+    border-style: solid;
+    border-color: #d59632;
+    border-width: 0 0 2px 0;
+}
+
+.standaard_tabel td{
+    border-style: solid;
+    border-color: #d59632;
+    border-width: 0 2px 0px 0;
+}
+
 /*Exta dingetjes*/
 .pagers{
 	font:normal 14pt calibri, sans-serif;
 	color:#666;
 	text-align:right;
-	line-height:48px;
+	line-height:26px;
 	width:100%;
 }

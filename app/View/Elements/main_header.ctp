@@ -60,40 +60,56 @@
 					<div id="header_login" style="display:none;">
 						<div id="header_login_content">
 							<?php echo $this->Form->create('Login');?>
-							<div id="header_login_title">
-								Gebruiker inloggen
-							</div>
-							<div style="height:4px;clear:both;font-size:0px;">&nbsp;</div>
-							<div class="header_search_one">
-								&nbsp;
-							</div>
-							<div class="header_search_two">
-								&nbsp;
-							</div>
-							<div class="header_search_one">
-								Gebruikersnaam:
-							</div>
-							<div class="header_search_two">
-								<input name="data[Login][username]" class="global_input" type="text" id="LoginUsername"/>
-							</div>
-							<div class="header_search_one">
-								Wachtwoord:
-							</div>
-							<div class="header_search_two">
-								<input name="data[Login][password]" class="global_input" type="password" id="LoginPassword"/>
-							</div>
-							<div class="header_search_one">
-								&nbsp;
-							</div>
-							<div class="header_search_two">
-								&nbsp;
-							</div>
-							<div class="header_search_one">
-								&nbsp;
-							</div>
-							<div class="header_search_two" style="text-align:right;">
-								<?php echo $this->Form->end(__('Submit'));?>
-							</div>
+							<table width="100%" border="0" cellspacing="0" cellpadding="0">
+								<tr>
+									<td id="header_search_title" colspan="2">
+										Gebruiker inloggen
+									</td>
+								</tr>
+								<tr>
+									<td height="5px" colspan="2" style="font-size:0px;">&nbsp;</td>
+								</tr>
+								<tr>
+									<td class="header_search_one">
+										&nbsp;
+									</td>
+									<td class="header_search_two">
+										&nbsp;
+									</td>
+								</tr>
+								<tr>
+									<td class="header_search_one">
+										Gebruikersnaam:
+									</td>
+									<td class="header_search_two">
+										<input name="data[Login][username]" class="global_input" type="text" id="LoginUsername"/>
+									</td>
+								</tr>
+								<tr>
+									<td class="header_search_one">
+										Wachtwoord:
+									</td>
+									<td class="header_search_two">
+										<input name="data[Login][password]" class="global_input" type="password" id="LoginPassword"/>
+									</td>
+								</tr>
+								<tr>
+									<td class="header_search_one">
+										&nbsp;
+									</td>
+									<td class="header_search_two">
+										&nbsp;
+									</td>
+								</tr>
+								<tr>
+									<td class="header_search_one">
+										&nbsp;
+									</td>
+									<td class="header_search_two" style="text-align:right;">
+										<?php echo $this->Form->end(__('Submit'));?>
+									</td>
+								</tr>
+							</table>
 						</div>
 					</div>
 					<div id="header_search" style="display:none;">

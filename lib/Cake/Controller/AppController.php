@@ -34,6 +34,6 @@ App::uses('Controller', 'Controller');
  */
 class AppController extends Controller {
     
-        var $components = array('Acl','Auth','Session');
+       // var $components = array('Acl','Auth','Session');
 
 }
