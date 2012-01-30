@@ -9,13 +9,14 @@ and open the template in the editor.
         <meta name="generator" content="PSPad editor, www.pspad.com">
         <title>World Wild Tours</title>
 		<?php echo $this->Html->css('style')?>
+		<?php echo $this->Html->script('jquery-1.7.1.min'); ?>
     </head>
     <body>
         <div id="wrapper">
             <div id="banner"></div>
             <div id="main">
                 <?php echo $content_for_layout ?>
-            </div>			
+            </div>
         </div>
     </body>
 </html>

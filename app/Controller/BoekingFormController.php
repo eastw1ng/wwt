@@ -5,7 +5,7 @@ App::uses('AppController', 'Controller');
  *
  * @property Boeking $Boeking
  */
-class BoekingController extends AppController {
+class BoekingFormController extends AppController {
 
 
 /**

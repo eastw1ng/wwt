@@ -42,7 +42,7 @@ class Rei extends AppModel {
  *
  * @var array
  */
- /*
+
 	public $hasMany = array(
 		'Transport' => array(
 			'className' => 'Transport',
@@ -58,5 +58,4 @@ class Rei extends AppModel {
 			'counterQuery' => ''
 		)
 	);
-*/
 }

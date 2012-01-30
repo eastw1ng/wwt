@@ -1,0 +1,256 @@
+<NotepadPlus>
+    <Project name="WWT">
+        <Folder name="Config">
+            <Folder name="Schema">
+                <File name="Config\Schema\db_acl.php" />
+                <File name="Config\Schema\db_acl.sql" />
+                <File name="Config\Schema\i18n.php" />
+                <File name="Config\Schema\i18n.sql" />
+                <File name="Config\Schema\sessions.php" />
+                <File name="Config\Schema\sessions.sql" />
+            </Folder>
+            <File name="Config\acl.ini.php" />
+            <File name="Config\bootstrap.php" />
+            <File name="Config\core.php" />
+            <File name="Config\database.php" />
+            <File name="Config\database.php.default" />
+            <File name="Config\email.php.default" />
+            <File name="Config\routes.php" />
+        </Folder>
+        <Folder name="Console">
+            <Folder name="Command">
+                <Folder name="Task">
+                    <File name="Console\Command\Task\empty" />
+                </Folder>
+            </Folder>
+            <Folder name="Templates">
+                <File name="Console\Templates\empty" />
+            </Folder>
+            <File name="Console\cake" />
+            <File name="Console\cake.bat" />
+            <File name="Console\cake.php" />
+        </Folder>
+        <Folder name="Controller">
+            <Folder name="Component">
+                <File name="Controller\Component\empty" />
+            </Folder>
+            <File name="Controller\AccomodatieController.php" />
+            <File name="Controller\BestemmingController.php" />
+            <File name="Controller\BoekingController.php" />
+            <File name="Controller\HomeController.php" />
+            <File name="Controller\KlantController.php" />
+            <File name="Controller\LandController.php" />
+            <File name="Controller\PlaatsController.php" />
+            <File name="Controller\ReisController.php" />
+            <File name="Controller\TransportController.php" />
+            <File name="Controller\TransportSoortController.php" />
+        </Folder>
+        <Folder name="Lib">
+            <File name="Lib\empty" />
+        </Folder>
+        <Folder name="Locale">
+            <Folder name="eng">
+                <Folder name="LC_MESSAGES">
+                    <File name="Locale\eng\LC_MESSAGES\empty" />
+                </Folder>
+            </Folder>
+        </Folder>
+        <Folder name="Model">
+            <Folder name="Behavior">
+                <File name="Model\Behavior\empty" />
+            </Folder>
+            <Folder name="Datasource">
+                <File name="Model\Datasource\empty" />
+            </Folder>
+            <File name="Model\Accomodatie.php" />
+            <File name="Model\Bestemming.php" />
+            <File name="Model\Boeking.php" />
+            <File name="Model\Klant.php" />
+            <File name="Model\Land.php" />
+            <File name="Model\Plaat.php" />
+            <File name="Model\Rei.php" />
+            <File name="Model\Transport.php" />
+            <File name="Model\TransportSoort.php" />
+        </Folder>
+        <Folder name="Plugin">
+            <File name="Plugin\empty" />
+        </Folder>
+        <Folder name="Test">
+            <Folder name="Case">
+                <Folder name="Controller">
+                    <Folder name="Component">
+                        <File name="Test\Case\Controller\Component\empty" />
+                    </Folder>
+                </Folder>
+                <Folder name="Model">
+                    <Folder name="Behavior">
+                        <File name="Test\Case\Model\Behavior\empty" />
+                    </Folder>
+                </Folder>
+                <Folder name="View">
+                    <Folder name="Helper">
+                        <File name="Test\Case\View\Helper\empty" />
+                    </Folder>
+                </Folder>
+            </Folder>
+            <Folder name="Fixture">
+                <File name="Test\Fixture\empty" />
+            </Folder>
+        </Folder>
+        <Folder name="tmp">
+            <Folder name="cache">
+                <Folder name="models">
+                    <File name="tmp\cache\models\cake_model_default_reis" />
+                    <File name="tmp\cache\models\cake_model_default_wwt_list" />
+                </Folder>
+                <Folder name="persistent">
+                    <File name="tmp\cache\persistent\cake_core_cake_dev_en-us" />
+                    <File name="tmp\cache\persistent\cake_core_default_en-us" />
+                    <File name="tmp\cache\persistent\cake_core_file_map" />
+                </Folder>
+            </Folder>
+        </Folder>
+        <Folder name="Vendor">
+            <File name="Vendor\empty" />
+        </Folder>
+        <Folder name="View">
+            <Folder name="Elements">
+                <File name="View\Elements\empty" />
+                <File name="View\Elements\main_header.ctp" />
+                <File name="View\Elements\main_menu.ctp" />
+                <File name="View\Elements\top_reizen.ctp" />
+                <File name="View\Elements\admin_panel.ctp" />
+                <File name="View\Elements\main_footer.ctp" />
+                <File name="View\Elements\zoek_reis.ctp" />
+                <File name="View\Elements\zoek_bestemming.ctp" />
+                <File name="View\Elements\zoek_boeking.ctp" />
+                <File name="View\Elements\zoek_gebruiker.ctp" />
+                <File name="View\Elements\zoek_klant.ctp" />
+            </Folder>
+            <Folder name="Emails">
+                <Folder name="html">
+                    <File name="View\Emails\html\empty" />
+                </Folder>
+                <Folder name="text">
+                    <File name="View\Emails\text\empty" />
+                </Folder>
+            </Folder>
+            <Folder name="Errors">
+                <File name="View\Errors\empty" />
+            </Folder>
+            <Folder name="Helper">
+                <File name="View\Helper\empty" />
+            </Folder>
+            <Folder name="home">
+                <File name="View\home\index.ctp" />
+            </Folder>
+            <Folder name="Layouts">
+                <Folder name="Emails">
+                    <Folder name="html">
+                        <File name="View\Layouts\Emails\html\empty" />
+                    </Folder>
+                    <Folder name="text">
+                        <File name="View\Layouts\Emails\text\empty" />
+                    </Folder>
+                </Folder>
+                <Folder name="js">
+                    <File name="View\Layouts\js\empty" />
+                </Folder>
+                <Folder name="rss">
+                    <File name="View\Layouts\rss\empty" />
+                </Folder>
+                <Folder name="xml">
+                    <File name="View\Layouts\xml\empty" />
+                </Folder>
+                <File name="View\Layouts\default.ctp" />
+                <File name="View\Layouts\wwt.ctp" />
+            </Folder>
+            <Folder name="Pages">
+                <File name="View\Pages\empty" />
+                <File name="View\Pages\home.ctp" />
+            </Folder>
+            <Folder name="Scaffolds">
+                <File name="View\Scaffolds\empty" />
+            </Folder>
+            <Folder name="reis">
+                <File name="View\reis\index.ctp" />
+            </Folder>
+            <Folder name="boeking">
+                <File name="View\boeking\index.ctp" />
+            </Folder>
+            <Folder name="reisform">
+                <File name="View\reisform\index.ctp" />
+            </Folder>
+            <Folder name="klantform">
+                <File name="View\klantform\index.ctp" />
+            </Folder>
+            <Folder name="gebruikerform">
+                <File name="View\gebruikerform\index.ctp" />
+            </Folder>
+            <Folder name="boekingform">
+                <File name="View\boekingform\index.ctp" />
+            </Folder>
+            <Folder name="bestemmingform">
+                <File name="View\bestemmingform\index.ctp" />
+            </Folder>
+        </Folder>
+        <Folder name="webroot">
+            <Folder name="css">
+                <File name="webroot\css\cake.generic.css" />
+                <File name="webroot\css\style.css" />
+            </Folder>
+            <Folder name="files">
+                <File name="webroot\files\empty" />
+            </Folder>
+            <Folder name="img">
+                <File name="webroot\img\banner.jpg" />
+                <File name="webroot\img\bg_default.gif" />
+                <File name="webroot\img\bg_top.gif" />
+                <File name="webroot\img\body_bot_left.png" />
+                <File name="webroot\img\body_bot_mid.png" />
+                <File name="webroot\img\body_bot_right.png" />
+                <File name="webroot\img\body_frame_border.gif" />
+                <File name="webroot\img\body_frame_corner_left.png" />
+                <File name="webroot\img\body_frame_corner_left_bottom.png" />
+                <File name="webroot\img\body_frame_corner_right.png" />
+                <File name="webroot\img\body_frame_corner_right_bottom.png" />
+                <File name="webroot\img\body_mid_left.png" />
+                <File name="webroot\img\body_mid_right.png" />
+                <File name="webroot\img\body_top_left.png" />
+                <File name="webroot\img\body_top_mid.png" />
+                <File name="webroot\img\body_top_right.png" />
+                <File name="webroot\img\button_big_left.png" />
+                <File name="webroot\img\button_big_right.png" />
+                <File name="webroot\img\cake.icon.png" />
+                <File name="webroot\img\cake.power.gif" />
+                <File name="webroot\img\header_bot_left.png" />
+                <File name="webroot\img\header_bot_mid.png" />
+                <File name="webroot\img\header_bot_right.png" />
+                <File name="webroot\img\header_mid_left.png" />
+                <File name="webroot\img\header_mid_right.png" />
+                <File name="webroot\img\header_search_bg.png" />
+                <File name="webroot\img\icon_arrow_down.gif" />
+                <File name="webroot\img\icon_search.gif" />
+                <File name="webroot\img\input_bg.gif" />
+                <File name="webroot\img\logo.jpg" />
+                <File name="webroot\img\menu_button_v1.png" />
+                <File name="webroot\img\test-error-icon.png" />
+                <File name="webroot\img\test-fail-icon.png" />
+                <File name="webroot\img\test-pass-icon.png" />
+                <File name="webroot\img\test-skip-icon.png" />
+                <File name="webroot\img\top_reizen_tag.png" />
+                <File name="webroot\img\Untitled-1.jpg" />
+            </Folder>
+            <Folder name="js">
+                <File name="webroot\js\dropdown_script.js" />
+                <File name="webroot\js\empty" />
+            </Folder>
+            <File name="webroot\.htaccess" />
+            <File name="webroot\favicon.ico" />
+            <File name="webroot\index.php" />
+            <File name="webroot\test.php" />
+        </Folder>
+        <File name=".htaccess" />
+        <File name="index.php" />
+    </Project>
+</NotepadPlus>
