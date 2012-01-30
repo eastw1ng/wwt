@@ -49,9 +49,9 @@ class Transport extends AppModel {
  *
  * @var array
  */
-	public $hasMany = array(
-		'Rei' => array(
-			'className' => 'Rei',
+		public $hasMany = array(
+		'Transport' => array(
+			'className' => 'Transport',
 			'foreignKey' => 'transport_id',
 			'dependent' => false,
 			'conditions' => '',

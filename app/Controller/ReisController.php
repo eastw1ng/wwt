@@ -14,8 +14,9 @@ class ReisController extends AppController {
  * @return void
  */
 	public function index() {
-		$this->Rei->recursive = 0;
-		$this->set('reis', $this->paginate());
+		$this->Rei->recursive = 4;
+		var_dump($this->Rei->find('all'));
+		//$this->set('reis', $this->paginate());
 	}
 
 /**
