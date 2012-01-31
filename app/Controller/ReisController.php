@@ -22,7 +22,22 @@ class ReisController extends AppController {
  */
 	public function index() {
 		$this->Rei->recursive = 3;
-		$this->set('reizen', $this->paginate('Rei'));
+                
+                $rows = $this->Rei->find('all');
+                
+                $UberJSString = "['Bestemming', 'prijs', 'transport', 'vertrek datum', 'terugkom datum'],";                                      
+                foreach($rows as $row){
+                    $UberJSString .= sprintf("['%s','%s','%s','%s','%s'],",$row['Bestemming']['Plaat']['naam'],
+                                        $this->calcPrice($row['Bestemming']['Accomodatie']['accomodatie_prijs'],$row['Transport']['prijs']),
+                                        $row['Transport']['TransportSoort']['naam'],
+                                        $row['Rei']['vertrek_datum'],
+                                        $row['Rei']['terugkeer_datum']);
+                }
+                
+		$this->set( array ( 
+                        'reizen'=> $this->paginate('Rei'),
+                        'googleString' => $UberJSString
+                        ));
 	}
 	
 	public function calcPrice($accomodatiePrijs = 0, $transportPrijs = 0 , $marge = 20 ){
