@@ -9,7 +9,7 @@ REIZEN VIEW
             <div id="body_mid_mid">
                 <div class="frame_left">
                     <div class="frame_left_top_mid">
-                        <span class="frame_header">Reis: <? echo $reis['Rei']['reis_id']?></span>
+                        <span class="frame_header">Reis: <? echo $reis['Rei']['id']?></span>
                     </div>
                     <div class="frame_left_top_right">
                         &nbsp;
@@ -25,14 +25,14 @@ REIZEN VIEW
 									</div>
 								</div>
 								<div class="reizen_list_title">
-									<span style="float:left;"><? echo $reis['Accomodatie']['Bestemming']['Plaat']['naam']?></span>
+									<span style="float:left;"><? echo $reis['Bestemming']['Plaat']['naam']?></span>
 									<span style="float:right;">&euro; 180.- p.p.</span>
 								</div>
 								<div class="reizen_list_subtitle">
-									<? echo $reis['Rei']['omschrijving_kort']?>
+									<? echo $reis['Rei']['omschrijving']?>
 								</div>
 								<div class="reizen_list_body">
-									Reiscode: <? echo $reis['Rei']['reis_id']?>
+									Reiscode: <? echo $reis['Rei']['id']?>
 									<br>
 									Vertrekdatum: <? echo $reis['Rei']['vertrek_datum']?>
 									<br>
@@ -48,13 +48,13 @@ REIZEN VIEW
 								<br>
 								Soort transport: <? echo $reis['Transport']['transport_soort_id']?>
 								<br>
-								Land van bestemming: <? echo $reis['Accomodatie']['Bestemming']['Plaat']['Land']['naam']?>
+								Land van bestemming: <? echo $reis['Bestemming']['Plaat']['Land']['naam']?>
 								<br>
-								Plaats van bestemming: <? echo $reis['Accomodatie']['Bestemming']['Plaat']['naam']?>
+								Plaats van bestemming: <? echo $reis['Bestemming']['Plaat']['naam']?>
 								<br>
-								Accomodatie soort: <? echo $reis['Accomodatie']['accomodatie_soort']?>
+								Accomodatie soort: <? echo $reis['Bestemming']['Accomodatie']['accomodatie_soort']?>
 								<br>
-								Accomodatie naam: <? echo $reis['Accomodatie']['accomodatie_naam']?>
+								Accomodatie naam: <? echo $reis['Bestemming']['Accomodatie']['accomodatie_naam']?>
 								<br>
 								<span style="line-height:32px;">Omschrijving:</span>
 							</div>
@@ -62,7 +62,7 @@ REIZEN VIEW
 								<button>Reis boeken</button>
 							</div>
 							<div class="reizen_list_description">
-								<? echo $reis['Rei']['omschrijving']?>
+								<? echo $reis['Rei']['beschrijving']?>
 							</div>
 							
 							

@@ -24,6 +24,11 @@ class ReisController extends AppController {
 		$this->Rei->recursive = 3;
 		$this->set('reizen', $this->paginate('Rei'));
 	}
+	
+	public function calcPrice($accomodatiePrijs = 0, $transportPrijs = 0 , $marge = 20 ){
+		$prijsZMarge = $accomodatiePrijs + $transportPrijs;
+		return round($prijsZMarge + (($prijsZMarge / 100) * 20));
+	}
 /**
  * view method
  *

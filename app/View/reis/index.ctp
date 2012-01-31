@@ -25,7 +25,7 @@ REIZEN
 							
 							<div style="clear:both;"></div>
 							<div class="reizen_separator"></div>
-							<? var_dump($reizen) ?>
+							<? //var_dump($reizen) ?>
 							<? foreach($reizen as $reis):?>
 							<div style="width:100%;float:left;">
 								<div class="reizen_list_img" style="vertical-align:bottom;">
@@ -36,15 +36,15 @@ REIZEN
 									<? endif; ?>
 									</div>
 								</div>
-								<div class="reizen_list_title" style="cursor:pointer;" onClick="javascript:location.href='reis/view/<?=$reis['Rei']['reis_id']?>'">
-									<span style="float:left;"><? echo $reis['Accomodatie']['Bestemming']['Plaat']['naam']?></span>
-									<span style="float:right;">&euro; 180.- p.p.</span>
+								<div class="reizen_list_title" style="cursor:pointer;" onClick="javascript:location.href='reis/view/<?=$reis['Rei']['id']?>'">
+									<span style="float:left;"><? echo $reis['Bestemming']['Plaat']['naam']?></span>
+									<span style="float:right;">&euro; <? echo ReisController::calcPrice($reis['Bestemming']['Accomodatie']['accomodatie_prijs'], $reis['Transport']['prijs']) ?>.- p.p.</span>
 								</div>
 								<div class="reizen_list_subtitle">
-									<? echo $reis['Rei']['omschrijving_kort']?>
+									<? echo $reis['Bestemming']['alias']?>
 								</div>
 								<div class="reizen_list_body">
-									<? echo $reis['Rei']['omschrijving']?>
+									<? echo $reis['Rei']['beschrijving']?>
 								</div>
 							</div>
 							<div style="clear:both;"></div>
