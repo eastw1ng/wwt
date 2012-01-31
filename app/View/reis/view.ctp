@@ -3,7 +3,6 @@ REIZEN VIEW
 -->
 <?php echo $this->element('main_header'); ?>
 <div id="body">
-	<? var_dump($reis);?>
     <?php echo $this->element('main_menu'); ?>
     <div id="body_mid_left">
         <div id="body_mid_right">
@@ -30,14 +29,14 @@ REIZEN VIEW
 									<span style="float:right;">&euro; 180.- p.p.</span>
 								</div>
 								<div class="reizen_list_subtitle">
-									Henkiepenkiestad - Henk de penk drive 57 a
+									<? echo $reis['Rei']['omschrijving_kort']?>
 								</div>
 								<div class="reizen_list_body">
-									Reiscode: 321654CD
+									Reiscode: <? echo $reis['Rei']['reis_id']?>
 									<br>
-									Vertrekdatum: 01-01-2040
+									Vertrekdatum: <? echo $reis['Rei']['vertrek_datum']?>
 									<br>
-									Terugkeerdatum: 01-01-2045
+									Terugkeerdatum: <? echo $reis['Rei']['terugkeer_datum']?>
 								</div>
 							</div>
 							
@@ -45,17 +44,17 @@ REIZEN VIEW
 							<div class="reizen_separator_10"></div>
 							
 							<div class="reizen_list_content">
-								Aantal beschikbare plaatsen: 10
+								Aantal beschikbare plaatsen: <? echo $reis['Transport']['aantal_plaats']?>
 								<br>
-								Soort transport: Vliegtuig
+								Soort transport: <? echo $reis['Transport']['transport_soort_id']?>
 								<br>
-								Land van bestemming: Duitsland
+								Land van bestemming: <? echo $reis['Accomodatie']['Bestemming']['Plaat']['Land']['naam']?>
 								<br>
-								Plaats van bestemming: Slaapstad
+								Plaats van bestemming: <? echo $reis['Accomodatie']['Bestemming']['Plaat']['naam']?>
 								<br>
-								Accomodatie soort: Hotel
+								Accomodatie soort: <? echo $reis['Accomodatie']['accomodatie_soort']?>
 								<br>
-								Accomodatie naam: Hotel byebyemoney
+								Accomodatie naam: <? echo $reis['Accomodatie']['accomodatie_naam']?>
 								<br>
 								<span style="line-height:32px;">Omschrijving:</span>
 							</div>
@@ -63,7 +62,7 @@ REIZEN VIEW
 								<button>Reis boeken</button>
 							</div>
 							<div class="reizen_list_description">
-								She had been blah blah blah the morning, and she had no blah to blah weekend, at the blah it blah blah blah her blah to be blah with on blah that blah blah.She had been blah blah blah the morning, and she had no blah to blah weekend, at the blah it blah blah blah her blah to be blah with on blah that blah blah.She had been blah blah blah the morning, and she had no blah to blah weekend, at the blah it blah blah blah her blah to be blah with on blah that blah blah.She had been blah blah blah the morning, and she had no blah to blah weekend, at the blah it blah blah blah her blah to be blah with on blah that blah blah.She had been blah blah blah the morning, and she had no blah to blah weekend, at the blah it blah blah blah her blah to be blah with on blah that blah blah.She had been blah blah blah the morning, and she had no blah to blah weekend, at the blah it blah blah blah her blah to be blah with on blah that blah blah.She had been blah blah blah the morning, and she had no blah to blah weekend, at the blah it blah blah blah her blah to be blah with on blah that blah blah.
+								<? echo $reis['Rei']['omschrijving']?>
 							</div>
 							
 							
