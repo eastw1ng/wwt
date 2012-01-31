@@ -18,7 +18,9 @@ REIZEN
                         <div class="frame_left_mid_mid">
                             
 							<div class="pagers">
-								< Vorige - 1 - 2 - 3 - 4 - 5 - Volgende >
+								<?php echo $this->Paginator->prev('<< ' . __('Previous'), array(), null, array('class' => 'prev disabled')); ?> -
+								<?php echo $this->Paginator->numbers(); ?>
+								- <?php echo $this->Paginator->next('Next'.' >>', array(), null, array('class' => 'prev disabled')); ?>
 							</div>
 							
 							<div style="clear:both;"></div>
@@ -38,10 +40,10 @@ REIZEN
 									<span style="float:right;">&euro; 180.- p.p.</span>
 								</div>
 								<div class="reizen_list_subtitle">
-									Henkiepenkiestad - Henk de penk drive 57 a
+									<? echo $reis['Rei']['omschrijving_kort']?>
 								</div>
 								<div class="reizen_list_body">
-									She had been blah blah blah the morning, and she had no blah to blah weekend, at the blah it blah blah blah her blah to be blah with on blah that blah blah.
+									<? echo $reis['Rei']['omschrijving']?>
 								</div>
 							</div>
 							<div style="clear:both;"></div>
@@ -49,7 +51,9 @@ REIZEN
 							<? endforeach; ?>
 							
 							<div class="pagers">
-								< Vorige - 1 - 2 - 3 - 4 - 5 - Volgende >
+								<?php echo $this->Paginator->prev('<< ' . __('Previous'), array(), null, array('class' => 'prev disabled')); ?> -
+								<?php echo $this->Paginator->numbers(); ?>
+								- <?php echo $this->Paginator->next('Next'.' >>', array(), null, array('class' => 'prev disabled')); ?>
 							</div>
                         </div>
                     </div>

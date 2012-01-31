@@ -23,7 +23,7 @@ class Accomodatie extends AppModel {
  *
  * @var string
  */
-	public $displayField = 'accomodatie_soort';
+	//public $displayField = 'accomodatie_soort';
 
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
 
@@ -32,7 +32,7 @@ class Accomodatie extends AppModel {
  *
  * @var array
  */
-	public $belongsTo = array(
+	public $hasOne = array(
 		'Bestemming' => array(
 			'className' => 'Bestemming',
 			'foreignKey' => 'bestemming_id',

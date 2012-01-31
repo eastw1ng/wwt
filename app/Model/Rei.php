@@ -7,6 +7,8 @@ App::uses('AppModel', 'Model');
  * @property Transport $Transport
  */
 class Rei extends AppModel {
+
+	public $useTable = 'reis';
 /**
  * Primary key field
  *
@@ -31,7 +33,11 @@ class Rei extends AppModel {
 		'Accomodatie' => array(
 			'className' => 'Accomodatie',
 			'foreignKey' => 'accomodatie_id'
-		)
+		),
+		'Transport' => array(
+            'className' => 'Transport',
+            'foreignKey' => 'transport_id'
+        )
 	);
 	
 /**
@@ -39,7 +45,7 @@ class Rei extends AppModel {
  *
  * @var array
  */
-
+	/*
 	public $hasMany = array(
 		'Transport' => array(
 			'className' => 'Transport',
@@ -47,4 +53,5 @@ class Rei extends AppModel {
 			'dependent' => true
 		)
 	);
+	*/
 }

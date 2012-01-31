@@ -1,39 +1,26 @@
 <?php
 App::uses('AppModel', 'Model');
-/**
- * Transport Model
- *
- * @property TransportSoort $TransportSoort
- * @property Rei $Rei
- * @property Soort $Soort
- */
+
 class Transport extends AppModel {
-/**
- * Use table
- *
- * @var mixed False or table name
- */
+
 	public $useTable = 'transport';
-/**
- * Primary key field
- *
- * @var string
- */
+
 	public $primaryKey = 'transport_id';
-/**
- * Display field
- *
- * @var string
- */
+
 	public $displayField = 'vertrek_plaats';
-
-	//The Associations below have been created with all possible keys, those that are not needed can be removed
-
-/**
- * belongsTo associations
- *
- * @var array
- */
+/*
+	public $hasOne = array(
+		'Plaat' => array(
+			'className' => 'Plaat',
+			'foreignKey' => 'vertrek_plaats'
+		),
+		'TransportSoort' => array(
+            'className' => 'TransportSoort',
+            'foreignKey' => 'transport_soort_id'
+        )
+	);
+*/
+/*
 	public $belongsTo = array(
 		'TransportSoort' => array(
 			'className' => 'TransportSoort',
@@ -43,15 +30,11 @@ class Transport extends AppModel {
 			'order' => ''
 		)
 	);
-
-/**
- * hasMany associations
- *
- * @var array
- */
-		public $hasMany = array(
-		'Transport' => array(
-			'className' => 'Transport',
+*/
+ /*
+	public $hasMany = array(
+		'Rei' => array(
+			'className' => 'Rei',
 			'foreignKey' => 'transport_id',
 			'dependent' => false,
 			'conditions' => '',
@@ -64,13 +47,9 @@ class Transport extends AppModel {
 			'counterQuery' => ''
 		)
 	);
+*/
 
-
-/**
- * hasAndBelongsToMany associations
- *
- * @var array
- */
+ /*
 	public $hasAndBelongsToMany = array(
 		'Soort' => array(
 			'className' => 'Soort',
@@ -88,5 +67,5 @@ class Transport extends AppModel {
 			'insertQuery' => ''
 		)
 	);
-
+*/
 }

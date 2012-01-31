@@ -9,14 +9,20 @@ class ReisController extends AppController {
 
 	public $helpers = array('Html');
 	
+	var $paginate = array(
+		'limit' => 3,
+		'order' => array(
+			'Accomodatie.Bestemming.Plaat.naam' => 'asc'
+		)
+	);
 /**
  * inde method
  *
  * @return void
  */
 	public function index() {
-		$this->Rei->recursive = 5;
-		$this->set('reizen', $this->paginate());
+		$this->Rei->recursive = 10;
+		$this->set('reizen', $this->paginate('Rei'));
 	}
 /**
  * view method
@@ -25,7 +31,7 @@ class ReisController extends AppController {
  * @return void
  */
 	public function view($id = null) {
-		$this->Rei->recursive = 4;
+		$this->Rei->recursive = 10;
 		$this->Rei->id = $id;
 		if (!$this->Rei->exists()) {
 			throw new NotFoundException(__('Invalid rei'));
