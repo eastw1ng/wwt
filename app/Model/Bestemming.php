@@ -4,21 +4,32 @@ App::uses('AppModel', 'Model');
 class Bestemming extends AppModel {
 
 	public $useTable = 'bestemming';
+/**
+ * Primary key field
+ *
+ * @var string
+ */
+	public $primaryKey = 'id';
 
-	public $primaryKey = 'bestemming_id';
-
+/**
+ * hasMany associations
+ *
+ * @var array
+ */
 	public $hasOne = array(
-		'Plaat' => array(
-			'className' => 'Plaat',
-			'foreignKey' => 'plaats_id',
+		'Accomodatie' => array(
+			'className' => 'Accomodatie',
+			'foreignKey' => 'bestemming_id',
+			'dependent' => false
 		)
 	);
-	
-	/*
+        
 	public $belongsTo = array(
-        'Accomodatie' => array(
-            'className'    => 'Accomodatie',
-            'foreignKey'   => 'accomodatie_id'
-        )
-    );*/
+		'Plaat' => array(
+		'className' => 'Plaat',
+		'foreignKey' => 'plaats_id',
+		)
+	);
+        
+
 }

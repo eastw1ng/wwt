@@ -25,6 +25,7 @@ REIZEN
 							
 							<div style="clear:both;"></div>
 							<div class="reizen_separator"></div>
+							<? var_dump($reizen) ?>
 							<? foreach($reizen as $reis):?>
 							<div style="width:100%;float:left;">
 								<div class="reizen_list_img" style="vertical-align:bottom;">

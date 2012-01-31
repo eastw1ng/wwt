@@ -17,7 +17,7 @@ class Accomodatie extends AppModel {
  *
  * @var string
  */
-	public $primaryKey = 'accomodatie_id';
+	public $primaryKey = 'id';
 /**
  * Display field
  *

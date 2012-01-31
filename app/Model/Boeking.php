@@ -18,7 +18,7 @@ class Boeking extends AppModel {
  *
  * @var string
  */
-	public $primaryKey = 'boeking_id';
+	public $primaryKey = 'id';
 /**
  * Display field
  *
@@ -34,16 +34,19 @@ class Boeking extends AppModel {
  * @var array
  */
 	public $belongsTo = array(
-		'Reis' => array(
-			'className' => 'Reis',
-			'foreignKey' => 'reis_id',
-			'conditions' => '',
-			'fields' => '',
-			'order' => ''
-		),
 		'Klant' => array(
 			'className' => 'Klant',
 			'foreignKey' => 'klant_id',
+			'conditions' => '',
+			'fields' => '',
+			'order' => ''
+		)
+	);
+	
+	public $hasOne = array(
+		'Reis' => array(
+			'className' => 'Reis',
+			'foreignKey' => 'reis_id',
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''

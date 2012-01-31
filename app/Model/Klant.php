@@ -17,7 +17,7 @@ class Klant extends AppModel {
  *
  * @var string
  */
-	public $primaryKey = 'klant_id';
+	public $primaryKey = 'id';
 /**
  * Display field
  *
@@ -45,6 +45,13 @@ class Klant extends AppModel {
 			'exclusive' => '',
 			'finderQuery' => '',
 			'counterQuery' => ''
+		)
+	);
+	
+	public $belongsTo = array (
+		'Users' => array (
+			'className' => 'Users',
+			'foreignKey' => 'klant_id'
 		)
 	);
 

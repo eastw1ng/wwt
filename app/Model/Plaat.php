@@ -2,25 +2,32 @@
 App::uses('AppModel', 'Model');
 
 class Plaat extends AppModel {
-
-	public $primaryKey = 'plaats_id';
-
+/**
+ * Primary key field
+ *
+ * @var string
+ */
+	public $primaryKey = 'id';
+/**
+ * Display field
+ *
+ * @var string
+ */
 	public $displayField = 'naam';
 
-	public $hasOne = array(
+	public $belongsTo = array(
 		'Land' => array(
 			'className' => 'Land',
-			'foreignKey' => 'land_id',
-			'conditions' => '',
-			'fields' => '',
-			'order' => ''
+			'foreignKey' => 'land_id'
 		)
 	);
 	/*
-	public $belongsTo = array(
+	public $hasMany = array(
         'Bestemming' => array(
             'className'    => 'Bestemming',
-            'foreignKey'   => 'bestemming_id'
+            'foreignKey'   => 'plaat_id'
         )
-    );*/
+    );
+	 * 
+	 */
 }

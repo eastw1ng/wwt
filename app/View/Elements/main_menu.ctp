@@ -10,6 +10,7 @@
 					1,
 					'?' => array('height' => 400, 'width' => 500))
 				);
+?>
 				<a href="<?php echo $this->Html->css('style')?>">Home</a></li>
 				<li><a href="reis">Reizen</a></li>
 				<li><a href="boeking">Boekingen</a></li>

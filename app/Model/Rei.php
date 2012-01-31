@@ -14,7 +14,7 @@ class Rei extends AppModel {
  *
  * @var string
  */
-	public $primaryKey = 'reis_id';
+	public $primaryKey = 'id';
 /**
  * Display field
  *
@@ -29,29 +29,15 @@ class Rei extends AppModel {
  *
  * @var array
  */
-	public $hasOne = array(
-		'Accomodatie' => array(
-			'className' => 'Accomodatie',
-			'foreignKey' => 'accomodatie_id'
+	public $belongsTo = array(
+		'Bestemming' => array(
+			'className' => 'Bestemming',
+			'foreignKey' => 'bestemming_id',
 		),
-		'Transport' => array(
-            'className' => 'Transport',
-            'foreignKey' => 'transport_id'
-        )
-	);
-	
-/**
- * hasMany associations
- *
- * @var array
- */
-	/*
-	public $hasMany = array(
 		'Transport' => array(
 			'className' => 'Transport',
 			'foreignKey' => 'transport_id',
-			'dependent' => true
 		)
 	);
-	*/
+
 }
