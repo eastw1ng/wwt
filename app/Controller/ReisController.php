@@ -21,7 +21,7 @@ class ReisController extends AppController {
  * @return void
  */
 	public function index() {
-		$this->Rei->recursive = 10;
+		$this->Rei->recursive = 3;
 		$this->set('reizen', $this->paginate('Rei'));
 	}
 /**

@@ -24,7 +24,7 @@ class TransportSoort extends AppModel {
 			'dependent' => false,
 			'conditions' => '',
 			'fields' => '',
-			'order' => '',
+			'order' => '', 
 			'limit' => '',
 			'offset' => '',
 			'exclusive' => '',
