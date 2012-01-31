@@ -49,12 +49,15 @@ class ReisController extends AppController {
  */
 	public function add() {
 		$this->set('bestemmingen', $this->Rei->query("select alias, id from bestemming"));
-		$this->set('ts', $this->Rei->query("select * from transport_soort"));
+		$this->set('ts', $this->Rei->query("SELECT t.id, ts.naam FROM transport AS t JOIN transport_soort AS ts ON t.transport_soort_id = ts.id"));
 		
 	
 		if ($this->request->is('post')) {
 			$this->Rei->create();
-			if ($this->Rei->save($this->request->data)) {
+			$data = $this->request->data;
+			$data['Rei']['vertrek_datum'] = date("Y-m-d" ,strtotime($data['Rei']['vertrek_datum']));
+			$data['Rei']['terugkeer_datum'] = date("Y-m-d" ,strtotime($data['Rei']['terugkeer_datum']));
+			if ($this->Rei->save($data)) {
 				$this->Session->setFlash(__('The rei has been saved'));
 				$this->redirect(array('action' => 'index'));
 			} else {

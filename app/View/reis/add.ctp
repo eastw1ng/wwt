@@ -33,7 +33,7 @@ REIZEN FORMULIER
 										<span style="margin-left:1px;">Bestemming</span>
 									</div>
 									<div class="form_content">
-										<select name="data[Rei][id]" id="ReiId" class="global_select" style="width:170px;">
+										<select name="data[Rei][bestemming_id]" id="ReiBestemming_id" class="global_select" style="width:170px;">
 											<? foreach($bestemmingen as $bestemming):?>
 											<option value="<?echo $bestemming['bestemming']['id']?>"><?echo $bestemming['bestemming']['alias']?></option>
 											<? endforeach;?>
@@ -47,9 +47,9 @@ REIZEN FORMULIER
 										<span style="margin-left:1px;">Transport soort</span>
 									</div>
 									<div class="form_content">
-										<select name="data[Rei][id]" id="ReiId" class="global_select" style="width:170px;">
+										<select name="data[Rei][transport_id]" id="ReiTransport_id" class="global_select" style="width:170px;">
 											<? foreach($ts as $tss):?>
-											<option value="<?echo $tss['transport_soort']['id']?>"><?echo $tss['transport_soort']['naam']?></option>
+											<option value="<?echo $tss['t']['id']?>"><?echo $tss['ts']['naam']?></option>
 											<? endforeach;?>
 										</select>
 										<span class="form_notes"> *</span>
