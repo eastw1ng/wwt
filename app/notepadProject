@@ -36,14 +36,24 @@
             </Folder>
             <File name="Controller\AccomodatieController.php" />
             <File name="Controller\BestemmingController.php" />
+            <File name="Controller\BestemmingFormController.php" />
             <File name="Controller\BoekingController.php" />
+            <File name="Controller\BoekingFormController.php" />
+            <File name="Controller\BoekingViewController.php" />
+            <File name="Controller\Copy of ReisController.php" />
+            <File name="Controller\GebruikerFormController.php" />
             <File name="Controller\HomeController.php" />
             <File name="Controller\KlantController.php" />
+            <File name="Controller\KlantFormController.php" />
             <File name="Controller\LandController.php" />
             <File name="Controller\PlaatsController.php" />
+            <File name="Controller\ProfielFormController.php" />
             <File name="Controller\ReisController.php" />
+            <File name="Controller\ReisFormController.php" />
+            <File name="Controller\ReisViewController.php" />
             <File name="Controller\TransportController.php" />
             <File name="Controller\TransportSoortController.php" />
+            <File name="Controller\UsersController.php" />
         </Folder>
         <Folder name="Lib">
             <File name="Lib\empty" />

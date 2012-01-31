@@ -3,13 +3,14 @@ REIZEN VIEW
 -->
 <?php echo $this->element('main_header'); ?>
 <div id="body">
+	<? var_dump($reis);?>
     <?php echo $this->element('main_menu'); ?>
     <div id="body_mid_left">
         <div id="body_mid_right">
             <div id="body_mid_mid">
                 <div class="frame_left">
                     <div class="frame_left_top_mid">
-                        <span class="frame_header">Reis: 24825762</span>
+                        <span class="frame_header">Reis: <? echo $reis['Rei']['reis_id']?></span>
                     </div>
                     <div class="frame_left_top_right">
                         &nbsp;
@@ -25,7 +26,7 @@ REIZEN VIEW
 									</div>
 								</div>
 								<div class="reizen_list_title">
-									<span style="float:left;">Henkiepenkieland</span>
+									<span style="float:left;"><? echo $reis['Accomodatie']['Bestemming']['Plaat']['naam']?></span>
 									<span style="float:right;">&euro; 180.- p.p.</span>
 								</div>
 								<div class="reizen_list_subtitle">
