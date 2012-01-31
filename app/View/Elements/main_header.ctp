@@ -50,7 +50,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="button_big" style="width:94px;margin-right:4px;float:right;display:;" onClick="javascript:location.href='profiel_form'">
+					<div class="button_big" style="width:94px;margin-right:4px;float:right;display:;" onClick="javascript:location.href='<?php echo $this->Html->url(array("controller" => "profiel_form"))?>'">
 						<div class="button_big_cont" style="padding-right:8px;">
 							<div style="float:left;margin-top:6px;">
 								Mijn profiel

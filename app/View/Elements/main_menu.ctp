@@ -3,20 +3,12 @@
 	<div id="body_top_mid">
 		<div id="menu">
 			<ul>
-				<li><?php
-				echo $this->Html->link('View image', array(
-					'controller' => 'images',
-					'action' => 'view',
-					1,
-					'?' => array('height' => 400, 'width' => 500))
-				);
-?>
-				<a href="<?php echo $this->Html->css('style')?>">Home</a></li>
-				<li><a href="reis">Reizen</a></li>
-				<li><a href="boeking">Boekingen</a></li>
-				<li><a href="#">Klanten</a></li>
-				<li><a href="#">Bestemmingen</a></li>
-				<li><a href="#">Gebruikers</a></li>
+				<li><?php echo $this->Html->link('Home', array('controller' => 'home'));?></li>
+				<li><?php echo $this->Html->link('Reizen', array('controller' => 'reis'));?></li>
+				<li><?php echo $this->Html->link('Boekingen', array('controller' => 'boeking'));?></li>
+				<li><?php echo $this->Html->link('Klanten', array('controller' => 'klant'));?></li>
+				<li><?php echo $this->Html->link('Bestemmingen', array('controller' => 'bestemming'));?></li>
+				<li><?php echo $this->Html->link('Gebruikers', array('controller' => 'gebruiker'));?></li>
 			</ul>
 		</div>
 	</div>
