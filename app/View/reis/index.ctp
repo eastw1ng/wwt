@@ -16,6 +16,7 @@ REIZEN
                     </div>
                     <div class="frame_left_mid_right">
                         <div class="frame_left_mid_mid">
+						<!--
                             <script type="text/javascript" src="http://www.google.com/jsapi"></script>
                             <script type="text/javascript">
                                 google.load('visualization', '1.1', {packages: ['controls']});
@@ -51,7 +52,7 @@ REIZEN
 
                                   google.setOnLoadCallback(drawVisualization);
 
-                               </script>
+                               </script>-->
                            
 
                                 <div id="dashboard">
@@ -83,13 +84,20 @@ REIZEN
                             <div style="width:100%;float:left;">
                                 <div class="reizen_list_img" style="vertical-align:bottom;">
                                     <div class="reizen_list_admin">
-                                    <? if(false):?>
-                                        <img style="cursor:pointer;" src="img/admin_edit.png"/>
-                                        <img style="cursor:pointer;" src="img/admin_delete.png"/>
+                                    <? if(true):?>
+										<? echo $this->Html->image(	'admin_edit.png',
+												array(	'style' => 'cursor:pointer;',
+												'onclick' => 'javascript:location.href="'.$this->Html->url(array('action' => 'edit', $reis['Rei']['id'])).'"'))
+										?>
+										<? echo $this->Form->postLink( 
+												$this->Html->image('admin_delete.png', array('style' => 'cursor:pointer;')),
+												array('action' => 'delete', $reis['Rei']['id']),
+												array('escape' => false,'confirm' => 'Are you sure?'));
+										?>
                                     <? endif; ?>
                                     </div>
                                 </div>
-                                <div class="reizen_list_title" style="cursor:pointer;" onClick="javascript:location.href='reis/view/<?=$reis['Rei']['id']?>'">
+                                <div class="reizen_list_title" style="cursor:pointer;" onClick="javascript:location.href='<?php echo $this->Html->url(array('action' => 'view', $reis['Rei']['id']));?>'">
                                     <span style="float:left;"><? echo $reis['Bestemming']['Plaat']['naam']?></span>
                                     <span style="float:right;">&euro; <? echo ReisController::calcPrice($reis['Bestemming']['Accomodatie']['accomodatie_prijs'], $reis['Transport']['prijs']) ?>.- p.p.</span>
                                 </div>
@@ -97,7 +105,7 @@ REIZEN
                                     <? echo $reis['Bestemming']['alias']?>
                                 </div>
                                 <div class="reizen_list_body">
-                                    <? echo $reis['Rei']['beschrijving']?>
+                                    <? echo $reis['Rei']['omschrijving']?>
                                 </div>
                             </div>
                             <div style="clear:both;"></div>

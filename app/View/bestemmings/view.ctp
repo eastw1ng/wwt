@@ -59,7 +59,7 @@ REIZEN VIEW
 								<span style="line-height:32px;">Omschrijving:</span>
 							</div>
 							<div class="reizen_list_buttons">
-								<button onClick="javascript:location.href='<?php echo $this->Html->url(array("controller" => "boekings/book/".$reis['Rei']['id']))?>'">Reis boeken</button>
+								<button>Reis boeken</button>
 							</div>
 							<div class="reizen_list_description">
 								<? echo $reis['Rei']['beschrijving']?>

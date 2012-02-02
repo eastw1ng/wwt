@@ -9,7 +9,7 @@ REIZEN VIEW
             <div id="body_mid_mid">
                 <div class="frame_left">
                     <div class="frame_left_top_mid">
-                        <span class="frame_header">Reis: <? echo $reis['Rei']['id']?></span>
+                        <span class="frame_header">Reis: <? echo $boeking['Boeking']['id']?></span>
                     </div>
                     <div class="frame_left_top_right">
                         &nbsp;
@@ -19,24 +19,19 @@ REIZEN VIEW
                             						
 							<div style="width:100%;float:left;margin-top:6px;">
 								<div class="reizen_list_img" style="vertical-align:bottom;">
-									<div class="reizen_list_admin">
-										<img style="cursor:pointer;" src="img/admin_edit.png"/>
-										<img style="cursor:pointer;" src="img/admin_delete.png"/>
-									</div>
 								</div>
 								<div class="reizen_list_title">
-									<span style="float:left;"><? echo $reis['Bestemming']['Plaat']['naam']?></span>
+									<span style="float:left;"><? echo $boeking['Rei']['Bestemming']['Plaat']['naam']?></span>
 									<span style="float:right;">&euro; 180.- p.p.</span>
 								</div>
-								<div class="reizen_list_subtitle">
-									<? echo $reis['Rei']['omschrijving']?>
-								</div>
-								<div class="reizen_list_body">
-									Reiscode: <? echo $reis['Rei']['id']?>
+								<div class="reizen_list_body" style="margin-top:8px;">
+									Reiscode: <? echo $boeking['Rei']['id']?>
 									<br>
-									Vertrekdatum: <? echo $reis['Rei']['vertrek_datum']?>
+									Vertrekdatum: <? echo $boeking['Rei']['vertrek_datum']?>
 									<br>
-									Terugkeerdatum: <? echo $reis['Rei']['terugkeer_datum']?>
+									Terugkeerdatum: <? echo $boeking['Rei']['terugkeer_datum']?>
+									<br>
+									Geboekte plaatsen: <? echo $boeking['Boeking']['aantal_reizigers']?>
 								</div>
 							</div>
 							
@@ -44,28 +39,32 @@ REIZEN VIEW
 							<div class="reizen_separator_10"></div>
 							
 							<div class="reizen_list_content">
-								Aantal beschikbare plaatsen: <? echo $reis['Transport']['aantal_plaats']?>
+								Boekingsdatum: <? echo $boeking['Boeking']['boek_datum']?>
 								<br>
-								Soort transport: <? echo $reis['Transport']['transport_soort_id']?>
+								Soort transport: <? echo $boeking['Rei']['Transport']['TransportSoort']['naam']?>
 								<br>
-								Land van bestemming: <? echo $reis['Bestemming']['Plaat']['Land']['naam']?>
+								Land van bestemming: <? echo $boeking['Rei']['Bestemming']['Plaat']['Land']['naam']?>
 								<br>
-								Plaats van bestemming: <? echo $reis['Bestemming']['Plaat']['naam']?>
+								Plaats van bestemming: <? echo $boeking['Rei']['Bestemming']['Plaat']['naam']?>
 								<br>
-								Accomodatie soort: <? echo $reis['Bestemming']['Accomodatie']['accomodatie_soort']?>
+								Accomodatie soort: <? echo $boeking['Rei']['Bestemming']['Accomodatie']['accomodatie_soort']?>
 								<br>
-								Accomodatie naam: <? echo $reis['Bestemming']['Accomodatie']['accomodatie_naam']?>
+								Accomodatie naam: <? echo $boeking['Rei']['Bestemming']['Accomodatie']['accomodatie_naam']?>
 								<br>
 								<span style="line-height:32px;">Omschrijving:</span>
 							</div>
 							<div class="reizen_list_buttons">
-								<button onClick="javascript:location.href='<?php echo $this->Html->url(array("controller" => "boekings/book/".$reis['Rei']['id']))?>'">Reis boeken</button>
+								<?php echo $this->Form->postLink( 
+									'<button>Reis annuleren</button>',
+									array('action' => 'delete', $boeking['Boeking']['id']),
+									array('escape' => false,'confirm' => 'Are you sure?'));
+								?>
+							
+								
 							</div>
 							<div class="reizen_list_description">
-								<? echo $reis['Rei']['beschrijving']?>
+								<? echo $boeking['Rei']['omschrijving']?>
 							</div>
-							
-							
                         </div>
                     </div>
                     <div class="frame_left_bot_mid">
@@ -82,6 +81,7 @@ REIZEN VIEW
                 <div style="clear: both;"></div>
             </div>
         </div>
+		<span style="font-size:1px;"><?print_r($boeking)?></span>
     </div>
     <div id="body_bot">
         <div id="body_bot_left">&nbsp;</div>

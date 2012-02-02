@@ -35,9 +35,9 @@ class ReisController extends AppController {
                 }
                 
 		$this->set( array ( 
-                        'reizen'=> $this->paginate('Rei'),
-                        'googleString' => $UberJSString
-                        ));
+			'reizen'=> $this->paginate('Rei'),
+			'googleString' => $UberJSString
+		));
 	}
 	
 	public function calcPrice($accomodatiePrijs = 0, $transportPrijs = 0 , $marge = 20 ){
@@ -70,7 +70,6 @@ class ReisController extends AppController {
 	public function add() {
 		$this->set('bestemmingen', $this->Rei->query("select alias, id from bestemming"));
 		$this->set('ts', $this->Rei->query("SELECT t.id, ts.naam FROM transport AS t JOIN transport_soort AS ts ON t.transport_soort_id = ts.id"));
-		
 	
 		if ($this->request->is('post')) {
 			$this->Rei->create();
@@ -93,12 +92,19 @@ class ReisController extends AppController {
  * @return void
  */
 	public function edit($id = null) {
+		$this->set('bestemmingen', $this->Rei->query("select alias, id from bestemming"));
+		$this->set('ts', $this->Rei->query("SELECT t.id, ts.naam FROM transport AS t JOIN transport_soort AS ts ON t.transport_soort_id = ts.id"));
+		$this->set('reis', $this->Rei->read(null, $id));
+		
 		$this->Rei->id = $id;
 		if (!$this->Rei->exists()) {
 			throw new NotFoundException(__('Invalid rei'));
 		}
 		if ($this->request->is('post') || $this->request->is('put')) {
-			if ($this->Rei->save($this->request->data)) {
+			$data = $this->request->data;
+			$data['Rei']['vertrek_datum'] = date("Y-m-d" ,strtotime($data['Rei']['vertrek_datum']));
+			$data['Rei']['terugkeer_datum'] = date("Y-m-d" ,strtotime($data['Rei']['terugkeer_datum']));
+			if ($this->Rei->save($data)) {
 				$this->Session->setFlash(__('The rei has been saved'));
 				$this->redirect(array('action' => 'index'));
 			} else {

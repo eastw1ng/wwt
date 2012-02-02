@@ -51,7 +51,7 @@ class Klant extends AppModel {
 	public $belongsTo = array (
 		'Users' => array (
 			'className' => 'Users',
-			'foreignKey' => 'klant_id'
+			'foreignKey' => 'id'
 		)
 	);
 
