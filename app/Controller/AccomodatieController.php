@@ -8,13 +8,15 @@ App::uses('AppController', 'Controller');
 class AccomodatieController extends AppController {
     
     public $uses = array('Accomodatie', 'bestemming', 'plaat', 'land');
-
+    
     /**
      * index method
      *
      * @return void
      */
     public function index() {
+        
+        
             //$this->Accomodatie->recursive = 0;
             //$this->set('accomodaties', $this->paginate());
 
@@ -57,7 +59,7 @@ class AccomodatieController extends AppController {
         $bestemmings = $this->Accomodatie->Bestemming->find('list');
         $this->set(compact('bestemmings'));
     }
-
+    
     /**
     * edit method
     *

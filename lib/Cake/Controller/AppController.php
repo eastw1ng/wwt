@@ -34,6 +34,25 @@ App::uses('Controller', 'Controller');
  */
 class AppController extends Controller {
     
-       // var $components = array('Acl','Auth','Session');
+     public $components = array(
+        'Acl',
+        'Auth' => array(
+            'authorize' => array(
+                'Actions' => array('actionPath' => 'controllers')
+            )
+        ),
+        'Session'
+    );
+    public $helpers = array('Html', 'Form', 'Session');
 
+    public function beforeFilter() {
+        //Configure AuthComponent
+        $this->Auth->allow('display');
+         
+        $this->Auth->loginAction = array('controller' => 'users', 'action' => 'login');
+        $this->Auth->logoutRedirect = array('controller' => 'users', 'action' => 'login');
+        $this->Auth->loginRedirect = array('controller' => 'posts', 'action' => 'add');
+    }
+    
+    
 }

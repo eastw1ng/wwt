@@ -24,15 +24,15 @@ and open the template in the editor.
                     </div>
                     <div class="frame_left_mid_right">
                         <div class="frame_left_mid_mid">
-
-                                <?php
-                                echo $this->Session->flash('auth');
-                                echo $this->Form->create('User');
-                                echo $this->Form->input('username');
-                                echo $this->Form->input('password');
-                                echo $this->Form->end('Login');
-                                ?>
-
+<?
+                    echo $this->Form->create('User', array('action' => 'login'));
+                    echo $this->Form->inputs(array(
+                        'legend' => __('Login'),
+                        'username',
+                        'password'
+                    ));
+                    echo $this->Form->end('Login');
+?>
                             
                         </div>
                     </div>

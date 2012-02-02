@@ -222,10 +222,10 @@ Configure::write('Routing.prefixes', array('admin'));
  * The classname and database used in CakePHP's
  * access control lists.
  */
-	//Configure::write('Acl.classname', 'DbAcl');
-	//Configure::write('Acl.database', 'default');
+	Configure::write('Acl.classname', 'DbAcl');
+	Configure::write('Acl.database', 'default');
         
-        Configure::write('Acl.classname', 'IniAcl');
+    //    Configure::write('Acl.classname', 'IniAcl');
 
 /**
  * Uncomment this line and correct your server timezone to fix 

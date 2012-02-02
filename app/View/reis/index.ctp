@@ -19,7 +19,6 @@ REIZEN
                             <script type="text/javascript" src="http://www.google.com/jsapi"></script>
                             <script type="text/javascript">
                                 google.load('visualization', '1.1', {packages: ['controls']});
-                            
                                function drawVisualization() {
                                     // Prepare the data.
                                     var data = google.visualization.arrayToDataTable([
@@ -39,15 +38,47 @@ REIZEN
                                     var table = new google.visualization.ChartWrapper({
                                       'chartType': 'Table',
                                       'containerId': 'chart1',
+                                      'page': 'enable',
+                                      'pageSize': 5,
+                                      'showRowNumber': true,
+                                      'pagingSymbols' : {prev: 'prev', next: 'next'}
                                     });
 
+                                 
                                     // Create the dashboard.
                                     var dashboard = new google.visualization.Dashboard(document.getElementById('dashboard')).
                                       // Configure the string filter to affect the table contents
                                       bind(stringFilter, table).
                                       // Draw the dashboard
-                                      draw(data);    
+                                      draw(data, {
+                                      'page': 'enable',
+                                      'pageSize': 5,
+                                      'showRowNumber': true,
+                                      'pagingSymbols' : {prev: 'prev', next: 'next'}
+                                    });    
                                   }
+                                  
+                                    function setNumberOfPages(value) {
+                                      if (value) {
+                                        options['pageSize'] = parseInt(value, 10);
+                                        options['page'] = 'enable';
+                                      } else {
+                                        options['pageSize'] = null;
+                                        options['page'] = null;  
+                                      }
+                                      draw();
+                                    }
+
+                                    // Sets custom paging symbols "Prev"/"Next"
+                                    function setCustomPagingButtons(toSet) {
+                                      options['pagingSymbols'] = toSet ? {next: 'next', prev: 'prev'} : null;
+                                      draw();  
+                                    }
+
+                                    function setPagingButtonsConfiguration(value) {
+                                      options['pagingButtonsConfiguration'] = value;
+                                      draw();
+                                    }
 
                                   google.setOnLoadCallback(drawVisualization);
 
