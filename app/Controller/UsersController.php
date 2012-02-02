@@ -15,19 +15,19 @@ class UsersController extends AppController {
     public function initDB() {
         $group = $this->User->Group;
         //Allow admins to everything
-        $group->id = 1;
-        $this->Acl->allow($group, 'controllers');
-
-        //Klanten
-        $group->id = 2;
-        $this->Acl->deny($group, 'controllers');
-        $this->Acl->allow($group, 'controllers/Reis');
-        $this->Acl->allow($group, 'controllers/Boeking');
+//        $group->id = 1;
+//        $this->Acl->allow($group, 'controllers');
+//
+//        //Klanten
+//        $group->id = 2;
+//        $this->Acl->deny($group, 'controllers');
+//        $this->Acl->allow($group, 'controllers/Reis');
+//        $this->Acl->allow($group, 'controllers/Boeking');
 
         //gasten
         $group->id = 3;
         $this->Acl->deny($group, 'controllers');
-        $this->Acl->allow($group, 'controllers/App');
+        $this->Acl->allow($group, 'controllers/Home');
         
         echo "all done";
         exit;

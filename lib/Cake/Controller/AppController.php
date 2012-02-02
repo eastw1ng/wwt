@@ -51,6 +51,11 @@ class AppController extends Controller {
          
          var_dump($this->Auth->loggedIn());
          
+         //dit zou zowiets moeten worden dat moet gast gezet worden
+         if($this->Auth->loggedIn()){
+             //$this->Acl->allow('Guest', 'Guest');
+         }
+         
         $this->Auth->loginAction = array('controller' => 'users', 'action' => 'login');
         $this->Auth->logoutRedirect = array('controller' => 'users', 'action' => 'login');
         $this->Auth->loginRedirect = array('controller' => 'Home', 'action' => 'index');
