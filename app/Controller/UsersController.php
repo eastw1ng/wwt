@@ -9,7 +9,7 @@ class UsersController extends AppController {
 
     public function beforeFilter() {
         parent::beforeFilter();
-        //$this->Auth->allow('initDB');
+        $this->Auth->allow('login');
     }
     
     public function initDB() {
@@ -34,12 +34,7 @@ class UsersController extends AppController {
     }
     
     public function login() {
-        
-        if ($this->Session->read('Auth.User')) {
-            $this->Session->setFlash('You are logged in!');
-            $this->redirect('/', null, false);
-        }
-        
+       
         if ($this->request->is('post')) {
             if ($this->Auth->login()) {
                 $this->redirect($this->Auth->redirect());
