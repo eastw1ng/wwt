@@ -47,9 +47,10 @@ class AppController extends Controller {
 
     public function beforeFilter() {
         //Configure AuthComponent
-         $this->Auth->allow('display');
-         
-         var_dump($this->Auth->loggedIn());
+         $this->Auth->deny('controllers');
+         $this->Auth->allow('controllers/Home');
+         $this->Auth->allow('controllers/users','login');
+        //var_dump($this->Auth->loggedIn());
          
          //dit zou zowiets moeten worden dat moet gast gezet worden
          if($this->Auth->loggedIn()){

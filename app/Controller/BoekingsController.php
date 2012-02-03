@@ -21,6 +21,19 @@ class BoekingsController extends AppController {
  * @return void
  */
 	public function index() {
+		
+//		$user = $user$this->Auth->user();
+//		var_dump($user );
+//		$this->Boeking->recursive = 2;
+//		$myProfile = $this->Boeking->Klant->find('all');
+//		var_dump($myProfile);
+		
+//		$user = $this->Auth->user();
+//		var_dump($user);
+//		$boekingen = $this->Klant->findByKlant_id($user['id'])->Boeking;
+//		
+//		var_dump($boekingen);
+		
 		$this->Boeking->recursive = 3;
 		$this->set('boekings', $this->paginate('Boeking'));
 	}
