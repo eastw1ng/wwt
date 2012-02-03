@@ -40,12 +40,9 @@ class Boeking extends AppModel {
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''
-		)
-	);
-	
-	public $hasOne = array(
-		'Reis' => array(
-			'className' => 'Reis',
+		),
+		'Rei' => array(
+			'className' => 'Rei',
 			'foreignKey' => 'reis_id',
 			'conditions' => '',
 			'fields' => '',

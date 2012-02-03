@@ -35,7 +35,7 @@ class Accomodatie extends AppModel {
 	public $hasOne = array(
 		'Bestemming' => array(
 			'className' => 'Bestemming',
-			'foreignKey' => 'bestemming_id',
+			'foreignKey' => 'id',
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''

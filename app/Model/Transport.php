@@ -25,6 +25,13 @@ class Transport extends AppModel {
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''
+		),
+		'Plaat' => array(
+			'className' => 'Plaat',
+			'foreignKey' => 'vertrek_plaats',
+			'conditions' => '',
+			'fields' => '',
+			'order' => ''
 		)
 	);
 
