@@ -44,6 +44,16 @@ class KlantsController extends AppController {
 		
 		$this->set('klants', $this->paginate('Klant', array($cond1,$cond2,$cond3,$cond4)));
 	}
+	
+	
+	public function myProfile(){
+		
+		//$user = $this->Auth->user();
+		//$this->Klant->recursive = 1;
+		//$myProfile = $this->Usetr->findById($user['id']);
+		
+		$this->set(array('myProfile' => $myProfile));
+	}
 
 /**
  * view method

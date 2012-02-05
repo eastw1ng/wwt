@@ -1,59 +1,84 @@
 <?php
+App::uses('AppController', 'Controller');
 /**
- * Description of UsersController
+ * Users Controller
  *
- * @author Tim
+ * @property User $User
  */
 class UsersController extends AppController {
-    
-    //var $name = 'Users';
-    //var $components = array('Auth'); // Not necessary if declared in your app controller
-    
-	var $paginate = array(
-		'limit' => 10,
-		'order' => array(
-			'User.achternaam' => 'asc'
-		)
-	);
 
+    public function beforeFilter() {
+        parent::beforeFilter();
+        $this->Auth->allow('login');
+    }
+    
+    public function initDB() {
+        $group = $this->User->Group;
+        //Allow admins to everything
+        $group->id = 1;
+        $this->Acl->allow($group, 'controllers');
+
+        //Klanten
+        $group->id = 2;
+        $this->Acl->deny($group, 'controllers');
+        $this->Acl->allow($group, 'controllers/Reis');
+        $this->Acl->allow($group, 'controllers/Boeking');
+
+        //gasten
+        $group->id = 3;
+        $this->Acl->deny($group, 'controllers');
+        $this->Acl->allow($group, 'controllers/Home');
+        
+        echo "all done";
+        exit;
+    }
+   
+	
+    public function login() {
+       
+        if ($this->request->is('post')) {
+            if ($this->Auth->login()) {
+                $this->redirect($this->Auth->redirect());
+            } else {
+                $this->Session->setFlash('Your username or password was incorrect.');
+            }
+        }
+    }
+
+    public function logout() {
+        $this->Session->setFlash('Good-Bye');
+        $this->redirect($this->Auth->logout());
+    }
 /**
  * index method
  *
  * @return void
  */
 	public function index() {
-		$this->User->recursive = 1;
-		//$this->set('users', $this->paginate('User'));
-		
-		$vars = $this->params['url'];
-		$cond1 = '';
-		$cond2 = '';
-		$cond3 = '';
-		$cond4 = '';
-		
-		if(isset($vars['s1'])){
-			//$cond1 = array('Bestemming.id' => $vars['s1']);
-		}
-		if(isset($vars['s2'])){
-			$cond1 = array('User.id' => $vars['s2']);
-		}
-		if(isset($vars['s3'])){
-			$cond2 = array('User.username LIKE' => "%".$vars['s3']."%");
-		}
-		if(isset($vars['s4'])){
-			//$cond1 = array('Accomodatie.accomodatie_naam LIKE' => "%".$vars['s4']."%");
-		}
-		
-		$this->set('users', $this->paginate('User', array($cond1,$cond2,$cond3,$cond4)));
+		$this->User->recursive = 0;
+		$this->set('users', $this->paginate());
 	}
-	
+
+/**
+ * view method
+ *
+ * @param string $id
+ * @return void
+ */
+	public function view($id = null) {
+		$this->User->id = $id;
+		if (!$this->User->exists()) {
+			throw new NotFoundException(__('Invalid user'));
+		}
+		$this->set('user', $this->User->read(null, $id));
+	}
+
 /**
  * add method
  *
  * @return void
  */
 	public function add() {
-		$this->set('klanten', $this->User->query("SELECT voornaam, achternaam, id FROM klant"));
 		if ($this->request->is('post')) {
 			$this->User->create();
 			if ($this->User->save($this->request->data)) {
@@ -73,9 +98,6 @@ class UsersController extends AppController {
  */
 	public function edit($id = null) {
 		$this->User->id = $id;
-		$this->set('user', $this->User->read(null, $id));
-		$this->set('klanten', $this->User->query("SELECT voornaam, achternaam, id FROM klant"));
-		
 		if (!$this->User->exists()) {
 			throw new NotFoundException(__('Invalid user'));
 		}
@@ -112,19 +134,4 @@ class UsersController extends AppController {
 		$this->Session->setFlash(__('User was not deleted'));
 		$this->redirect(array('action' => 'index'));
 	}
-	
-	
-	
-/**
-* The AuthComponent provides the needed functionality
-* for login, so you can leave this function blank.
-*/
-    //function login() {
-    //}
-    
-    //function logout() {
-    //$this->redirect($this->Auth->logout());
-    //}
-   
 }
-?>

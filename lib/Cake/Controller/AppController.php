@@ -34,6 +34,33 @@ App::uses('Controller', 'Controller');
  */
 class AppController extends Controller {
     
-       // var $components = array('Acl','Auth','Session');
+     public $components = array(
+        'Acl',
+        'Auth' => array(
+            'authorize' => array(
+                'Actions' => array('actionPath' => 'controllers')
+            )
+        ),
+        'Session'
+    );
+    public $helpers = array('Html', 'Form', 'Session');
 
+    public function beforeFilter() {
+        //Configure AuthComponent
+         $this->Auth->deny('controllers');
+         $this->Auth->allow('controllers/Home');
+         $this->Auth->allow('controllers/users','login');
+        //var_dump($this->Auth->loggedIn());
+         
+         //dit zou zowiets moeten worden dat moet gast gezet worden
+         if($this->Auth->loggedIn()){
+             //$this->Acl->allow('Guest', 'Guest');
+         }
+         
+        $this->Auth->loginAction = array('controller' => 'users', 'action' => 'login');
+        $this->Auth->logoutRedirect = array('controller' => 'users', 'action' => 'login');
+        $this->Auth->loginRedirect = array('controller' => 'Home', 'action' => 'index');
+    }
+    
+    
 }

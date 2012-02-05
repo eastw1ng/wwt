@@ -18,74 +18,57 @@ Klant
                         <div class="frame_left_mid_mid">
                             <div style="width:100%;float:left;">
 							
-								<div class="pagers">
-									<?
-									$urls = $this->params['url']; $getv = "";
-									
-									foreach($urls as $key=>$value)
-									{
-									if($key == 'url') continue; // we need to ignor the url field
-									$getv .= urlencode($key)."=".urlencode($value)."&"; // making the passing parameters
-									}
-									$getv = substr_replace($getv ,"",-1); // remove the last char '&'
-									
-									$this->Paginator->options(array('url' => array("?"=>$getv)));
-									?>
-									<?php echo $this->Paginator->prev('<< ' . __('Previous'), array(), null, array('class' => 'prev disabled')); ?> -
-									<?php echo $this->Paginator->numbers(); ?>
-									- <?php echo $this->Paginator->next('Next'.' >>', array(), null, array('class' => 'prev disabled')); ?>
-								</div>
+							
+							
+								<div class="users index">
+									<h2><?php echo __('Users');?></h2>
+									<table cellpadding="0" cellspacing="0">
+									<tr>
+											<th><?php echo $this->Paginator->sort('id');?></th>
+											<th><?php echo $this->Paginator->sort('username');?></th>
+											<th><?php echo $this->Paginator->sort('password');?></th>
+											<th><?php echo $this->Paginator->sort('group_id');?></th>
+											<th><?php echo $this->Paginator->sort('created');?></th>
+											<th><?php echo $this->Paginator->sort('modified');?></th>
+											<th class="actions"><?php echo __('Actions');?></th>
+									</tr>
+									<?php
+									foreach ($users as $user): ?>
+									<tr>
+										<td><?php echo h($user['User']['id']); ?>&nbsp;</td>
+										<td><?php echo h($user['User']['username']); ?>&nbsp;</td>
+										<td><?php echo h($user['User']['password']); ?>&nbsp;</td>
+										<td><?php echo h($user['User']['group_id']); ?>&nbsp;</td>
+										<td><?php echo h($user['User']['created']); ?>&nbsp;</td>
+										<td><?php echo h($user['User']['modified']); ?>&nbsp;</td>
+										<td class="actions">
+											<?php echo $this->Html->link(__('View'), array('action' => 'view', $user['User']['id'])); ?>
+											<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $user['User']['id'])); ?>
+											<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $user['User']['id']), null, __('Are you sure you want to delete # %s?', $user['User']['id'])); ?>
+										</td>
+									</tr>
+								<?php endforeach; ?>
+									</table>
+									<p>
+									<?php
+									echo $this->Paginator->counter(array(
+									'format' => __('Page {:page} of {:pages}, showing {:current} records out of {:count} total, starting on record {:start}, ending on {:end}')
+									));
+									?>	</p>
 
-                                <div class="tabel_wrapper">
-                                    <table class="standaard_tabel" border="0" cellspacing="0" cellpadding="0">
-                                        <tr>
-                                            <th width="60px">Code</th>
-                                            <th>Gebruikersnaam</th>
-                                            <th width="80px">Rechten</th>
-                                            <th style="border-width: 0;"></th>
-                                        </tr>
-										<? $counter = 0; ?>
-										<? foreach($users as $user):?>
-										<? $counter++ ?>
-                                        <tr <? if(count($users) == $counter){echo "style='border-width: 0;cursor:pointer;'";}else{echo "style='cursor:pointer;'";}?>>
-                                            <td onClick="javascript:location.href='<?php echo $this->Html->url(array('action' => 'edit', $user['User']['id']));?>'">
-												<? echo $user['User']['id']?>
-											</td>
-                                            <td onClick="javascript:location.href='<?php echo $this->Html->url(array('action' => 'edit', $user['User']['id']));?>'">
-												<? echo $user['User']['username']?>
-											</td>
-                                            <td onClick="javascript:location.href='<?php echo $this->Html->url(array('action' => 'edit', $user['User']['id']));?>'">
-												<? if($user['User']['recht'] == 1){echo "Lid";}else{echo "Administrator";}?>
-											</td>
-                                            <td style="border-width: 0;width:30px;padding:1px;vertical-align:middle;font-size:0px;">
-												<?php echo $this->Form->postLink( $this->Html->image(
-													'admin_delete.png',
-													array('style' => 'float:left;cursor:pointer;margin-left:2px;')),
-													array('action' => 'delete', $user['User']['id']),
-													array('escape' => false,'confirm' => 'Are you sure?'));
-												?>
-											</td>
-                                        </tr>
-										<? endforeach; ?>
-                                    </table>
-                                </div>
-								<div class="pagers">
-									<?
-									$urls = $this->params['url']; $getv = "";
-									
-									foreach($urls as $key=>$value)
-									{
-									if($key == 'url') continue; // we need to ignor the url field
-									$getv .= urlencode($key)."=".urlencode($value)."&"; // making the passing parameters
-									}
-									$getv = substr_replace($getv ,"",-1); // remove the last char '&'
-									
-									$this->Paginator->options(array('url' => array("?"=>$getv)));
+									<div class="paging">
+									<?php
+										echo $this->Paginator->prev('< ' . __('previous'), array(), null, array('class' => 'prev disabled'));
+										echo $this->Paginator->numbers(array('separator' => ''));
+										echo $this->Paginator->next(__('next') . ' >', array(), null, array('class' => 'next disabled'));
 									?>
-									<?php echo $this->Paginator->prev('<< ' . __('Previous'), array(), null, array('class' => 'prev disabled')); ?> -
-									<?php echo $this->Paginator->numbers(); ?>
-									- <?php echo $this->Paginator->next('Next'.' >>', array(), null, array('class' => 'prev disabled')); ?>
+									</div>
 								</div>
+								<div class="actions">
+									<h3><?php echo __('Actions'); ?></h3>
+									<ul>
+										<li><?php echo $this->Html->link(__('New User'), array('action' => 'add')); ?></li>
+									</ul>
 
                             </div>
                         </div>
