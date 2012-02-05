@@ -22,7 +22,22 @@ class BoekingsController extends AppController {
  */
 	public function index() {
 		$this->Boeking->recursive = 3;
-		$this->set('boekings', $this->paginate('Boeking'));
+		//$this->set('boekings', $this->paginate('Boeking'));
+
+		$vars = $this->params['url'];
+		$cond1 = '';
+		$cond2 = '';
+		$cond3 = '';
+		$cond4 = '';
+		
+		if(isset($vars['s2'])){
+			$cond1 = array('Boeking.reis_id' => $vars['s2']);
+		}
+		if(isset($vars['s3'])){
+			$cond2 = array('Boeking.id' => $vars['s3']);
+		}
+		
+		$this->set('boekings', $this->paginate('Boeking', array($cond2,$cond3)));
 	}
 	
 	public function calcPrice($accomodatiePrijs = 0, $transportPrijs = 0 , $marge = 20 ){
@@ -37,6 +52,15 @@ class BoekingsController extends AppController {
  * @return void
  */
 	public function view($id = null) {
+		$this->Boeking->recursive = 4;
+		$this->Boeking->id = $id;
+		if (!$this->Boeking->exists()) {
+			throw new NotFoundException(__('Invalid boeking'));
+		}
+		$this->set('boeking', $this->Boeking->read(null, $id));
+	}
+	
+	public function factuur($id = null) {
 		$this->Boeking->recursive = 4;
 		$this->Boeking->id = $id;
 		if (!$this->Boeking->exists()) {

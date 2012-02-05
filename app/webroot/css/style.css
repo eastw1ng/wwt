@@ -454,13 +454,13 @@ body{
 }
 .reizen_list_content{
 	font:normal 12pt calibri, sans-serif;
-	width:80%;
+	width:75%;
 	float:left;
 }
 .reizen_list_buttons{
 	font:normal 12pt calibri, sans-serif;
 	text-align:right;
-	width:20%;
+	width:25%;
 	float:right;
 }
 .reizen_list_description{

@@ -17,6 +17,18 @@ BOEKINGEN
                     <div class="frame_left_mid_right">
                         <div class="frame_left_mid_mid">
                             <div class="pagers">
+								<?
+								$urls = $this->params['url']; $getv = "";
+								
+								foreach($urls as $key=>$value)
+								{
+								if($key == 'url') continue; // we need to ignor the url field
+								$getv .= urlencode($key)."=".urlencode($value)."&"; // making the passing parameters
+								}
+								$getv = substr_replace($getv ,"",-1); // remove the last char '&'
+								
+								$this->Paginator->options(array('url' => array("?"=>$getv)));
+								?>
                                 <?php echo $this->Paginator->prev('<< ' . __('Previous'), array(), null, array('class' => 'prev disabled')); ?> -
                                 <?php echo $this->Paginator->numbers(); ?>
                                 - <?php echo $this->Paginator->next('Next'.' >>', array(), null, array('class' => 'prev disabled')); ?>
@@ -45,7 +57,7 @@ BOEKINGEN
                                 </div>
                                 <div class="reizen_list_title" style="cursor:pointer;" onClick="javascript:location.href='<?php echo $this->Html->url(array('action' => 'view', $b['Boeking']['id']));?>'">
                                     <span style="float:left;"><? echo $b['Rei']['Bestemming']['Plaat']['naam']?></span>
-                                    <span style="float:right;">&euro; <? echo $b['Boeking']['prijs']?></span>
+                                    <span style="float:right;">&euro; <? echo $b['Boeking']['prijs']*$b['Boeking']['aantal_reizigers'];?></span>
                                 </div>
                                 <div class="reizen_list_subtitle">
                                     <? echo $b['Rei']['Bestemming']['alias']?>
@@ -61,6 +73,18 @@ BOEKINGEN
                             <? endforeach; ?>
 
                             <div class="pagers">
+									<?
+									$urls = $this->params['url']; $getv = "";
+									
+									foreach($urls as $key=>$value)
+									{
+									if($key == 'url') continue; // we need to ignor the url field
+									$getv .= urlencode($key)."=".urlencode($value)."&"; // making the passing parameters
+									}
+									$getv = substr_replace($getv ,"",-1); // remove the last char '&'
+									
+									$this->Paginator->options(array('url' => array("?"=>$getv)));
+									?>
                                     <?php echo $this->Paginator->prev('<< ' . __('Previous'), array(), null, array('class' => 'prev disabled')); ?> -
                                     <?php echo $this->Paginator->numbers(); ?>
                                     - <?php echo $this->Paginator->next('Next'.' >>', array(), null, array('class' => 'prev disabled')); ?>
@@ -81,7 +105,7 @@ BOEKINGEN
                 <div style="clear: both;"></div>
             </div>
         </div>
-		<span style="font-size:1px;"><?print_r($boekings)?></span>
+		<span style="display:none;"><?print_r($boekings)?></span>
     </div>
     <div id="body_bot">
         <div id="body_bot_left">&nbsp;</div>

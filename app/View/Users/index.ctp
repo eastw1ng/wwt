@@ -19,6 +19,18 @@ Klant
                             <div style="width:100%;float:left;">
 							
 								<div class="pagers">
+									<?
+									$urls = $this->params['url']; $getv = "";
+									
+									foreach($urls as $key=>$value)
+									{
+									if($key == 'url') continue; // we need to ignor the url field
+									$getv .= urlencode($key)."=".urlencode($value)."&"; // making the passing parameters
+									}
+									$getv = substr_replace($getv ,"",-1); // remove the last char '&'
+									
+									$this->Paginator->options(array('url' => array("?"=>$getv)));
+									?>
 									<?php echo $this->Paginator->prev('<< ' . __('Previous'), array(), null, array('class' => 'prev disabled')); ?> -
 									<?php echo $this->Paginator->numbers(); ?>
 									- <?php echo $this->Paginator->next('Next'.' >>', array(), null, array('class' => 'prev disabled')); ?>
@@ -58,6 +70,18 @@ Klant
                                     </table>
                                 </div>
 								<div class="pagers">
+									<?
+									$urls = $this->params['url']; $getv = "";
+									
+									foreach($urls as $key=>$value)
+									{
+									if($key == 'url') continue; // we need to ignor the url field
+									$getv .= urlencode($key)."=".urlencode($value)."&"; // making the passing parameters
+									}
+									$getv = substr_replace($getv ,"",-1); // remove the last char '&'
+									
+									$this->Paginator->options(array('url' => array("?"=>$getv)));
+									?>
 									<?php echo $this->Paginator->prev('<< ' . __('Previous'), array(), null, array('class' => 'prev disabled')); ?> -
 									<?php echo $this->Paginator->numbers(); ?>
 									- <?php echo $this->Paginator->next('Next'.' >>', array(), null, array('class' => 'prev disabled')); ?>
@@ -80,6 +104,7 @@ Klant
                 <div style="clear: both;"></div>
             </div>
         </div>
+		<span style="display:none;"><?print_r($users)?></span>
     </div>
     <div id="body_bot">
         <div id="body_bot_left">&nbsp;</div>

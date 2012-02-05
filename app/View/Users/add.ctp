@@ -1,4 +1,3 @@
-<?print_r($klanten)?>
 <!--
 USERS FORMULIER
 -->
@@ -10,7 +9,7 @@ USERS FORMULIER
             <div id="body_mid_mid">
                 <div class="frame_left">
                     <div class="frame_left_top_mid">
-                        <span class="frame_header">Formulier reizen</span>
+                        <span class="frame_header">Formulier gebruikers</span>
                     </div>
                     <div class="frame_left_top_right">
                         &nbsp;

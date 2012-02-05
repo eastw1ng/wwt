@@ -20,7 +20,29 @@ class BestemmingsController extends AppController {
  */
 	public function index() {
 		$this->Bestemming->recursive = 2;
-		$this->set('bestemmings', $this->paginate('Bestemming'));
+		$this->set('landen', $this->Bestemming->query("SELECT naam, id FROM land"));
+		//$this->set('bestemmings', $this->paginate('Bestemming'));
+		
+		$vars = $this->params['url'];
+		$cond1 = '';
+		$cond2 = '';
+		$cond3 = '';
+		$cond4 = '';
+		
+		if(isset($vars['s1'])){
+			$cond1 = array('Bestemming.id' => $vars['s1']);
+		}
+		if(isset($vars['s2'])){
+			$cond1 = array('Plaat.land_id' => $vars['s2']);
+		}
+		if(isset($vars['s3'])){
+			$cond2 = array('Plaat.naam LIKE' => "%".$vars['s3']."%");
+		}
+		if(isset($vars['s4'])){
+			$cond1 = array('Accomodatie.accomodatie_naam LIKE' => "%".$vars['s4']."%");
+		}
+		
+		$this->set('bestemmings', $this->paginate('Bestemming', array($cond1,$cond2,$cond3,$cond4)));
 	}
 
 /**

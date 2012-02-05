@@ -9,10 +9,15 @@
 	</tr>
 	<tr>
 		<td class="header_search_one">
-			Locatie:
+			Bestemming:
 		</td>
 		<td class="header_search_two">
-			<input type="text" name="one" class="global_input" />
+			<select id="s1" class="global_select" style="width:170px;">
+				<option value="" selected></option>
+				<? foreach($bestemmingen as $bestemming):?>
+				<option value="<?echo $bestemming['bestemming']['id']?>"><?echo $bestemming['bestemming']['alias']?></option>
+				<? endforeach;?>
+			</select>
 		</td>
 	</tr>
 	<tr>
@@ -20,30 +25,46 @@
 			Datum vertrek:
 		</td>
 		<td class="header_search_two">
-			<input type="text" name="two" class="global_input" />
+			<input id="s2" type="text" name="two" class="global_input" />
 		</td>
 	</tr>
 	<tr>
 		<td class="header_search_one">
-			Prijs:
+			Maximum prijs:
 		</td>
 		<td class="header_search_two">
-			<input type="text" name="two" class="global_input" />
+			<input id="s3" type="text" name="two" class="global_input" />
 		</td>
 	</tr>
 	<tr>
 		<td class="header_search_one">
-			Aantal personen:
+			&nbsp;
 		</td>
 		<td class="header_search_two">
-			<input type="text" name="two" class="global_input" />
+			<input id="s4" type="hidden" name="two" class="global_input" />
 		</td>
 	</tr>
 	<tr>
 		<td class="header_search_one">
 		</td>
-		<td class="header_search_two" style="text-align:right;">
+		<td class="header_search_two" style="text-align:right;" onclick="javascript:window.location = window.location+buildLink();">
 			<button type="submit" style="line-height:16px;">Submit</button>
 		</td>
 	</tr>
 </table>
+<script type="text/javascript">
+	function buildLink(){
+		var result = "/?"
+		var s1 = document.getElementById('s1').value;
+		var s2 = document.getElementById('s2').value;
+		var s3 = document.getElementById('s3').value;
+		var s4 = document.getElementById('s4').value;
+		
+		if(s1 != ""){result += "s1="+s1;}
+		if(s2 != ""){result += "&s2="+s2;}
+		if(s3 != ""){result += "&s3="+s3;}
+		if(s4 != ""){result += "&s4="+s4;}
+	
+		return result;
+	}	
+</script>

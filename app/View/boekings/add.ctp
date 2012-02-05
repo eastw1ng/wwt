@@ -69,6 +69,16 @@ REIZEN FORMULIER
 								</div>
 								<div class="form_sub_container">
 									<div class="form_head">
+										<span style="margin-left:1px;">Prijs per persoon</span>
+									</div>
+									<div class="form_content">
+										<input name="data[Boeking][prijs]" id="BoekingPrijs" class="global_input" style="width:100px;" type="text"/>
+										<span class="form_notes"> *</span>
+									</div>
+									<div style="clear: both;"></div>
+								</div>
+								<div class="form_sub_container">
+									<div class="form_head">
 										<span style="margin-left:1px;">Aantal personen</span>
 									</div>
 									<div class="form_content">
@@ -123,7 +133,7 @@ REIZEN FORMULIER
                 <div style="clear: both;"></div>
             </div>
         </div>
-		<span style="font-size:1px;"><?print_r($reizen)?></span>
+		<span style="display:none;"><?print_r($reizen)?></span>
     </div>
     <div id="body_bot">
         <div id="body_bot_left">&nbsp;</div>

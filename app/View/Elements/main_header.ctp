@@ -21,13 +21,14 @@
                 <div id="header_logo"></div>
                 <div id="header_content">
 					<?php
-						$link = split("/",$_SERVER['REQUEST_URI']);
-						$p = $link[count($link)-1];
-						if(	$p == 'reis' ||
-							$p == 'boeking' ||
-							$p == 'klant' ||
-							$p == 'bestemming' ||
-							$p == 'gebruiker'){
+						$a = $this->action;
+						$p = $this->name;
+						if($this->action == 'index'){
+							if(	$p == 'Reis' ||
+								$p == 'Boekings' ||
+								$p == 'Klants' ||
+								$p == 'Bestemmings' ||
+								$p == 'Users'){
 					?>
 					<div class="button_big" id="search_button" style="width:106px;float:right;">
 						<div  class="button_big_cont">
@@ -35,14 +36,20 @@
 								Zoeken
 							</div>
 							<div style="float:left">
-								<img src="img/icon_search.gif" border="0" style="margin:5px 0px 0px 4px;">
+								<? echo $this->Html->image(	'icon_search.gif',
+											array(	'style' => 'margin:5px 0px 0px 4px;',
+													'border' => '0'));
+								?>
 							</div>
 							<div style="float:left">
-								<img src="img/icon_arrow_down.gif" border="0" style="margin:5px 0px 0px 4px;">
+								<? echo $this->Html->image(	'icon_arrow_down.gif',
+											array(	'style' => 'margin:5px 0px 0px 4px;',
+													'border' => '0'));
+								?>
 							</div>
 						</div>
 					</div>
-					<?php };?>
+					<?php }};?>
 					<div id="login_button" class="button_big" style="width:80px;margin-right:4px;float:right;text-align:center;">
 						<div class="button_big_cont" style="float:right;padding-right:8px;">
 							<div style="float:left;margin-top:6px;">
@@ -115,23 +122,20 @@
 					<div id="header_search" style="display:none;">
 						<div id="header_search_content">
 							<?php
-							
-							$link = split("/",$_SERVER['REQUEST_URI']);
-							
-							switch ($link[count($link)-1]) {
-								case "reis":
+							switch ($this->name) {
+								case "Reis":
 									echo $this->element('zoek_reis');
 									break;
-								case "boeking":
+								case "Boekings":
 									echo $this->element('zoek_boeking');
 									break;
-								case "klant":
+								case "Klants":
 									echo $this->element('zoek_klant');
 									break;
-								case "bestemming":
+								case "Bestemmings":
 									echo $this->element('zoek_bestemming');
 									break;
-								case "gebruiker":
+								case "Users":
 									echo $this->element('zoek_gebruiker');
 									break;
 							}

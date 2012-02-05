@@ -23,7 +23,28 @@ class UsersController extends AppController {
  */
 	public function index() {
 		$this->User->recursive = 1;
-		$this->set('users', $this->paginate('User'));
+		//$this->set('users', $this->paginate('User'));
+		
+		$vars = $this->params['url'];
+		$cond1 = '';
+		$cond2 = '';
+		$cond3 = '';
+		$cond4 = '';
+		
+		if(isset($vars['s1'])){
+			//$cond1 = array('Bestemming.id' => $vars['s1']);
+		}
+		if(isset($vars['s2'])){
+			$cond1 = array('User.id' => $vars['s2']);
+		}
+		if(isset($vars['s3'])){
+			$cond2 = array('User.username LIKE' => "%".$vars['s3']."%");
+		}
+		if(isset($vars['s4'])){
+			//$cond1 = array('Accomodatie.accomodatie_naam LIKE' => "%".$vars['s4']."%");
+		}
+		
+		$this->set('users', $this->paginate('User', array($cond1,$cond2,$cond3,$cond4)));
 	}
 	
 /**

@@ -9,7 +9,7 @@ REIZEN VIEW
             <div id="body_mid_mid">
                 <div class="frame_left">
                     <div class="frame_left_top_mid">
-                        <span class="frame_header">Reis: <? echo $boeking['Boeking']['id']?></span>
+                        <span class="frame_header">Boeking: <? echo $boeking['Boeking']['id']?></span>
                     </div>
                     <div class="frame_left_top_right">
                         &nbsp;
@@ -53,9 +53,14 @@ REIZEN VIEW
 								<br>
 								<span style="line-height:32px;">Omschrijving:</span>
 							</div>
-							<div class="reizen_list_buttons">
+							<div class="reizen_list_buttons" style="marign-right:8px;">
 								<?php echo $this->Form->postLink( 
-									'<button>Reis annuleren</button>',
+									'<button style="width:140px;">Factuur weergeven</button>',
+									array('action' => 'factuur', $boeking['Boeking']['id']),
+									array('escape' => false));
+								?>
+								<?php echo $this->Form->postLink( 
+									'<button style="width:140px;margin-top:4px;">Reis annuleren</button>',
 									array('action' => 'delete', $boeking['Boeking']['id']),
 									array('escape' => false,'confirm' => 'Are you sure?'));
 								?>

@@ -125,9 +125,9 @@ BOEKING FORMULIER
 		var p1 = <?echo $reis['Transport']['prijs'];?>;
 		var p2 = <?echo $accomodatie['Accomodatie']['accomodatie_prijs'];?>;
 		var mod = document.getElementById('BoekingAantalReizigers').value;
-		var result = (p1+p2)*mod;
+		var result = (p1+p2);//*mod;
 
-		document.getElementById("TotalePrijs").innerHTML = result;
+		document.getElementById("TotalePrijs").innerHTML = result*mod;
 		document.getElementById("BoekingPrijs").value = result;
 	}
 	

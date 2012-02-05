@@ -17,12 +17,7 @@ class ReisController extends AppController {
 	);
 /**
  * inde method
- *
- * @return void
- */
-	public function index() {
-		$this->Rei->recursive = 3;
-                
+ *  
                 $rows = $this->Rei->find('all');
                 
                 $UberJSString = "['Bestemming', 'prijs', 'transport', 'vertrek datum', 'terugkom datum'],";                                      
@@ -33,11 +28,46 @@ class ReisController extends AppController {
                                         $row['Rei']['vertrek_datum'],
                                         $row['Rei']['terugkeer_datum']);
                 }
-                
-		$this->set( array ( 
-			'reizen'=> $this->paginate('Rei'),
-			'googleString' => $UberJSString
-		));
+				
+				$this->set( array ( 
+					'reizen'=> $this->paginate('Rei'),
+					'googleString' => $UberJSString
+				));
+ * @return void
+ */
+	public function index() {
+		$this->set('bestemmingen', $this->Rei->query("select alias, id from bestemming"));
+		$this->Rei->recursive = 4;
+		
+		$vars = $this->params['url'];
+		$cond1 = '';
+		$cond2 = '';
+		$cond3 = '';
+		$cond4 = '';
+		
+		if(isset($vars['s1'])){
+			$cond1 = array('Bestemming.id' => $vars['s1']);
+		}
+		if(isset($vars['s2'])){
+			$cond2 = array('Rei.vertrek_datum' => $vars['s2']);
+		}
+		if(isset($vars['s3'])){
+			$result = array();
+			
+			foreach($this->Rei->find('all') as $reis){
+				if($reis['Transport']['prijs'] + $reis['Bestemming']['Accomodatie']['accomodatie_prijs'] < $vars['s3']){
+					array_push($result, $reis['Rei']['id']);
+				}
+			}
+			
+			$cond3 = array('Rei.id' => $result);
+		}
+		
+		$this->set('reizen', $this->paginate('Rei', array($cond1,$cond2,$cond3)));
+		
+		//Nieuwe link genereren als paginate werkt
+
+		//$this->set('getv', $getv);
 	}
 	
 	public function calcPrice($accomodatiePrijs = 0, $transportPrijs = 0 , $marge = 20 ){
@@ -51,9 +81,6 @@ class ReisController extends AppController {
  * @return void
  */
 	public function view($id = null) {
-		
-
-	
 		$this->Rei->recursive = 10;
 		$this->Rei->id = $id;
 		if (!$this->Rei->exists()) {
