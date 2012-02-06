@@ -17,27 +17,53 @@ USERS FORMULIER
                     <div class="frame_left_mid_right">
                         <div class="frame_left_mid_mid form_img_placement">
                             
-							<div class="users form">
-							<?php echo $this->Form->create('User');?>
-								<fieldset>
-									<legend><?php echo __('Add User'); ?></legend>
-								<?php
-									echo $this->Form->input('username');
-									echo $this->Form->input('password');
-									echo $this->Form->input('group_id');
-								?>
-								</fieldset>
-							<?php echo $this->Form->end(__('Submit'));?>
+							<?php echo $this->Form->create('User'); ?>
+							<?php echo $this->Form->input('klant_id', array('type' => 'hidden','value' => '1'));?><!-- Dit is een snelle oplossing voor een probleem met de database-->
+							<div class="form_container">
+								<div class="form_sub_container">
+									<div class="form_head">
+										<span style="margin-left:1px;">Username</span>
+									</div>
+									<div class="form_content">
+										<?echo $this->Form->input('username', array('label' => '','style' => 'width:200px;float:left;margin-top:2px;','class' => 'global_input'));?>
+										<span class="form_notes" style="float:left;">&nbsp;*</span>
+									</div>
+									<div style="clear: both;"></div>
+								</div>
+								<div class="form_sub_container">
+									<div class="form_head">
+										<span style="margin-left:1px;">Password</span>
+									</div>
+									<div class="form_content">
+										<?echo $this->Form->input('password', array('label' => '','style' => 'width:200px;float:left;margin-top:2px;','class' => 'global_input'));?>
+										<span class="form_notes" style="float:left;">&nbsp;*</span>
+									</div>
+									<div style="clear: both;"></div>
+								</div>
+								<div class="form_sub_container">
+									<div class="form_head">
+										<span style="margin-left:1px;">Group id</span>
+									</div>
+									<div class="form_content">
+										<select name="data[User][group_id]" id="UserGroupId" class="global_select" style="width:auto;">
+											<? foreach($groups as $g):?>
+											<?print_r($groups);?>
+											<option value="<?echo $g['groups']['id']?>"><?echo $g['groups']['id']." - ".$g['groups']['name']?></option>
+											<? endforeach;?>
+										</select>
+										<span class="form_notes">&nbsp;*</span>
+									</div>
+									<div style="clear: both;"></div>
+								</div>
+								<div class="form_content form_notes">
+									* Verplicht in te vullen veld
+								</div>
 							</div>
-							<div class="actions">
-								<h3><?php echo __('Actions'); ?></h3>
-								<ul>
-
-									<li><?php echo $this->Html->link(__('List Users'), array('action' => 'index'));?></li>
-								</ul>
+							<div style="width:100%;text-align:right;">
+								<input type="submit" value="Toevoegen"/>
+								<button onClick="javascript:location.href='<?php echo $this->Html->url(array('action' => 'index'));?>'">Annuleren</button>
 							</div>
-
-							
+							<?echo $this->Form->end();?>
                         </div>
                     </div>
                     <div class="frame_left_bot_mid">

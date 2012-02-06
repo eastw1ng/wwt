@@ -91,7 +91,7 @@ REIZEN FORMULIER
 							</div>
 							<div style="width:100%;text-align:right;">
 								<input type="submit" value="Toevoegen"/>
-								<button>Annuleren</button>
+								<button onClick="javascript:location.href='<?php echo $this->Html->url(array('action' => 'index'));?>'">Annuleren</button>
 							</div>
 							<?echo $this->Form->end();?>
 							

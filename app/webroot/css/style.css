@@ -8,12 +8,6 @@ body{
 	width:100%;
 	padding:0;
 	margin:0;}
-#body2{
-	z-index:100;
-	min-height:100%;
-	width:100%;
-	padding:0;
-	margin-top:197px;}
 .button{
 	text-decoration: none;
 	font-family: Calibri, sans-serif;
@@ -184,7 +178,7 @@ body{
 /*Body*/	
 #body{
 	position:relative;
-	top:190px;/*190px*/
+	top:197px;/*190px*/
 	z-index:1;}
 	
 #body_top{
@@ -379,11 +373,11 @@ body{
 	background-repeat:no-repeat;
 	background-position:center;
 	position:absolute;
-	width:1110px;
-	margin-left: -101px;
+	width:100%;
+	margin-left: auto;
+	margin-right: auto;
 	height:216px;
-	top: 28px;
-	z-index:0;}
+	top: 28px;}
  
 /*Buttons*/
 .button_big{
@@ -569,9 +563,19 @@ Stijl navigatie
     border-color:#d59632;
     border-width: 0 2px 2px 0;
     font-style: normal;
+	text-decoration: none;
     text-align: left;
 	color:#505050;
 	padding:4px;
+}
+
+.standaard_tabel a{
+	text-decoration: none;
+	color:#505050;
+}
+
+.standaard_tabel th:last-child{;
+    border-width: 0;
 }
 
 .standaard_tabel tr{
@@ -580,12 +584,20 @@ Stijl navigatie
     border-width: 0 0 2px 0;
 }
 
+.standaard_tabel tr:last-child{;
+    border-width: 0;
+}
+
 .standaard_tabel td{
     border-style: solid;
     border-color: #d59632;
     border-width: 0 2px 0px 0;
 	color:#505050;
 	padding:4px;
+}
+
+.standaard_tabel td:last-child{;
+    border-width: 0;
 }
 
 /*Exta dingetjes*/

@@ -16,32 +16,72 @@ REIZEN VIEW
                     </div>
                     <div class="frame_left_mid_right">
                         <div class="frame_left_mid_mid">
-
+							<div class="form_container form_img_placement">
 							
-							<div style="clear:both;"></div>
-
-							<div class="reizen_list_content">
-								Klant code: <? echo $klant['Klant']['id']?>
-								<br>
-								Voornaam: <? echo $klant['Klant']['voornaam']  ?>
-								<br>
-								Achternaam: <? echo $klant['Klant']['achternaam']?>
-								<br>
-								Adres: <? echo $klant['Klant']['adres']?>
-								<br>
-								Woonplaats: <? echo $klant['Klant']['woonplaats']?>
-								<br>
-								Postcode: <? echo $klant['Klant']['postcode']?>
-								<br>
-								Gebruikers naam: <? echo $klant['User']['username']?>
-								<br>
-								<span style="line-height:32px;">Opmerking:</span>
+								<div class="form_sub_container">
+									<div class="form_head">
+										<span style="margin-left:1px;">Klant code</span>
+									</div>
+									<div class="form_content" style="padding-left:10px;">
+										<span style="margin-left:12px;"><? echo $klant['Klant']['id']?></span>
+									</div>
+									<div style="clear: both;"></div>
+								</div>
+								<div class="form_sub_container">
+									<div class="form_head">
+										<span style="margin-left:1px;">Voornaam</span>
+									</div>
+									<div class="form_content">
+										<span style="margin-left:12px;"><? echo $klant['Klant']['voornaam']  ?></span>
+									</div>
+									<div style="clear: both;"></div>
+								</div>
+								<div class="form_sub_container">
+									<div class="form_head">
+										<span style="margin-left:1px;">Achternaam</span>
+									</div>
+									<div class="form_content">
+										<span style="margin-left:12px;"><? echo $klant['Klant']['achternaam']?></span>
+									</div>
+									<div style="clear: both;"></div>
+								</div>
+								<div class="form_sub_container">
+									<div class="form_head">
+										<span style="margin-left:1px;">Adres</span>
+									</div>
+									<div class="form_content">
+										<span style="margin-left:12px;"><? echo $klant['Klant']['adres']?></span>
+									</div>
+									<div style="clear: both;"></div>
+								</div>
+								<div class="form_sub_container">
+									<div class="form_head">
+										<span style="margin-left:1px;">Woonplaats</span>
+									</div>
+									<div class="form_content">
+										<span style="margin-left:12px;"><? echo $klant['Klant']['woonplaats']?></span>
+									</div>
+									<div style="clear: both;"></div>
+								</div>
+								<div class="form_sub_container">
+									<div class="form_head">
+										<span style="margin-left:1px;">Postcode</span>
+									</div>
+									<div class="form_content">
+										<span style="margin-left:12px;"><? echo $klant['Klant']['postcode']?></span>
+									</div>
+									<div style="clear: both;"></div>
+								</div>
+								<div class="form_sub_container">
+									<div class="form_head">
+										<span style="margin-left:1px;">Gebruikersnaam</span>
+									</div>
+									<div class="form_content">
+										<span style="margin-left:12px;"><? echo $klant['User']['username']?></span>
+									</div>
+									<div style="clear: both;"></div>
+								</div>								
 							</div>
-							
-							<div class="reizen_list_description">
-								* Zijn deze gegevens incorrect neem dan contact op met onze Systeem beheerder
-							</div>
-							
 							
                         </div>
                     </div>

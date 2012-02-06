@@ -1,5 +1,5 @@
 <!--
-REIZEN VIEW
+BOEKINGEN VIEW
 -->
 <?php echo $this->element('main_header'); ?>
 <div id="body">

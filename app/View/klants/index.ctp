@@ -17,7 +17,6 @@ Klant
                     <div class="frame_left_mid_right">
                         <div class="frame_left_mid_mid">
                             <div style="width:100%;float:left;">
-							
 								<div class="pagers">
 									<?
 									$urls = $this->params['url']; $getv = "";
@@ -35,7 +34,6 @@ Klant
 									<?php echo $this->Paginator->numbers(); ?>
 									- <?php echo $this->Paginator->next('Next'.' >>', array(), null, array('class' => 'prev disabled')); ?>
 								</div>
-
                                 <div class="tabel_wrapper">
                                     <table class="standaard_tabel" border="0" cellspacing="0" cellpadding="0">
                                         <tr>
@@ -86,7 +84,6 @@ Klant
 									<?php echo $this->Paginator->numbers(); ?>
 									- <?php echo $this->Paginator->next('Next'.' >>', array(), null, array('class' => 'prev disabled')); ?>
 								</div>
-
                             </div>
                         </div>
                     </div>

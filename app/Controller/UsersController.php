@@ -66,6 +66,7 @@ class UsersController extends AppController {
  * @return void
  */
 	public function add() {
+		$this->set('groups', $this->User->query("select name, id from groups"));
 		if ($this->request->is('post')) {
 			$this->User->create();
 			if ($this->User->save($this->request->data)) {
@@ -84,6 +85,8 @@ class UsersController extends AppController {
  * @return void
  */
 	public function edit($id = null) {
+		$this->set('groups', $this->User->query("select name, id from groups"));
+		$this->set('user', $this->User->read(null, $id));
 		$this->User->id = $id;
 		if (!$this->User->exists()) {
 			throw new NotFoundException(__('Invalid user'));

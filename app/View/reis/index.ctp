@@ -2,7 +2,7 @@
 REIZEN
 -->
 <?php echo $this->element('main_header'); ?>
-<div id="body2">
+<div id="body">
     <?php echo $this->element('main_menu') ?>
     <div id="body_mid_left">
         <div id="body_mid_right">
@@ -102,7 +102,6 @@ REIZEN
                 <div style="clear: both;"></div>
             </div>
         </div>
-		<span style="display:none;"><?print_r($reizen2)?></span>
     </div>
     <div id="body_bot">
         <div id="body_bot_left">&nbsp;</div>

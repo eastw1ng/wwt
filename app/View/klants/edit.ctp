@@ -1,5 +1,5 @@
 <!--
-REIZEN FORMULIER
+KLANTEN FORMULIER
 -->
 <?php echo $this->element('main_header'); ?>
 <div id="body">
@@ -9,7 +9,7 @@ REIZEN FORMULIER
             <div id="body_mid_mid">
                 <div class="frame_left">
                     <div class="frame_left_top_mid">
-                        <span class="frame_header">Formulier reizen</span>
+                        <span class="frame_header">Formulier klanten</span>
                     </div>
                     <div class="frame_left_top_right">
                         &nbsp;
@@ -85,7 +85,7 @@ REIZEN FORMULIER
 							</div>
 							<div style="width:100%;text-align:right;">
 								<input type="submit" value="Wijzigen"/>
-								<button>Annuleren</button>
+								<button onClick="javascript:location.href='<?php echo $this->Html->url(array('action' => 'index'));?>'">Annuleren</button>
 							</div>
 							<?echo $this->Form->end();?>
 							

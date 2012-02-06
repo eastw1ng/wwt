@@ -13,8 +13,8 @@ and open the template in the editor.
     </head>
     <body>
         <div id="wrapper">
+			<div id="banner"></div>
             <div id="main">
-				<div id="banner"></div>
                 <?php echo $content_for_layout ?>
             </div>
         </div>
