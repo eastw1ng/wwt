@@ -1,15 +1,19 @@
-
 html{
-	background-image:url('../img/bg_default.gif');
+	background-image:url('../img/bg_top.png');
+	background-repeat:repeat-x;
 	height:100%;
 	width:100%;}
 body{
-	background-image:url('../img/bg_top.gif');
-	background-repeat:repeat-x;
 	min-height:100%;
 	width:100%;
 	padding:0;
 	margin:0;}
+#body2{
+	z-index:100;
+	min-height:100%;
+	width:100%;
+	padding:0;
+	margin-top:197px;}
 .button{
 	text-decoration: none;
 	font-family: Calibri, sans-serif;
@@ -18,12 +22,19 @@ body{
 	}
 #wrapper{
 	width:100%;
-	height:100%;}
+	height:100%;
+	text-align:center;
+	}
 #main{
-	position:absolute;
+	width:908px;
+	margin-left: auto;
+	margin-right: auto;
+	text-align:left;
+	
+/* 	position:absolute;
 	width:908px;
 	left: 50%;
-	margin-left: -454px;
+	margin-left: -454px; */
 	}
 	
 /*Header*/	
@@ -299,6 +310,7 @@ body{
 	background-position:right;
 	font-size:0px;
 	float:left;
+	min-height:470px;
 	width:679px;}
 .frame_left_bot_mid{
 	background-image:url('../img/body_frame_border.gif');
@@ -367,9 +379,11 @@ body{
 	background-repeat:no-repeat;
 	background-position:center;
 	position:absolute;
-	width:100%;
+	width:1110px;
+	margin-left: -101px;
 	height:216px;
-	top: 28px;}
+	top: 28px;
+	z-index:0;}
  
 /*Buttons*/
 .button_big{
@@ -447,9 +461,8 @@ body{
 	float:right;
 }
 .reizen_list_admin{
-	top:77px;
+	margin-top:76px;
 	margin-left:3px;
-	position:relative;
 	cursor:default;
 }
 .reizen_list_content{

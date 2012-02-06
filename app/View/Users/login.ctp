@@ -1,23 +1,15 @@
 <!--
-To change this template, choose Tools | Templates
-and open the template in the editor.
+LOGIN
 -->
-
 <?php echo $this->element('main_header'); ?>
 <div id="body">
-    <div id="body_top">
-        <div id="body_top_left">&nbsp;</div>
-        <div id="body_top_mid">
-            <?php echo $this->element('main_menu'); ?>
-        </div>
-        <div id="body_top_right">&nbsp;</div>
-    </div>
+    <?php echo $this->element('main_menu'); ?>
     <div id="body_mid_left">
         <div id="body_mid_right">
             <div id="body_mid_mid">
                 <div class="frame_left">
                     <div class="frame_left_top_mid">
-                        <span class="frame_header">Welkom</span>
+                        <span class="frame_header">Gebruiker</span>
                     </div>
                     <div class="frame_left_top_right">
                         &nbsp;
@@ -25,69 +17,26 @@ and open the template in the editor.
                     <div class="frame_left_mid_right">
                         <div class="frame_left_mid_mid">
 <?
-                    echo $this->Form->create('User', array('action' => 'login'));
-                    echo $this->Form->inputs(array(
-                        'legend' => __('Login'),
-                        'username',
-                        'password'
-                    ));
-                    echo $this->Form->end('Login');
+							echo $this->Form->create('User', array('action' => 'login'));
+							echo $this->Form->inputs(array(
+								'legend' => __('Login'),
+								'username',
+								'password'
+							));
+							echo $this->Form->end('Login');
 ?>
-                            
                         </div>
                     </div>
                     <div class="frame_left_bot_mid">
-						&nbsp;
+                        &nbsp;
                     </div>
                     <div class="frame_left_bot_right">
                         &nbsp;
                     </div>
                 </div>
                 <div class="frame_right">
-                    <div id="frame_one" style="float:right;">
-                            <div class="frame_right_top_left">
-                                    &nbsp;
-                            </div>
-                            <div class="frame_right_top_mid">
-                                    <span class="frame_header">Administratie</span>
-                            </div>
-                            <div class="frame_right_mid_left">
-                                    <div class="frame_right_mid_mid">
-                                            <button class="button" style="width:200px;" type="button" value="">Toevoegen Reizen</button><br>
-                                            <button class="button" style="width:200px;" type="button" value="">Toevoegen Boekingen</button>
-                                            <button class="button" style="width:200px;" type="button" value="">Toevoegen Klanten</button>
-                                            <button class="button" style="width:200px;" type="button" value="">Toevoegen Bestemmingen</button>
-                                            <button class="button" style="width:200px;" type="button" value="">Toevoegen Gebruikers</button>
-                                    </div>
-                            </div>
-                            <div class="frame_right_bot_left">
-                                    &nbsp;
-                            </div>
-                            <div class="frame_right_bot_mid">
-                                    &nbsp;
-                            </div>
-                    </div>
-                    <div style="height:8px;">
-                    </div>
-                    <div id="frame_two" style="float:right;margin-top:5px;">
-                            <div class="frame_right_top_left">
-                                    &nbsp;
-                            </div>
-                            <div class="frame_right_top_mid">
-                                    <span class="frame_header">Mid</span>
-                            </div>
-                            <div class="frame_right_mid_left">
-                                    <div class="frame_right_mid_mid">
-                                            empty
-                                    </div>
-                            </div>
-                            <div class="frame_right_bot_left">
-                                    &nbsp;
-                            </div>
-                            <div class="frame_right_bot_mid">
-                                    &nbsp;
-                            </div>
-                    </div>
+                    <?php echo $isAdmin ? $this->element('admin_panel') : "" ; ?>
+					  <?php echo $this->element('top_reizen',array('reizen'=>$this->requestAction(array('controller'=>'Reis', 'action'=>'topReizen')))); ?>
                 </div>
                 <div style="clear: both;"></div>
             </div>

@@ -2,7 +2,7 @@
 REIZEN
 -->
 <?php echo $this->element('main_header'); ?>
-<div id="body">
+<div id="body2">
     <?php echo $this->element('main_menu') ?>
     <div id="body_mid_left">
         <div id="body_mid_right">
@@ -16,23 +16,6 @@ REIZEN
                     </div>
                     <div class="frame_left_mid_right">
                         <div class="frame_left_mid_mid">
-                           
-                                <div id="dashboard">
-                                  <table>
-                                    <tr style='vertical-align: top'>
-                                      <td style='width: 300px; font-size: 0.9em;'>
-                                        <div id="control1"></div>
-                                        <div id="control2"></div>
-                                        <div id="control3"></div>
-                                      </td>
-                                      <td style='width: 600px'>
-                                        <div style="float: left;" id="chart1"></div>
-                                        <div style="float: left;" id="chart2"></div>
-                                        <div style="float: left;" id="chart3"></div>
-                                      </td>
-                                    </tr>
-                                  </table>
-                                </div>
                             <div class="pagers">
 								<?
 								$urls = $this->params['url']; $getv = "";
@@ -56,7 +39,7 @@ REIZEN
                             <? //var_dump($reizen) ?>
                             <? foreach($reizen as $reis):?>
                             <div style="width:100%;float:left;">
-                                <div class="reizen_list_img" style="vertical-align:bottom;">
+                                <div class="reizen_list_img">
                                     <div class="reizen_list_admin">
                                     <? if(true):?>
 										<? echo $this->Html->image(	'admin_edit.png',
@@ -64,7 +47,7 @@ REIZEN
 												'onclick' => 'javascript:location.href="'.$this->Html->url(array('action' => 'edit', $reis['Rei']['id'])).'"'))
 										?>
 										<? echo $this->Form->postLink( 
-												$this->Html->image('admin_delete.png', array('style' => 'cursor:pointer;')),
+												$this->Html->image('admin_delete.png', array('style' => 'cursor:pointer;','border' => '0')),
 												array('action' => 'delete', $reis['Rei']['id']),
 												array('escape' => false,'confirm' => 'Are you sure?'));
 										?>

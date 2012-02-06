@@ -1,4 +1,4 @@
-<div id="frame_one" style="float:right;">
+<div id="frame_one" style="float:right;margin-bottom:5px;">
 	<div class="frame_right_top_left">
 		&nbsp;
 	</div>

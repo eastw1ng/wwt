@@ -1,4 +1,4 @@
-<div id="frame_two" style="float:right;margin-top:5px;">
+<div id="frame_two" style="float:right;">
 	<div class="frame_right_top_left">
 		&nbsp;
 	</div>
@@ -8,21 +8,25 @@
 	<div class="frame_right_mid_left">
 		<div class="frame_right_mid_mid">
 			<?
+			$counter = 1;
 			foreach($reizen as $reis):
 			?>
-			<div id="top_reizen" class="top_reizen_img">1</div>
+			<div id="spacer" style="clear: both;height:6px;font-size:0px;"></div>
+			
+			<div id="top_reizen" class="top_reizen_img"><?echo $counter?></div>
 			<div id="top_reizen" class="top_reizen_top" >
 				<div style="float:left;">
-				<? echo $reis['Bestemming']['Accomodatie']['accomodatie_naam']?>
+				<? echo $reis['Bestemming']['Plaat']['naam']?>
 				</div>
 				<div style="float:right;">
 				v.a. <span style="color:#dba44d;"><b>&euro; <? echo ReisController::calcPrice($reis['Bestemming']['Accomodatie']['accomodatie_prijs'], $reis['Transport']['prijs'])?></b></span>
 				</div>
 			</div>
-			<div id="top_reizen" class="top_reizen_bot"> <? echo $reis['Bestemming']['Plaat']['naam'] ." | ". $reis['Transport']['TransportSoort']['naam'] ?></div>
+			<div id="top_reizen" class="top_reizen_bot"> <? echo $reis['Bestemming']['alias'] ." | ". $reis['Transport']['TransportSoort']['naam'] ?></div>
 			
-			<div id="spacer" style="clear: both;height:8px;"></div>
+			<div id="spacer" style="clear: both;height:6px;font-size:0px;"></div>
 			<?
+			$counter++;
 			endforeach;
 			?>
 

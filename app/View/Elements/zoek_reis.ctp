@@ -52,6 +52,7 @@
 		</td>
 	</tr>
 </table>
+<span style="display:none;"><?print_r($bestemmingen)?></span>
 <script type="text/javascript">
 	function buildLink(){
 		var result = "/?"

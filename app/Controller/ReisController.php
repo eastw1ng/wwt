@@ -42,14 +42,14 @@ class ReisController extends AppController {
  */
 
 	public function topReizen(){
-		$topreisids = $this->Rei->query("SELECT id  FROM `boeking` group by reis_id LIMIT 0 ,3");
+		$topreisids = $this->Rei->query("SELECT id , count(*) 'aantal' FROM `boeking` GROUP BY reis_id ORDER BY aantal ASC LIMIT 5");
 		
 		foreach($topreisids as $id){
 			$ids[] = $id['boeking']['id'];
 		}
 		$this->Rei->recursive = 2;
 		$reizen = $this->Rei->find('all', array('conditions' => array('Rei.id'=> $ids )));
-
+		
 		return $reizen;
 	}
 	

@@ -78,8 +78,8 @@ REIZEN VIEW
                     </div>
                 </div>
                 <div class="frame_right">
-					<<?php echo $isAdmin ? $this->element('admin_panel') : "" ; ?>
-					  <?php echo $this->element('top_reizen',array('reizen'=>$this->requestAction(array('controller'=>'Reis', 'action'=>'topReizen')))); ?>
+					<?php echo $isAdmin ? $this->element('admin_panel') : "" ; ?>
+					<?php echo $this->element('top_reizen',array('reizen'=>$this->requestAction(array('controller'=>'Reis', 'action'=>'topReizen')))); ?>
                 </div>
                 <div style="clear: both;"></div>
             </div>
