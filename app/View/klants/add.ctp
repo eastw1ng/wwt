@@ -50,6 +50,26 @@ REIZEN FORMULIER
 								</div>
 								<div class="form_sub_container">
 									<div class="form_head">
+										<span style="margin-left:1px;">Gebruikersnaam</span>
+									</div>
+									<div class="form_content">
+										<input name="data[User][username]" id="Username" class="global_input" style="width:300px;" type="text"/>
+										<span class="form_notes"> *</span>
+									</div>
+									<div style="clear: both;"></div>
+								</div>
+								<div class="form_sub_container">
+									<div class="form_head">
+										<span style="margin-left:1px;">Wachtwoord</span>
+									</div>
+									<div class="form_content">
+										<input name="data[User][password]" id="Userpassword" class="global_input" style="width:300px;" type="text"/>
+										<span class="form_notes"> *</span>
+									</div>
+									<div style="clear: both;"></div>
+								</div>
+								<div class="form_sub_container">
+									<div class="form_head">
 										<span style="margin-left:1px;">Adres</span>
 									</div>
 									<div class="form_content">
@@ -73,7 +93,7 @@ REIZEN FORMULIER
 										<span style="margin-left:1px;">Plaats</span>
 									</div>
 									<div class="form_content">
-										<input name="data[Klant][plaats]" id="KlantPlaats" class="global_input" style="width:300px;" type="text"/>
+										<input name="data[Klant][woonplaats]" id="KlantPlaats" class="global_input" style="width:300px;" type="text"/>
 										<span class="form_notes"> *</span>
 									</div>
 									<div style="clear: both;"></div>
@@ -98,8 +118,8 @@ REIZEN FORMULIER
                     </div>
                 </div>
                 <div class="frame_right">
-					<?php echo $this->element('admin_panel'); ?>
-					<?php echo $this->element('top_reizen'); ?>
+					<?php echo $isAdmin ? $this->element('admin_panel') : "" ; ?>
+					  <?php echo $this->element('top_reizen',array('reizen'=>$this->requestAction(array('controller'=>'Reis', 'action'=>'topReizen')))); ?>
                 </div>
                 <div style="clear: both;"></div>
             </div>

@@ -7,6 +7,19 @@ App::uses('AppController', 'Controller');
  */
 class BestemmingsController extends AppController {
 
+	public $accesBestemming = false;
+	
+	public function beforeFilter() {
+        parent::beforeFilter();
+		$user = $this->Auth->user();
+		if($this->Auth->loggedIn())
+			$this->accesBestemming = $this->Acl->check(array('User' => array('id' => $user['id'])), 'Bestemmings');
+    }
+	
+	public function checkAcces(){
+		return $this->accesBestemming;
+	}
+	
 	var $paginate = array(
 		'limit' => 10,
 		'order' => array(
@@ -124,89 +137,5 @@ class BestemmingsController extends AppController {
 		$this->Session->setFlash(__('Bestemming was not deleted'));
 		$this->redirect(array('action' => 'index'));
 	}
-/**
- * admin_index method
- *
- * @return void
- */
-	public function admin_index() {
-		$this->Bestemming->recursive = 0;
-		$this->set('bestemmings', $this->paginate());
-	}
 
-/**
- * admin_view method
- *
- * @param string $id
- * @return void
- */
-	public function admin_view($id = null) {
-		$this->Bestemming->id = $id;
-		if (!$this->Bestemming->exists()) {
-			throw new NotFoundException(__('Invalid bestemming'));
-		}
-		$this->set('bestemming', $this->Bestemming->read(null, $id));
-	}
-
-/**
- * admin_add method
- *
- * @return void
- */
-	public function admin_add() {
-		if ($this->request->is('post')) {
-			$this->Bestemming->create();
-			if ($this->Bestemming->save($this->request->data)) {
-				$this->Session->setFlash(__('The bestemming has been saved'));
-				$this->redirect(array('action' => 'index'));
-			} else {
-				$this->Session->setFlash(__('The bestemming could not be saved. Please, try again.'));
-			}
-		}
-	}
-
-/**
- * admin_edit method
- *
- * @param string $id
- * @return void
- */
-	public function admin_edit($id = null) {
-		$this->Bestemming->id = $id;
-		if (!$this->Bestemming->exists()) {
-			throw new NotFoundException(__('Invalid bestemming'));
-		}
-		if ($this->request->is('post') || $this->request->is('put')) {
-			if ($this->Bestemming->save($this->request->data)) {
-				$this->Session->setFlash(__('The bestemming has been saved'));
-				$this->redirect(array('action' => 'index'));
-			} else {
-				$this->Session->setFlash(__('The bestemming could not be saved. Please, try again.'));
-			}
-		} else {
-			$this->request->data = $this->Bestemming->read(null, $id);
-		}
-	}
-
-/**
- * admin_delete method
- *
- * @param string $id
- * @return void
- */
-	public function admin_delete($id = null) {
-		if (!$this->request->is('post')) {
-			throw new MethodNotAllowedException();
-		}
-		$this->Bestemming->id = $id;
-		if (!$this->Bestemming->exists()) {
-			throw new NotFoundException(__('Invalid bestemming'));
-		}
-		if ($this->Bestemming->delete()) {
-			$this->Session->setFlash(__('Bestemming deleted'));
-			$this->redirect(array('action' => 'index'));
-		}
-		$this->Session->setFlash(__('Bestemming was not deleted'));
-		$this->redirect(array('action' => 'index'));
-	}
 }

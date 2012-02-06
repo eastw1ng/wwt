@@ -3,7 +3,7 @@ REIZEN
 -->
 <?php echo $this->element('main_header'); ?>
 <div id="body">
-    <?php echo $this->element('main_menu'); ?>
+    <?php echo $this->element('main_menu') ?>
     <div id="body_mid_left">
         <div id="body_mid_right">
             <div id="body_mid_mid">
@@ -16,76 +16,7 @@ REIZEN
                     </div>
                     <div class="frame_left_mid_right">
                         <div class="frame_left_mid_mid">
-						<!--
-                            <script type="text/javascript" src="http://www.google.com/jsapi"></script>
-                            <script type="text/javascript">
-                                google.load('visualization', '1.1', {packages: ['controls']});
-                               function drawVisualization() {
-                                    // Prepare the data.
-                                    var data = google.visualization.arrayToDataTable([
-                                     <?php echo $googleString?>
-                                    ]);
-
-                                    // Define a StringFilter control for the 'Name' column
-                                    var stringFilter = new google.visualization.ControlWrapper({
-                                      'controlType': 'StringFilter',
-                                      'containerId': 'control1',
-                                      'options': {
-                                        'filterColumnLabel': 'Bestemming'
-                                      }
-                                    });
-
-                                    // Define a table visualization
-                                    var table = new google.visualization.ChartWrapper({
-                                      'chartType': 'Table',
-                                      'containerId': 'chart1',
-                                      'page': 'enable',
-                                      'pageSize': 5,
-                                      'showRowNumber': true,
-                                      'pagingSymbols' : {prev: 'prev', next: 'next'}
-                                    });
-
-                                 
-                                    // Create the dashboard.
-                                    var dashboard = new google.visualization.Dashboard(document.getElementById('dashboard')).
-                                      // Configure the string filter to affect the table contents
-                                      bind(stringFilter, table).
-                                      // Draw the dashboard
-                                      draw(data, {
-                                      'page': 'enable',
-                                      'pageSize': 5,
-                                      'showRowNumber': true,
-                                      'pagingSymbols' : {prev: 'prev', next: 'next'}
-                                    });    
-                                  }
-                                  
-                                    function setNumberOfPages(value) {
-                                      if (value) {
-                                        options['pageSize'] = parseInt(value, 10);
-                                        options['page'] = 'enable';
-                                      } else {
-                                        options['pageSize'] = null;
-                                        options['page'] = null;  
-                                      }
-                                      draw();
-                                    }
-
-                                    // Sets custom paging symbols "Prev"/"Next"
-                                    function setCustomPagingButtons(toSet) {
-                                      options['pagingSymbols'] = toSet ? {next: 'next', prev: 'prev'} : null;
-                                      draw();  
-                                    }
-
-                                    function setPagingButtonsConfiguration(value) {
-                                      options['pagingButtonsConfiguration'] = value;
-                                      draw();
-                                    }
-
-                                  google.setOnLoadCallback(drawVisualization);
-
-                               </script>-->
                            
-
                                 <div id="dashboard">
                                   <table>
                                     <tr style='vertical-align: top'>
@@ -182,8 +113,8 @@ REIZEN
                     </div>
                 </div>
                 <div class="frame_right">
-					<?php echo $this->element('admin_panel'); ?>
-					<?php echo $this->element('top_reizen'); ?>
+					<?php echo $isAdmin ? $this->element('admin_panel') : "" ; ?>
+					  <?php echo $this->element('top_reizen',array('reizen'=>$this->requestAction(array('controller'=>'Reis', 'action'=>'topReizen')))); ?>
                 </div>
                 <div style="clear: both;"></div>
             </div>

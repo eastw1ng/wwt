@@ -49,8 +49,8 @@ class Klant extends AppModel {
 	);
 	
 	public $hasOne = array (
-		'Users' => array (
-			'className' => 'Users',
+		'User' => array (
+			'className' => 'User',
 			'foreignKey' => 'klant_id'
 		)
 	);

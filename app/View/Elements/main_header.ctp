@@ -21,6 +21,12 @@
                 <div id="header_logo"></div>
                 <div id="header_content">
 					<?php
+						$user = $_SESSION['Auth'];
+						$loggedIn = false;
+						if(isset($user['User'])){
+							$loggedIn = true;
+						}
+
 						$a = $this->action;
 						$p = $this->name;
 						if($this->action == 'index'){
@@ -50,6 +56,7 @@
 						</div>
 					</div>
 					<?php }};?>
+					<?php if(!$loggedIn):?>
 					<div id="login_button" class="button_big" style="width:80px;margin-right:4px;float:right;text-align:center;">
 						<div class="button_big_cont" style="float:right;padding-right:8px;">
 							<div style="float:left;margin-top:6px;">
@@ -57,16 +64,27 @@
 							</div>
 						</div>
 					</div>
-					<div class="button_big" style="width:94px;margin-right:4px;float:right;display:;" onClick="javascript:location.href='<?php echo $this->Html->url(array("controller" => "profiel_form"))?>'">
+					<?else :?>
+					<div id="logout_button" class="button_big" style="width:80px;margin-right:4px;float:right;text-align:center;" onClick="javascript:location.href='<?php echo $this->Html->url(array("controller" => "Users","action"=>"logout"))?>'">
+						<div class="button_big_cont" style="padding-right:8px;">
+							<div style="float:left;margin-top:6px;">
+								Uitloggen
+							</div>
+						</div>
+					</div>
+					<div class="button_big" style="width:94px;margin-right:4px;float:right;display:;" onClick="javascript:location.href='<?php echo $this->Html->url(array("controller" => "Klants","action"=>"myProfile"))?>'">
 						<div class="button_big_cont" style="padding-right:8px;">
 							<div style="float:left;margin-top:6px;">
 								Mijn profiel
 							</div>
 						</div>
 					</div>
+					<?endif;?>
+					
 					<div id="header_login" style="display:none;">
 						<div id="header_login_content">
-							<?php echo $this->Form->create('Login');?>
+
+							<?php echo $this->Form->create('Users',  array('action' => 'login'));?>
 							<table width="100%" border="0" cellspacing="0" cellpadding="0">
 								<tr>
 									<td id="header_search_title" colspan="2">
@@ -85,11 +103,12 @@
 									</td>
 								</tr>
 								<tr>
+                    
 									<td class="header_search_one">
 										Gebruikersnaam:
 									</td>
 									<td class="header_search_two">
-										<input name="data[Login][username]" class="global_input" type="text" id="LoginUsername"/>
+										<input name="data[User][username]" class="global_input" type="text" id="LoginUsername"/>
 									</td>
 								</tr>
 								<tr>
@@ -97,7 +116,7 @@
 										Wachtwoord:
 									</td>
 									<td class="header_search_two">
-										<input name="data[Login][password]" class="global_input" type="password" id="LoginPassword"/>
+										<input name="data[User][password]" class="global_input" type="password" id="LoginPassword"/>
 									</td>
 								</tr>
 								<tr>

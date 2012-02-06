@@ -27,9 +27,9 @@ class User extends AppModel {
         }
     }
     
-    public function bindNode($user) {
-        return array('model' => 'Group', 'foreign_key' => $user['User']['group_id']);
-    }
+//    public function bindNode($user) {
+//        return array('model' => 'Group', 'foreign_key' => $user['User']['group_id']);
+//    }
  
     public function beforeSave() {
         $this->data['User']['password'] = AuthComponent::password($this->data['User']['password']);
@@ -81,6 +81,16 @@ class User extends AppModel {
         'Group' => array(
 			'className' => 'Group',
 			'foreignKey' => 'group_id',
+			'conditions' => '',
+			'fields' => '',
+			'order' => ''
+		)
+	);
+	
+	public $hasOne = array(
+        'Klant' => array(
+			'className' => 'Klant',
+			'foreignKey' => 'id',
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''

@@ -3,6 +3,7 @@ REIZEN VIEW
 -->
 <?php echo $this->element('main_header'); ?>
 <div id="body">
+    <?php //echo $this->element('main_menu',array("Auth" => $Auth, "Acl"=>$Acl)); ?>
     <?php echo $this->element('main_menu'); ?>
     <div id="body_mid_left">
         <div id="body_mid_right">
@@ -16,7 +17,11 @@ REIZEN VIEW
                     </div>
                     <div class="frame_left_mid_right">
                         <div class="frame_left_mid_mid">
-                            						
+                            <?php
+								if($Error === true ){
+									echo $Message; 
+								} else {
+							?>						
 							<div style="width:100%;float:left;margin-top:6px;">
 								<div class="reizen_list_img" style="vertical-align:bottom;">
 								</div>
@@ -70,6 +75,7 @@ REIZEN VIEW
 							<div class="reizen_list_description">
 								<? echo $boeking['Rei']['omschrijving']?>
 							</div>
+							<? } ?>
                         </div>
                     </div>
                     <div class="frame_left_bot_mid">
@@ -80,13 +86,13 @@ REIZEN VIEW
                     </div>
                 </div>
                 <div class="frame_right">
-					<?php echo $this->element('admin_panel'); ?>
-					<?php echo $this->element('top_reizen'); ?>
+					<?php echo $isAdmin ? ""  : $this->element('admin_panel'); ?>
+					  <?php echo $this->element('top_reizen',array('reizen'=>$this->requestAction(array('controller'=>'Reis', 'action'=>'topReizen')))); ?>
                 </div>
                 <div style="clear: both;"></div>
             </div>
         </div>
-		<span style="font-size:1px;"><?print_r($boeking)?></span>
+		<span style="font-size:1px;"><?//print_r($boeking)?></span>
     </div>
     <div id="body_bot">
         <div id="body_bot_left">&nbsp;</div>

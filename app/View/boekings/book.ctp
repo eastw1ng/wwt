@@ -19,7 +19,7 @@ BOEKING FORMULIER
                             
 							<?php echo $this->Form->create(); ?>
 							<input type="hidden" name="data[Boeking][reis_id]" id="BoekingReisId" value="<?echo $reis['Rei']['id']?>">
-							<input type="hidden" name="data[Boeking][klant_id]" id="BoekingKlantId" value="1">
+							<input type="hidden" name="data[Boeking][klant_id]" id="BoekingKlantId" value="<? echo $klant['Klant']['id'] ?>">
 							<input type="hidden" name="data[Boeking][prijs]" id="BoekingPrijs">
 							<input type="hidden" name="data[Boeking][boek_datum]" id="BoekingBoekDatum">
 							<input type="hidden" name="data[Boeking][annulering_datum]" id="BoekingAnnuleringDatum">
@@ -38,14 +38,15 @@ BOEKING FORMULIER
 										<span style="margin-left:1px;">Klant code</span>
 									</div>
 									<div class="form_content">
-										<?echo 'Wacht op authenticatie, standaard = 1 (Iwan)'?>
-										<span class="form_notes"> *</span>
+										<?echo $klant['Klant']['voornaam']." ".$klant['Klant']['achternaam']?>
+										
 									</div>
 									<div style="clear: both;"></div>
 								</div>
 								<div class="form_sub_container">
 									<div class="form_head">
 										<span style="margin-left:1px;">Aantal personen</span>
+										<span class="form_notes"> *</span>
 									</div>
 									<div class="form_content">
 										<select name="data[Boeking][aantal_reizigers]" id="BoekingAantalReizigers" class="global_select" style="width:auto;" onchange="javascript:totalPrice();">
@@ -102,8 +103,8 @@ BOEKING FORMULIER
                     </div>
                 </div>
                 <div class="frame_right">
-					<?php echo $this->element('admin_panel'); ?>
-					<?php echo $this->element('top_reizen'); ?>
+					<?php echo $isAdmin ? $this->element('admin_panel') : "" ; ?>
+					  <?php echo $this->element('top_reizen',array('reizen'=>$this->requestAction(array('controller'=>'Reis', 'action'=>'topReizen')))); ?>
                 </div>
                 <div style="clear: both;"></div>
             </div>

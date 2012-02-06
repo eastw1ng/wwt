@@ -1,5 +1,5 @@
 <!--
-REIZEN FORMULIER
+REIZEN VIEW
 -->
 <?php echo $this->element('main_header'); ?>
 <div id="body">
@@ -9,36 +9,40 @@ REIZEN FORMULIER
             <div id="body_mid_mid">
                 <div class="frame_left">
                     <div class="frame_left_top_mid">
-                        <span class="frame_header">Formulier gebruikers</span>
+                        <span class="frame_header">Mijn profiel</span>
                     </div>
                     <div class="frame_left_top_right">
                         &nbsp;
                     </div>
                     <div class="frame_left_mid_right">
-                        <div class="frame_left_mid_mid form_img_placement">
-                            
-							<div class="users form">
-								<?php echo $this->Form->create('User');?>
-									<fieldset>
-										<legend><?php echo __('Edit User'); ?></legend>
-									<?php
-										echo $this->Form->input('id');
-										echo $this->Form->input('username');
-										echo $this->Form->input('password');
-										echo $this->Form->input('group_id');
-									?>
-									</fieldset>
-								<?php echo $this->Form->end(__('Submit'));?>
-								</div>
-								<div class="actions">
-									<h3><?php echo __('Actions'); ?></h3>
-									<ul>
+                        <div class="frame_left_mid_mid">
 
-										<li><?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $this->Form->value('User.id')), null, __('Are you sure you want to delete # %s?', $this->Form->value('User.id'))); ?></li>
-										<li><?php echo $this->Html->link(__('List Users'), array('action' => 'index'));?></li>
-									</ul>
-								</div>
+							
+							<div style="clear:both;"></div>
 
+							<div class="reizen_list_content">
+								Klant code: <? echo $klant['Klant']['id']?>
+								<br>
+								Voornaam: <? echo $klant['Klant']['voornaam']  ?>
+								<br>
+								Achternaam: <? echo $klant['Klant']['achternaam']?>
+								<br>
+								Adres: <? echo $klant['Klant']['adres']?>
+								<br>
+								Woonplaats: <? echo $klant['Klant']['woonplaats']?>
+								<br>
+								Postcode: <? echo $klant['Klant']['postcode']?>
+								<br>
+								Gebruikers naam: <? echo $klant['User']['username']?>
+								<br>
+								<span style="line-height:32px;">Opmerking:</span>
+							</div>
+							
+							<div class="reizen_list_description">
+								* Zijn deze gegevens incorrect neem dan contact op met onze Systeem beheerder
+							</div>
+							
+							
                         </div>
                     </div>
                     <div class="frame_left_bot_mid">

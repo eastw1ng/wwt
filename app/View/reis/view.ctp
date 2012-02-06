@@ -58,9 +58,11 @@ REIZEN VIEW
 								<br>
 								<span style="line-height:32px;">Omschrijving:</span>
 							</div>
+							<?if($isLoggedIn):?>
 							<div class="reizen_list_buttons">
 								<button onClick="javascript:location.href='<?php echo $this->Html->url(array("controller" => "boekings/book/".$reis['Rei']['id']))?>'">Reis boeken</button>
 							</div>
+							<? endif ;?>
 							<div class="reizen_list_description">
 								<? echo $reis['Rei']['beschrijving']?>
 							</div>
@@ -76,8 +78,8 @@ REIZEN VIEW
                     </div>
                 </div>
                 <div class="frame_right">
-					<?php echo $this->element('admin_panel'); ?>
-					<?php echo $this->element('top_reizen'); ?>
+					<<?php echo $isAdmin ? $this->element('admin_panel') : "" ; ?>
+					  <?php echo $this->element('top_reizen',array('reizen'=>$this->requestAction(array('controller'=>'Reis', 'action'=>'topReizen')))); ?>
                 </div>
                 <div style="clear: both;"></div>
             </div>

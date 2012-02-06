@@ -7,10 +7,22 @@ App::uses('AppController', 'Controller');
  */
 class GroupsController extends AppController {
 
-    public function beforeFilter() {
+	const AdminGroup = 1;
+	const KlantGroup = 1;
+	
+	public $accesGroups = false;
+	
+	public function beforeFilter() {
         parent::beforeFilter();
-        //$this->Auth->allow('*');
+		$this->Auth->deny('add','edit','delete');
+		$user = $this->Auth->user();
+		if($this->Auth->loggedIn())
+			$this->accesGroups = $this->Acl->check(array('User' => array('id' => $user['id'])), 'Groups');
     }
+	
+	public function checkAcces(){
+		return $this->accesGroups;
+	}
 /**
  * index method
  *

@@ -8,6 +8,19 @@ App::uses('AppController', 'Controller');
 class BoekingsController extends AppController {
 
 	public $helpers = array('Html');
+	public $accesBoeking = false;
+	
+	public function beforeFilter() {
+        parent::beforeFilter();
+		$this->Auth->allow('calcPrice');
+		$user = $this->Auth->user();
+		if($this->Auth->loggedIn())
+			$this->accesBoeking = $this->Acl->check(array('User' => array('id' => $user['id'])), 'Boekings');
+    }
+	
+	public function checkAcces(){
+		return $this->accesBoeking;
+	}
 	
 	var $paginate = array(
 		'limit' => 3,
@@ -15,6 +28,7 @@ class BoekingsController extends AppController {
 			'Boeking.boek_datum' => 'asc'
 		)
 	);
+	
 /**
  * index method
  *
@@ -22,20 +36,18 @@ class BoekingsController extends AppController {
  */
 	public function index() {
 		
-//		$user = $user$this->Auth->user();
-//		var_dump($user );
-//		$this->Boeking->recursive = 2;
-//		$myProfile = $this->Boeking->Klant->find('all');
-//		var_dump($myProfile);
+		$this->Acl->check();
 		
-//		$user = $this->Auth->user();
-//		var_dump($user);
-//		$boekingen = $this->Klant->findByKlant_id($user['id'])->Boeking;
-//		
-//		var_dump($boekingen);
+		$user = $this->Auth->user();
+		$this->Boeking->recursive = 2;
+		/* TODO if admin then all boekingen 
+		 * kan eventueel nog niet afgesproken
+		 */
+		$klant = $this->Boeking->Klant->User->findById($user['id']);
+		
+		$klantCond = array('Boeking.klant_id'=>$klant['Klant']['id']);
 		
 		$this->Boeking->recursive = 3;
-		//$this->set('boekings', $this->paginate('Boeking'));
 
 		$vars = $this->params['url'];
 		$cond1 = '';
@@ -50,7 +62,7 @@ class BoekingsController extends AppController {
 			$cond2 = array('Boeking.id' => $vars['s3']);
 		}
 		
-		$this->set('boekings', $this->paginate('Boeking', array($cond2,$cond3)));
+		$this->set('boekings', $this->paginate('Boeking', array($klantCond,$cond2,$cond3)));
 	}
 	
 	public function calcPrice($accomodatiePrijs = 0, $transportPrijs = 0 , $marge = 20 ){
@@ -65,12 +77,22 @@ class BoekingsController extends AppController {
  * @return void
  */
 	public function view($id = null) {
+		
 		$this->Boeking->recursive = 4;
 		$this->Boeking->id = $id;
+		$boeking = $this->Boeking->read(null, $id);
+		$user = $this->Auth->user();
+		
+		if($boeking['Klant']['User']['id'] != $user['id']){
+			$Message = 'NIET JOU BOEKING VRIEND';
+			$this->set(array('Error'=> true,'Message'=>$Message));
+			$this->render('view');
+		}
 		if (!$this->Boeking->exists()) {
 			throw new NotFoundException(__('Invalid boeking'));
 		}
-		$this->set('boeking', $this->Boeking->read(null, $id));
+		$this->set('boeking', $boeking);
+		$this->set('Error', false);
 	}
 	
 	public function factuur($id = null) {
@@ -113,16 +135,12 @@ class BoekingsController extends AppController {
 		$reis = $this->Boeking->Rei->findById($id);
 		$accomodatie = $this->Boeking->Rei->Bestemming->Accomodatie->findById($reis['Rei']['bestemming_id']);
 		
+		$klant = $this->requestAction(array('controller'=>'Klants', 'action'=>'getKlantInfo'));
+		
 		$this->set('reis', $reis);
 		$this->set('accomodatie', $accomodatie);
+		$this->set('klant', $klant);
 		
-		
-		//$sqlstr = "SELECT accomodatie_prijs FROM accomodatie WHERE bestemming_id = "+$reis['Rei']['bestemming_id'];
-		//$this->set('accomodatie', $this->Boeking->query($sqlstr));
-		//$this->set('klant', $this->Boeking->query("SELECT voornaam,achternaam,id FROM klant"));
-		//$this->set('reizen', $this->Boeking->query("SELECT r.id, b.alias FROM reis AS r JOIN bestemming AS b ON r.bestemming_id = b.id WHERE r.id = ".$id));
-		//$this->set('klanten', $this->Boeking->query("SELECT voornaam,achternaam,id FROM klant"));
-
 		if ($this->request->is('post')) {
 			$this->Boeking->create();
 			$data = $this->request->data;
@@ -195,95 +213,5 @@ class BoekingsController extends AppController {
 		$this->Session->setFlash(__('Boeking was not deleted'));
 		$this->redirect(array('action' => 'index'));
 	}
-/**
- * admin_index method
- *
- * @return void
- */
-	public function admin_index() {
-		$this->Boeking->recursive = 0;
-		$this->set('boekings', $this->paginate());
-	}
 
-/**
- * admin_view method
- *
- * @param string $id
- * @return void
- */
-	public function admin_view($id = null) {
-		$this->Boeking->id = $id;
-		if (!$this->Boeking->exists()) {
-			throw new NotFoundException(__('Invalid boeking'));
-		}
-		$this->set('boeking', $this->Boeking->read(null, $id));
-	}
-
-/**
- * admin_add method
- *
- * @return void
- */
-	public function admin_add() {
-		if ($this->request->is('post')) {
-			$this->Boeking->create();
-			if ($this->Boeking->save($this->request->data)) {
-				$this->Session->setFlash(__('The boeking has been saved'));
-				$this->redirect(array('action' => 'index'));
-			} else {
-				$this->Session->setFlash(__('The boeking could not be saved. Please, try again.'));
-			}
-		}
-		$reis = $this->Boeking->Rei->find('list');
-		$klants = $this->Boeking->Klant->find('list');
-		$this->set(compact('reis', 'klants'));
-	}
-
-/**
- * admin_edit method
- *
- * @param string $id
- * @return void
- */
-	public function admin_edit($id = null) {
-		$this->Boeking->id = $id;
-		if (!$this->Boeking->exists()) {
-			throw new NotFoundException(__('Invalid boeking'));
-		}
-		if ($this->request->is('post') || $this->request->is('put')) {
-			if ($this->Boeking->save($this->request->data)) {
-				$this->Session->setFlash(__('The boeking has been saved'));
-				$this->redirect(array('action' => 'index'));
-			} else {
-				$this->Session->setFlash(__('The boeking could not be saved. Please, try again.'));
-			}
-		} else {
-			$this->request->data = $this->Boeking->read(null, $id);
-		}
-		$reis = $this->Boeking->Rei->find('list');
-		$klants = $this->Boeking->Klant->find('list');
-		$this->set(compact('reis', 'klants'));
-	}
-
-/**
- * admin_delete method
- *
- * @param string $id
- * @return void
- */
-	public function admin_delete($id = null) {
-		if (!$this->request->is('post')) {
-			throw new MethodNotAllowedException();
-		}
-		$this->Boeking->id = $id;
-		if (!$this->Boeking->exists()) {
-			throw new NotFoundException(__('Invalid boeking'));
-		}
-		if ($this->Boeking->delete()) {
-			$this->Session->setFlash(__('Boeking deleted'));
-			$this->redirect(array('action' => 'index'));
-		}
-		$this->Session->setFlash(__('Boeking was not deleted'));
-		$this->redirect(array('action' => 'index'));
-	}
 }

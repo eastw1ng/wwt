@@ -34,6 +34,8 @@ App::uses('Controller', 'Controller');
  */
 class AppController extends Controller {
     
+	const AdminGroup = 1;
+	
      public $components = array(
         'Acl',
         'Auth' => array(
@@ -46,20 +48,28 @@ class AppController extends Controller {
     public $helpers = array('Html', 'Form', 'Session');
 
     public function beforeFilter() {
+		
         //Configure AuthComponent
+		//LinkController::test($this->Auth,$this->Acl);
          $this->Auth->deny('controllers');
          $this->Auth->allow('controllers/Home');
-         $this->Auth->allow('controllers/users','login');
+        // $this->Auth->allow('controllers/users','login');
         //var_dump($this->Auth->loggedIn());
          
          //dit zou zowiets moeten worden dat moet gast gezet worden
-         if($this->Auth->loggedIn()){
-             //$this->Acl->allow('Guest', 'Guest');
-         }
-         
-        $this->Auth->loginAction = array('controller' => 'users', 'action' => 'login');
-        $this->Auth->logoutRedirect = array('controller' => 'users', 'action' => 'login');
-        $this->Auth->loginRedirect = array('controller' => 'Home', 'action' => 'index');
+        $this->Auth->loginAction = array('controller' => 'home', 'action' => 'index');
+        $this->Auth->logoutRedirect = array('controller' => 'home', 'action' => 'index');
+        $this->Auth->loginRedirect = array('controller' => 'home', 'action' => 'index');
+		
+		$Group_id = $this->Auth->user('group_id');
+		
+		$admin = false;
+		if($Group_id == self::AdminGroup){
+			$admin = true;
+		}
+
+		$this->set('isLoggedIn', $this->Auth->loggedIn());
+		$this->set("isAdmin" , $admin);
     }
     
     

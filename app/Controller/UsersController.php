@@ -7,32 +7,19 @@ App::uses('AppController', 'Controller');
  */
 class UsersController extends AppController {
 
-    public function beforeFilter() {
+	public $accesUsers = false;
+	
+	public function beforeFilter() {
         parent::beforeFilter();
-        $this->Auth->allow('login');
+		$this->Auth->allow('login','logout');
+		$user = $this->Auth->user();
+		if($this->Auth->loggedIn())
+			$this->accesUsers = $this->Acl->check(array('User' => array('id' => $user['id'])), 'Users');
     }
-    
-    public function initDB() {
-        $group = $this->User->Group;
-        //Allow admins to everything
-        $group->id = 1;
-        $this->Acl->allow($group, 'controllers');
-
-        //Klanten
-        $group->id = 2;
-        $this->Acl->deny($group, 'controllers');
-        $this->Acl->allow($group, 'controllers/Reis');
-        $this->Acl->allow($group, 'controllers/Boeking');
-
-        //gasten
-        $group->id = 3;
-        $this->Acl->deny($group, 'controllers');
-        $this->Acl->allow($group, 'controllers/Home');
-        
-        echo "all done";
-        exit;
-    }
-   
+	
+	public function checkAcces(){
+		return $this->accesUsers;
+	}
 	
     public function login() {
        

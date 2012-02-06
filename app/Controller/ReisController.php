@@ -9,6 +9,26 @@ class ReisController extends AppController {
 
 	public $helpers = array('Html');
 	
+	public $accesReis = false;
+	public $components = array('Acl','Auth','Session');
+	
+	public function beforeFilter() {
+        parent::beforeFilter();
+		//App::import('Controller', 'LinkController');
+		$this->Auth->allow(array('index','view','topReizen','calcPrice'));
+		$user = $this->Auth->user();
+		if($this->Auth->loggedIn())
+			$this->accesReis = $this->Acl->check(array('User' => array('id' => $user['id'])), 'Reis');
+		
+    }
+	
+	public function checkAcces(){
+//		if($this->Auth->loggedIn())
+//			$this->accesReis = $this->Acl->check(array('User' => array('id' => $user['id'])), 'Reis');
+		
+		return $this->accesReis;
+	}
+	
 	var $paginate = array(
 		'limit' => 3,
 		'order' => array(
@@ -17,24 +37,22 @@ class ReisController extends AppController {
 	);
 /**
  * inde method
- *  
-                $rows = $this->Rei->find('all');
-                
-                $UberJSString = "['Bestemming', 'prijs', 'transport', 'vertrek datum', 'terugkom datum'],";                                      
-                foreach($rows as $row){
-                    $UberJSString .= sprintf("['%s','%s','%s','%s','%s'],",$row['Bestemming']['Plaat']['naam'],
-                                        $this->calcPrice($row['Bestemming']['Accomodatie']['accomodatie_prijs'],$row['Transport']['prijs']),
-                                        $row['Transport']['TransportSoort']['naam'],
-                                        $row['Rei']['vertrek_datum'],
-                                        $row['Rei']['terugkeer_datum']);
-                }
-				
-				$this->set( array ( 
-					'reizen'=> $this->paginate('Rei'),
-					'googleString' => $UberJSString
-				));
+ *
  * @return void
  */
+
+	public function topReizen(){
+		$topreisids = $this->Rei->query("SELECT id  FROM `boeking` group by reis_id LIMIT 0 ,3");
+		
+		foreach($topreisids as $id){
+			$ids[] = $id['boeking']['id'];
+		}
+		$this->Rei->recursive = 2;
+		$reizen = $this->Rei->find('all', array('conditions' => array('Rei.id'=> $ids )));
+
+		return $reizen;
+	}
+	
 	public function index() {
 		$this->set('bestemmingen', $this->Rei->query("select alias, id from bestemming"));
 		$this->Rei->recursive = 4;
@@ -163,89 +181,6 @@ class ReisController extends AppController {
 		$this->Session->setFlash(__('Rei was not deleted'));
 		$this->redirect(array('action' => 'index'));
 	}
-/**
- * admin_index method
- *
- * @return void
- */
-	public function admin_index() {
-		$this->Rei->recursive = 0;
-		$this->set('reis', $this->paginate());
-	}
 
-/**
- * admin_view method
- *
- * @param string $id
- * @return void
- */
-	public function admin_view($id = null) {
-		$this->Rei->id = $id;
-		if (!$this->Rei->exists()) {
-			throw new NotFoundException(__('Invalid rei'));
-		}
-		$this->set('rei', $this->Rei->read(null, $id));
-	}
 
-/**
- * admin_add method
- *
- * @return void
- */
-	public function admin_add() {
-		if ($this->request->is('post')) {
-			$this->Rei->create();
-			if ($this->Rei->save($this->request->data)) {
-				$this->Session->setFlash(__('The rei has been saved'));
-				$this->redirect(array('action' => 'index'));
-			} else {
-				$this->Session->setFlash(__('The rei could not be saved. Please, try again.'));
-			}
-		}
-	}
-
-/**
- * admin_edit method
- *
- * @param string $id
- * @return void
- */
-	public function admin_edit($id = null) {
-		$this->Rei->id = $id;
-		if (!$this->Rei->exists()) {
-			throw new NotFoundException(__('Invalid rei'));
-		}
-		if ($this->request->is('post') || $this->request->is('put')) {
-			if ($this->Rei->save($this->request->data)) {
-				$this->Session->setFlash(__('The rei has been saved'));
-				$this->redirect(array('action' => 'index'));
-			} else {
-				$this->Session->setFlash(__('The rei could not be saved. Please, try again.'));
-			}
-		} else {
-			$this->request->data = $this->Rei->read(null, $id);
-		}
-	}
-
-/**
- * admin_delete method
- *
- * @param string $id
- * @return void
- */
-	public function admin_delete($id = null) {
-		if (!$this->request->is('post')) {
-			throw new MethodNotAllowedException();
-		}
-		$this->Rei->id = $id;
-		if (!$this->Rei->exists()) {
-			throw new NotFoundException(__('Invalid rei'));
-		}
-		if ($this->Rei->delete()) {
-			$this->Session->setFlash(__('Rei deleted'));
-			$this->redirect(array('action' => 'index'));
-		}
-		$this->Session->setFlash(__('Rei was not deleted'));
-		$this->redirect(array('action' => 'index'));
-	}
 }
