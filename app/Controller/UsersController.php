@@ -16,7 +16,7 @@ class UsersController extends AppController {
 		if($this->Auth->loggedIn())
 			$this->accesUsers = $this->Acl->check(array('User' => array('id' => $user['id'])), 'Users');
     }
-	
+
 	public function checkAcces(){
 		return $this->accesUsers;
 	}

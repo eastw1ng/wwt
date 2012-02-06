@@ -14,6 +14,9 @@ class BoekingsController extends AppController {
         parent::beforeFilter();
 		$this->Auth->allow('calcPrice');
 		$user = $this->Auth->user();
+		//var_dump($this->accesBoeking = $this->Acl->check(array('User' => array('id' => $user['id'])), 'Boekings/book'));
+		//exit;
+		
 		if($this->Auth->loggedIn())
 			$this->accesBoeking = $this->Acl->check(array('User' => array('id' => $user['id'])), 'Boekings');
     }
@@ -44,9 +47,10 @@ class BoekingsController extends AppController {
 		 * kan eventueel nog niet afgesproken
 		 */
 		$klant = $this->Boeking->Klant->User->findById($user['id']);
-		
-		$klantCond = array('Boeking.klant_id'=>$klant['Klant']['id']);
-		
+		$klantCond = null;
+		if($user['group_id'] != 1){
+			$klantCond = array('Boeking.klant_id'=>$klant['Klant']['id']);
+		}
 		$this->Boeking->recursive = 3;
 
 		$vars = $this->params['url'];
@@ -83,7 +87,7 @@ class BoekingsController extends AppController {
 		$boeking = $this->Boeking->read(null, $id);
 		$user = $this->Auth->user();
 		
-		if($boeking['Klant']['User']['id'] != $user['id']){
+		if($boeking['Klant']['User']['id'] != $user['id'] && $user['group_id'] != 1 ){
 			$Message = 'NIET JOU BOEKING VRIEND';
 			$this->set(array('Error'=> true,'Message'=>$Message));
 			$this->render('view');

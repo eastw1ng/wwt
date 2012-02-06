@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Feb 06, 2012 at 01:50 
+-- Generation Time: Feb 06, 2012 at 02:22 
 -- Server version: 5.1.41
 -- PHP Version: 5.3.1
 
@@ -34,24 +34,25 @@ CREATE TABLE IF NOT EXISTS `accomodatie` (
   PRIMARY KEY (`id`),
   KEY `ix_accomodatie_soort` (`accomodatie_soort`),
   KEY `ix_accomodatie_bestemming_id` (`bestemming_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=12 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=13 ;
 
 --
 -- Dumping data for table `accomodatie`
 --
 
 INSERT INTO `accomodatie` (`id`, `accomodatie_soort`, `accomodatie_naam`, `accomodatie_prijs`, `bestemming_id`) VALUES
-(1, 'Hotel', 'A', '100.00', 4),
-(2, 'Hotel', 'B', '110.00', 10),
-(3, 'Hostel', 'C', '120.00', 6),
-(4, 'Hostel', 'D', '130.00', 3),
-(5, 'Appartement', 'E', '140.00', 1),
-(6, 'Appartement', 'F', '150.00', 2),
-(7, 'Appartement', 'G', '160.00', 9),
-(8, 'Appartement', 'H', '170.00', 8),
-(9, 'Hotel', 'I', '180.00', 7),
-(10, 'Hotel', 'J', '190.00', 3),
-(11, 'Onbewoond Eiland', 'Survival experiance', '540.00', 5);
+(1, 'Hotel', 'Hotel Altpradl', '100.00', 4),
+(2, 'Hotel', 'Hotel Ar El Lodge', '110.00', 10),
+(3, 'Hostel', 'Hostel Montesol Artyco', '120.00', 6),
+(4, 'Hostel', 'De Lamore', '130.00', 3),
+(5, 'Appartement', 'De La Fontaine', '140.00', 1),
+(6, 'Appartement', 'Seimler', '150.00', 2),
+(7, 'Appartement', 'WIlling-Schwalefeld', '160.00', 9),
+(8, 'Appartement', 'La Alcando', '170.00', 8),
+(9, 'Pension', 'Pension Arnika', '180.00', 7),
+(10, 'Hotel', 'Seimler', '190.00', 3),
+(11, 'Hotel', 'Hotel La Roccia', '540.00', 11),
+(12, 'Hotel', 'Hotel Fiordaliso', '345.00', 5);
 
 -- --------------------------------------------------------
 
@@ -68,7 +69,7 @@ CREATE TABLE IF NOT EXISTS `acos` (
   `lft` int(10) DEFAULT NULL,
   `rght` int(10) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=189 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=187 ;
 
 --
 -- Dumping data for table `acos`
@@ -216,7 +217,7 @@ CREATE TABLE IF NOT EXISTS `aros_acos` (
   `_delete` varchar(2) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   UNIQUE KEY `ARO_ACO_KEY` (`aro_id`,`aco_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=15 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=30 ;
 
 --
 -- Dumping data for table `aros_acos`
@@ -224,7 +225,7 @@ CREATE TABLE IF NOT EXISTS `aros_acos` (
 
 INSERT INTO `aros_acos` (`id`, `aro_id`, `aco_id`, `_create`, `_read`, `_update`, `_delete`) VALUES
 (1, 1, 1, '1', '1', '1', '1'),
-(2, 2, 1, '-1', '-1', '-1', '-1'),
+(2, 2, 1, '1', '1', '1', '1'),
 (3, 2, 77, '1', '1', '1', '1'),
 (5, 3, 1, '-1', '-1', '-1', '-1'),
 (6, 2, 78, '1', '1', '1', '1'),
@@ -235,7 +236,22 @@ INSERT INTO `aros_acos` (`id`, `aro_id`, `aco_id`, `_create`, `_read`, `_update`
 (11, 2, 172, '1', '1', '1', '1'),
 (12, 2, 132, '1', '1', '1', '1'),
 (13, 2, 133, '1', '1', '1', '1'),
-(14, 2, 134, '1', '1', '1', '1');
+(14, 2, 134, '1', '1', '1', '1'),
+(15, 2, 131, '1', '1', '1', '1'),
+(16, 2, 135, '-1', '-1', '-1', '-1'),
+(17, 2, 137, '-1', '-1', '-1', '-1'),
+(18, 2, 81, '-1', '-1', '-1', '-1'),
+(19, 2, 82, '-1', '-1', '-1', '-1'),
+(20, 2, 2, '-1', '-1', '-1', '-1'),
+(21, 2, 35, '-1', '-1', '-1', '-1'),
+(22, 2, 144, '-1', '-1', '-1', '-1'),
+(23, 2, 55, '-1', '-1', '-1', '-1'),
+(24, 2, 66, '-1', '-1', '-1', '-1'),
+(25, 2, 89, '-1', '-1', '-1', '-1'),
+(26, 2, 100, '-1', '-1', '-1', '-1'),
+(27, 2, 111, '-1', '-1', '-1', '-1'),
+(28, 2, 120, '-1', '-1', '-1', '-1'),
+(29, 2, 184, '1', '1', '1', '1');
 
 -- --------------------------------------------------------
 
@@ -249,23 +265,25 @@ CREATE TABLE IF NOT EXISTS `bestemming` (
   `plaats_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `ix_bestemming_plaats_id` (`plaats_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=13 ;
 
 --
 -- Dumping data for table `bestemming`
 --
 
 INSERT INTO `bestemming` (`id`, `alias`, `plaats_id`) VALUES
-(1, NULL, 3),
-(2, NULL, 7),
-(3, NULL, 1),
-(4, NULL, 13),
-(5, NULL, 14),
-(6, NULL, 10),
-(7, NULL, 12),
-(8, NULL, 6),
-(9, NULL, 10),
-(10, NULL, 2);
+(1, 'Kaprun', 3),
+(2, 'Val Cenis', 7),
+(3, 'Krapacz', 1),
+(4, 'Swinoujscie', 13),
+(5, 'Granada', 14),
+(6, 'Sierra Nevada', 10),
+(7, 'Kaprun', 12),
+(8, 'Innsbruck', 6),
+(9, 'Val Gardena', 10),
+(10, 'Cavalese', 2),
+(11, 'Lombardia', 5),
+(12, 'Amsterdam', 1);
 
 -- --------------------------------------------------------
 
@@ -284,19 +302,20 @@ CREATE TABLE IF NOT EXISTS `boeking` (
   PRIMARY KEY (`id`),
   KEY `ix_boeking_reis_id` (`reis_id`),
   KEY `ix_boeking_klant_id` (`klant_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
 
 --
 -- Dumping data for table `boeking`
 --
 
 INSERT INTO `boeking` (`id`, `boek_datum`, `annulering_datum`, `prijs`, `aantal_reizigers`, `reis_id`, `klant_id`) VALUES
-(3, '2012-02-26', '2012-03-10', NULL, 1, 2, 4),
-(4, '2012-02-25', '2012-03-09', NULL, 3, 2, 3),
+(3, '2012-02-26', '2012-03-10', 295.00, 1, 2, 4),
+(4, '2012-02-25', '2012-03-09', 215.00, 3, 2, 3),
 (6, '2012-02-05', '2012-02-19', 259.99, 1, 1, 1),
 (7, '2012-02-05', '2012-02-19', 239.99, 2, 3, 1),
 (8, '2012-02-05', '2012-02-19', 259.99, 1, 1, 1),
-(9, '2012-02-05', '2012-02-19', 239.99, 1, 3, 1);
+(9, '2012-02-05', '2012-02-19', 239.99, 1, 3, 1),
+(10, '2012-03-18', '2012-03-20', 206.00, 5, 2, 2);
 
 -- --------------------------------------------------------
 
@@ -310,7 +329,7 @@ CREATE TABLE IF NOT EXISTS `groups` (
   `created` datetime DEFAULT NULL,
   `modified` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `groups`
@@ -335,7 +354,7 @@ CREATE TABLE IF NOT EXISTS `klant` (
   `postcode` varchar(6) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `ix_klant_naw` (`voornaam`,`achternaam`,`adres`,`woonplaats`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=13 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
 --
 -- Dumping data for table `klant`
@@ -422,25 +441,28 @@ CREATE TABLE IF NOT EXISTS `reis` (
   `vertrek_datum` date NOT NULL,
   `terugkeer_datum` date NOT NULL,
   `beschrijving` text,
+  `image_url` varchar(45) DEFAULT NULL,
   `bestemming_id` int(11) NOT NULL,
   `transport_id` int(11) NOT NULL,
   `omschrijving` tinytext,
   PRIMARY KEY (`id`),
   KEY `c_reis_fk_1_bestemming_id` (`bestemming_id`),
   KEY `c_reis_fk_2_transport_id` (`transport_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
 
 --
 -- Dumping data for table `reis`
 --
 
-INSERT INTO `reis` (`id`, `vertrek_datum`, `terugkeer_datum`, `beschrijving`, `bestemming_id`, `transport_id`, `omschrijving`) VALUES
-(1, '2012-04-16', '2012-04-20', NULL, 7, 5, NULL),
-(2, '2012-05-01', '2012-05-16', NULL, 9, 6, NULL),
-(3, '2012-04-16', '2012-04-20', NULL, 5, 5, NULL),
-(4, '2012-05-01', '2012-05-16', NULL, 4, 6, NULL),
-(5, '2012-04-16', '2012-04-20', NULL, 1, 5, NULL),
-(6, '2012-05-01', '2012-05-16', NULL, 2, 6, NULL);
+INSERT INTO `reis` (`id`, `vertrek_datum`, `terugkeer_datum`, `beschrijving`, `image_url`, `bestemming_id`, `transport_id`, `omschrijving`) VALUES
+(1, '2012-04-16', '2012-04-20', NULL, NULL, 7, 5, 'Deze reis gaat naar Milan, een skigebied in Italie met een prachtig uitzicht.'),
+(2, '2012-05-01', '2012-05-16', NULL, NULL, 9, 6, 'Deze reis gaat naar Barcelona, een skigebied in de Spanje met een prachtig uitzicht.'),
+(3, '2012-04-16', '2012-04-20', NULL, NULL, 5, 5, 'Deze reis gaat naar Manchester, een skigebied Engeland met een prachtig uitzicht.'),
+(4, '2012-05-01', '2012-05-16', NULL, NULL, 4, 6, 'Deze reis gaat naar Londen, een skigebied in Engeland met een prachtig uitzicht.'),
+(5, '2012-04-16', '2012-04-20', NULL, NULL, 1, 5, 'Deze reis gaat naar Berlijn, een skigebied in de Duitsland met een prachtig uitzicht.'),
+(6, '2012-05-01', '2012-05-16', NULL, NULL, 2, 6, 'Deze reis gaat naar Rhodos, een skigebied in Griekenland met een prachtig uitzicht.'),
+(7, '2012-02-08', '2012-02-20', NULL, NULL, 11, 5, 'Deze reis gaat naar Le Val D''Arvan, een skigebied in de buurt van parijs met een prachtig uitzicht.'),
+(8, '2012-03-18', '2012-03-28', NULL, NULL, 9, 6, 'Deze avontuurlijke boottrip brengt u naar een prachtige skigebied in dichtbij Val Gardena waar u 6 dagen zult verblijven en daarna weer terug zal keren met de boot.');
 
 -- --------------------------------------------------------
 
@@ -511,7 +533,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `username` (`username`),
   KEY `fk_users_klant_id` (`klant_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
 
 --
 -- Dumping data for table `users`

@@ -27,7 +27,7 @@ BOEKINGEN VIEW
 								</div>
 								<div class="reizen_list_title">
 									<span style="float:left;"><? echo $boeking['Rei']['Bestemming']['Plaat']['naam']?></span>
-									<span style="float:right;">&euro; 180.- p.p.</span>
+									<span style="float:right;">&euro; <? echo $boeking['Boeking']['prijs']?>.- p.p.</span>
 								</div>
 								<div class="reizen_list_body" style="margin-top:8px;">
 									Reiscode: <? echo $boeking['Rei']['id']?>

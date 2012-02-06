@@ -60,7 +60,7 @@ REIZEN VIEW
 							</div>
 							<?if($isLoggedIn):?>
 							<div class="reizen_list_buttons">
-								<button onClick="javascript:location.href='<?php echo $this->Html->url(array("controller" => "boekings/book/".$reis['Rei']['id']))?>'">Reis boeken</button>
+								<button onClick="javascript:location.href='<?php echo $this->Html->url(array("controller" => "Boekings/", 'action' => 'book', $reis['Rei']['id']))?>'">Reis boeken</button>
 							</div>
 							<? endif ;?>
 							<div class="reizen_list_description">
