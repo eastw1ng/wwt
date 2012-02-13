@@ -18,6 +18,7 @@ class AccomodatieController extends AppController {
 			$this->accesAccomodatie = $this->Acl->check(array('User' => array('id' => $user['id'])), 'Accomodatie');
     }
 	
+	
 	public function checkAcces(){
 		return $this->accesAccomodatie;
 	}
